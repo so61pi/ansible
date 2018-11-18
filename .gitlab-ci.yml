@@ -5,5 +5,3 @@ build:
   script:
     - zypper --non-interactive install make ansible
     - make
-  tags:
-    - docker
