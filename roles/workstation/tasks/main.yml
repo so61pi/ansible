@@ -1,0 +1,4 @@
+---
+- import_tasks: os/Suse.yml
+  when: ansible_os_family == "Suse"
+- import_tasks: user.yml

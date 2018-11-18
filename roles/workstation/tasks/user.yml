@@ -1,0 +1,96 @@
+---
+- name: Creating Directory Structure
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - ~/.ssh
+    - ~/work/media/images
+    - ~/work/media/videos
+    - ~/work/others
+    - ~/work/programming/projects
+    - ~/work/programming/sources
+    - ~/work/tmp
+    - ~/work/tools
+    - ~/work/vms
+    - ~/work/warehouse
+
+- name: Moving ~/Downloads And ~/Documents
+  block:
+    - name: Moving Files
+      command: mv "{{ item.src }}" "{{ item.dst }}"
+      args:
+        creates: "{{ item.dst }}"
+      with_items:
+        - { src : "~/Documents", dst : "~/work/documents" }
+        - { src : "~/Downloads", dst : "~/work/downloads" }
+
+    - name: Creating Symlinks
+      file:
+        src: "{{ item.src }}"
+        dest: "{{ item.symlink }}"
+        state: link
+      with_items:
+        - { src : "~/work/documents", symlink : "~/Documents" }
+        - { src : "~/work/downloads", symlink : "~/Downloads" }
+
+- name: Downloading And Extracting FireFox And ThunderBird
+  block:
+    - name: Downloading And Extracting FireFox Nightly
+      block:
+        - stat:
+            path: ~/work/tools/firefox
+          register: p
+        - unarchive:
+            src: https://download.mozilla.org/?product=firefox-nightly-latest-ssl&os=linux64&lang=en-US
+            dest: ~/work/tools
+            remote_src: yes
+          when: not p.stat.exists
+
+    - name: Downloading And Extracting ThunderBird Beta
+      block:
+        - stat:
+            path: ~/work/tools/thunderbird
+          register: p
+        - unarchive:
+            src: https://download.mozilla.org/?product=thunderbird-64.0b2-SSL&os=linux64&lang=en-US
+            dest: ~/work/tools
+            remote_src: yes
+          when: not p.stat.exists
+
+- name: Enabling Oh-My-Zsh
+  block:
+    - stat:
+        path: ~/.oh-my-zsh
+        register: p
+    - block:
+        - git:
+            repo: https://github.com/robbyrussell/oh-my-zsh
+            dest: ~/.oh-my-zsh
+        - user:
+            name: "{{ ansible_user }}"
+            shell: /usr/bin/zsh
+          become: true
+          become_user: root
+      when: not p.stat.exists
+
+- name: Configuring Git
+  block:
+    - stat:
+        path: ~/.gitconfig
+        register: p
+    - block:
+        - git_config:
+            name: "{{ item.key }}"
+            scope: global
+            value: "{{ item.value }}"
+          with_items:
+            - { key: "alias.ggrep", value: "grep --break --heading --line-number" }
+            - { key: "oh-my-zsh.hide-dirty", value: 1 }
+            - { key: "user.useConfigOnly", value: true }
+        - file:
+            path: ~/.gitconfig
+            attributes: "+i"
+          become: true
+          become_user: root
+      when: not p.stat.exists

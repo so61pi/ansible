@@ -1,0 +1,73 @@
+---
+- name: Setting Up Packages
+  become: true
+  become_user: root
+  block:
+    - name: Adding SublimeText Repository
+      zypper_repository:
+        repo: https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+        auto_import_keys: yes
+        state: present
+
+    - name: Installing Packages
+      zypper:
+        name:
+          - chromium
+          - clang
+          - clang-checker
+          - clang-devel
+          - cmake
+          - docker
+          - docker-compose
+          - ffmpeg
+          - filezilla
+          - gcc
+          - gcc-c++
+          - git
+          - htop
+          - inkscape
+          - kdevelop5
+          - kdevelop5-plugin-clang-tidy
+          - kdevelop5-plugin-python3
+          - kolourpaint
+          - libboost_headers-devel
+          - libqt5-creator
+          - make
+          - okular
+          - openssh
+          - picocom
+          - python2-pip
+          - python3-pip
+          - qdirstat
+          - qemu
+          - qemu-kvm
+          - sensors
+          - socat
+          - speedcrunch
+          - sublime-text
+          - valgrind
+          - virtualbox
+          - vlc
+          - yakuake
+          - zsh
+        state: present
+
+    - name: Adding User To Groups
+      user:
+        name: "{{ ansible_user }}"
+        groups: "{{ item }}"
+        append: yes
+      with_items:
+        - docker
+        - kvm
+
+    - name: Updating All Packages To Latest
+      zypper:
+        name: "*"
+        state: latest
+
+    - name: Upgrading System
+      zypper:
+        name: "*"
+        state: dist-upgrade
+        extra_args: "--no-allow-vendor-change --allow-arch-change"
