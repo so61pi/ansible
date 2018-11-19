@@ -44,6 +44,8 @@
             src: "{{ urls.mozilla.firefox }}"
             dest: ~/work/tools
             remote_src: yes
+            extra_opts:
+              - --bzip2
           when: not p.stat.exists
 
     - block:
@@ -54,6 +56,8 @@
             src: "{{ urls.mozilla.thunderbird }}"
             dest: ~/work/tools
             remote_src: yes
+            extra_opts:
+              - --bzip2
           when: not p.stat.exists
 
 - name: Enabling Oh-My-Zsh
