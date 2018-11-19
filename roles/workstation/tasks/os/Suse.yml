@@ -9,11 +9,15 @@
         runrefresh: yes
   
     - name: Adding SublimeText Repository
-      zypper_repository:
-        repo: https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
-        state: present
-        runrefresh: true
-        auto_import_keys: yes
+      block:
+        - rpm_key:
+            key: https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+            state: present
+        - zypper_repository:
+            name: sublime-text
+            repo: https://download.sublimetext.com/rpm/stable/x86_64
+            state: present
+            runrefresh: true
 
     - name: Installing Packages
       zypper:
