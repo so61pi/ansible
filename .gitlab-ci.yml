@@ -3,5 +3,7 @@ image: opensuse/tumbleweed
 build:
   stage: build
   script:
+    - mkdir ~/Documents
+    - mkdir ~/Downloads
     - zypper --non-interactive install make python python-xml ansible
     - make
