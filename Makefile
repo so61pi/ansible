@@ -1,4 +1,7 @@
 all:
+	ANSIBLE_CONFIG=ansible.cfg ansible-playbook --ask-become-pass --verbose site.yml
+
+cicd:
 	ANSIBLE_CONFIG=ansible.cfg ansible-playbook --verbose site.yml
 
 dry-run:

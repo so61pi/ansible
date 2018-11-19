@@ -6,4 +6,4 @@ build:
     - mkdir ~/Documents
     - mkdir ~/Downloads
     - zypper --non-interactive install make python python-xml ansible
-    - make
+    - make cicd
