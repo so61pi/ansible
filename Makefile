@@ -1,5 +1,5 @@
 all:
-	ansible-playbook --ask-become-pass --verbose site.yml
+	ANSIBLE_CONFIG=ansible.cfg ansible-playbook --verbose site.yml
 
 dry-run:
 	ansible-playbook --check site.yml
