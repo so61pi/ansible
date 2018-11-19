@@ -34,31 +34,26 @@
         - { src : "~/work/documents", symlink : "~/Documents" }
         - { src : "~/work/downloads", symlink : "~/Downloads" }
 
-- name: Downloading And Extracting FireFox And ThunderBird
-  block:
-    - block:
-        - stat:
-            path: ~/work/tools/firefox
-          register: p
-        - unarchive:
-            src: "{{ urls.mozilla.firefox }}"
-            dest: ~/work/tools
-            remote_src: yes
-            extra_opts:
-              - --bzip2
-          when: not p.stat.exists
-
-    - block:
-        - stat:
-            path: ~/work/tools/thunderbird
-          register: p
-        - unarchive:
-            src: "{{ urls.mozilla.thunderbird }}"
-            dest: ~/work/tools
-            remote_src: yes
-            extra_opts:
-              - --bzip2
-          when: not p.stat.exists
+# - name: Downloading And Extracting FireFox And ThunderBird
+#   block:
+#     - block:
+#         - stat:
+#             path: ~/work/tools/firefox
+#           register: p
+#         - unarchive:
+#             src: "{{ urls.mozilla.firefox }}"
+#             dest: ~/work/tools
+#             remote_src: yes
+#           when: not p.stat.exists
+#     - block:
+#         - stat:
+#             path: ~/work/tools/thunderbird
+#           register: p
+#         - unarchive:
+#             src: "{{ urls.mozilla.thunderbird }}"
+#             dest: ~/work/tools
+#             remote_src: yes
+#           when: not p.stat.exists
 
 - name: Enabling Oh-My-Zsh
   block:

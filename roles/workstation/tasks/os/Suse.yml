@@ -37,15 +37,18 @@
       zypper:
         state: present
         name:
+          - bzip2
           - chromium
           - clang
           - clang-checker
           - clang-devel
           - cmake
+          - curl
           - docker
           - docker-compose
           - ffmpeg
           - filezilla
+          - firefox
           - gcc
           - gcc-c++
           - git
@@ -70,10 +73,12 @@
           - socat
           - speedcrunch
           - sublime-text
+          - thunderbird
           - unzip
           - valgrind
           - virtualbox
           - vlc
+          - wget
           - yakuake
           - zsh
 
