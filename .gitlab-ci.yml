@@ -3,5 +3,5 @@ image: opensuse/tumbleweed
 build:
   stage: build
   script:
-    - zypper --non-interactive install make ansible
+    - zypper --non-interactive install make python ansible
     - make
