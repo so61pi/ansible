@@ -11,6 +11,8 @@
     - name: Adding SublimeText Repository
       zypper_repository:
         repo: https://download.sublimetext.com/rpm/stable/x86_64/sublime-text.repo
+        state: present
+        runrefresh: true
         auto_import_keys: yes
 
     - name: Installing Packages
