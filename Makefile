@@ -3,7 +3,8 @@ all:
 
 cicd:
 	ANSIBLE_CONFIG=ansible.cfg ansible-playbook --verbose site.yml
-	tree -a -L 4 ~
+	ls -alh ~
+	tree -a ~/work
 
 dry-run:
 	ansible-playbook --check site.yml
