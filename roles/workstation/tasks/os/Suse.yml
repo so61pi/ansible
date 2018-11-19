@@ -8,6 +8,19 @@
         repo: '*'
         runrefresh: yes
   
+    - name: Adding Packman Repository
+      block:
+        - zypper_repository:
+            name: packman
+            repo: "{{ urls.suse.packman }}"
+            priority: 90
+            state: present
+            runrefresh: true
+        - zypper:
+            name: '*'
+            state: dist-upgrade
+            extra_args: '--from packman --allow-vendor-change'
+
     - name: Adding SublimeText Repository
       block:
         - rpm_key:
@@ -21,6 +34,7 @@
 
     - name: Installing Packages
       zypper:
+        state: present
         name:
           - chromium
           - clang
@@ -55,12 +69,12 @@
           - socat
           - speedcrunch
           - sublime-text
+          - unzip
           - valgrind
           - virtualbox
           - vlc
           - yakuake
           - zsh
-        state: present
 
     - name: Adding User To Groups
       user:

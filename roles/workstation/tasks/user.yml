@@ -36,24 +36,22 @@
 
 - name: Downloading And Extracting FireFox And ThunderBird
   block:
-    - name: Downloading And Extracting FireFox Nightly
-      block:
+    - block:
         - stat:
             path: ~/work/tools/firefox
           register: p
         - unarchive:
-            src: https://download.mozilla.org/?product=firefox-nightly-latest-ssl&os=linux64&lang=en-US
+            src: "{{ urls.mozilla.firefox }}"
             dest: ~/work/tools
             remote_src: yes
           when: not p.stat.exists
 
-    - name: Downloading And Extracting ThunderBird Beta
-      block:
+    - block:
         - stat:
             path: ~/work/tools/thunderbird
           register: p
         - unarchive:
-            src: https://download.mozilla.org/?product=thunderbird-64.0b2-SSL&os=linux64&lang=en-US
+            src: "{{ urls.mozilla.thunderbird }}"
             dest: ~/work/tools
             remote_src: yes
           when: not p.stat.exists
