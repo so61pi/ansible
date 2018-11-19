@@ -6,7 +6,7 @@
     - name: Refreshing Repository
       zypper_repository:
         repo: '*'
-        runrefresh: yes
+        runrefresh: true
   
     - name: Adding Packman Repository
       block:
@@ -15,6 +15,7 @@
             repo: "{{ urls.suse.packman }}"
             priority: 90
             state: present
+            auto_import_keys: true
             runrefresh: true
         - zypper:
             name: '*'
