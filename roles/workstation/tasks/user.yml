@@ -59,7 +59,7 @@
   block:
     - stat:
         path: ~/.oh-my-zsh
-        register: p
+      register: p
     - block:
         - git:
             repo: https://github.com/robbyrussell/oh-my-zsh
@@ -75,7 +75,7 @@
   block:
     - stat:
         path: ~/.gitconfig
-        register: p
+      register: p
     - block:
         - git_config:
             name: "{{ item.key }}"
