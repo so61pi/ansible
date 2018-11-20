@@ -12,17 +12,17 @@
           - ca-certificates
           - curl
 
-    - name: Adding SublimeText Repository
-      block:
-        - apt_key:
-            url: https://download.sublimetext.com/sublimehq-rpm-pub.gpg
-            state: present
-        - apt:
-            update_cache: yes
-        - apt_repository:
-            filename: sublime-text
-            repo: deb https://download.sublimetext.com/ apt/stable/
-            state: present
+    # - name: Adding SublimeText Repository
+    #   block:
+    #     - apt_key:
+    #         url: https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+    #         state: present
+    #     - apt:
+    #         update_cache: yes
+    #     - apt_repository:
+    #         filename: sublime-text
+    #         repo: deb https://download.sublimetext.com/ apt/stable/
+    #         state: present
 
     - name: Adding Docker Repository
       block:
