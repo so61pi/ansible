@@ -3,45 +3,45 @@
   become: true
   become_user: root
   block:
-    - name: Refreshing Repository
-      zypper_repository:
-        repo: '*'
-        runrefresh: true
-  
-    - name: Adding Packman Repository
-      block:
-        - zypper_repository:
-            name: packman
-            repo: "{{ urls.opensuse.tumbleweed.packman }}"
-            priority: 90
-            state: present
-            auto_import_keys: true
-            runrefresh: true
-        - zypper:
-            name: '*'
-            state: dist-upgrade
-            extra_args: '--from packman --allow-vendor-change'
+    - name: Installing Packages
+      apt:
+        state: present
+        update_cache: yes
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
 
     - name: Adding SublimeText Repository
       block:
-        - rpm_key:
+        - apt_key:
             key: https://download.sublimetext.com/sublimehq-rpm-pub.gpg
             state: present
-        - zypper_repository:
-            name: sublime-text
-            repo: https://download.sublimetext.com/rpm/stable/x86_64
+        - apt_repository:
+            filename: sublime-text
+            repo: deb https://download.sublimetext.com/ apt/stable/
             state: present
-            runrefresh: true
+
+    - name: Adding Docker Repository
+      block:
+        - apt_key:
+            key: https://download.docker.com/linux/ubuntu/gpg
+            state: present
+        - apt_repository:
+            filename: docker
+            repo: deb deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
+            state: present
 
     - name: Installing Packages
-      zypper:
+      apt:
         state: present
+        update_cache: yes
         name:
           - bzip2
           - chromium
           - clang
-          - clang-checker
-          - clang-devel
+          - clang-format
+          - clang-tidy
           - cmake
           - curl
           - docker
@@ -54,19 +54,14 @@
           - git
           - htop
           - inkscape
-          - kdevelop5
-          - kdevelop5-plugin-clang-tidy
-          - kdevelop5-plugin-python3
-          - kolourpaint
-          - libboost_headers-devel
-          - libqt5-creator
+          - libboost-dev-all
+          - libclang
           - make
           - okular
           - openssh
           - picocom
           - python2-pip
           - python3-pip
-          - qdirstat
           - qemu
           - qemu-kvm
           - sensors
@@ -80,7 +75,6 @@
           - virtualbox
           - vlc
           - wget
-          - yakuake
           - zsh
 
     - name: Adding User To Groups
@@ -93,12 +87,14 @@
         - kvm
 
     - name: Updating All Packages To Latest
-      zypper:
+      apt:
         name: "*"
         state: latest
 
-    - name: Upgrading System
-      zypper:
-        name: "*"
-        state: dist-upgrade
-        extra_args: "--no-allow-vendor-change --allow-arch-change"
+    - name: Removing Useless Packages From The Cache
+      apt:
+        autoclean: yes
+
+    - name: Removing Dependencies That Are No Longer Required
+      apt:
+        autoremove: yes
