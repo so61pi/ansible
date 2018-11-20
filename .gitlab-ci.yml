@@ -12,7 +12,7 @@ build-ubuntu-18.04:
   image: ubuntu:18.04
   script:
     - apt update
-    - apt --assume-yes install make python python-xml ansible
+    - apt --assume-yes install make python ansible
     - mkdir ~/Documents ~/Downloads
     - make env
     - make cicd
