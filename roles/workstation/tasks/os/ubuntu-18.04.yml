@@ -37,6 +37,7 @@
         state: present
         update_cache: yes
         name:
+          - aptitude
           - bzip2
           - chromium-browser
           - clang
