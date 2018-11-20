@@ -49,8 +49,8 @@
           - ffmpeg
           - filezilla
           - firefox
+          - g++
           - gcc
-          - gcc-c++
           - git
           - htop
           - inkscape
