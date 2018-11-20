@@ -1,7 +1,7 @@
 ifdef CICD
-ANSIBLEEX := ""
+ANSIBLEEX :=
 else
-ANSIBLEEX := "--ask-become-pass"
+ANSIBLEEX := --ask-become-pass
 endif
 
 
