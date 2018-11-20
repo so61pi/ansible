@@ -1,12 +1,11 @@
 ---
 - import_tasks: os/opensuse-tumbleweed.yml
   when:
-    - ansible_os_family == "Suse"
     - ansible_distribution == "openSUSE Tumbleweed"
 
-- import_tasks: os/opensuse-tumbleweed.yml
+- import_tasks: os/ubuntu-18.04.yml
   when:
-    - ansible_os_family == "Debian"
     - ansible_distribution == "Ubuntu"
+    - ansible_distribution_version == "18.04"
 
 - import_tasks: user.yml
