@@ -29,7 +29,7 @@
             state: present
         - apt_repository:
             filename: docker
-            repo: deb deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
+            repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
             state: present
 
     - name: Installing Packages
