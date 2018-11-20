@@ -6,12 +6,12 @@ endif
 
 
 system-opensuse-tumbleweed:
-	ANSIBLE_CONFIG=ansible.cfg ansible-playbook --verbose $(ANSIBLEEX) --extra-vars target_system=opensuse-tumbleweed site.yml
+	ANSIBLE_CONFIG=ansible.cfg ansible-playbook -vvv $(ANSIBLEEX) --extra-vars target_system=opensuse-tumbleweed site.yml
 	tree -a -L 1 ~
 	tree -a -L 4 ~/work
 
 system-ubuntu-18.04:
-	ANSIBLE_CONFIG=ansible.cfg ansible-playbook --verbose $(ANSIBLEEX) --extra-vars target_system=ubuntu-18.04 site.yml
+	ANSIBLE_CONFIG=ansible.cfg ansible-playbook -vvv $(ANSIBLEEX) --extra-vars target_system=ubuntu-18.04 site.yml
 	tree -a -L 1 ~
 	tree -a -L 4 ~/work
 
