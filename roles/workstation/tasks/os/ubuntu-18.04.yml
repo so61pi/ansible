@@ -55,15 +55,15 @@
           - htop
           - inkscape
           - libboost-all-dev
+          - lm-sensors
           - make
           - okular
-          - openssh
+          - openssh-server
           - picocom
-          - python2-pip
+          - python-pip
           - python3-pip
           - qemu
           - qemu-kvm
-          - sensors
           - socat
           - speedcrunch
           - sublime-text
