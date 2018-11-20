@@ -5,7 +5,7 @@ build-opensuse-tumbleweed:
     - zypper --non-interactive install make python python-xml ansible
     - mkdir ~/Documents ~/Downloads
     - make env
-    - make cicd
+    - make CICD=1 system-opensuse-tumbleweed
 
 build-ubuntu-18.04:
   stage: build
@@ -15,4 +15,4 @@ build-ubuntu-18.04:
     - apt --assume-yes install make python ansible
     - mkdir ~/Documents ~/Downloads
     - make env
-    - make cicd
+    - make CICD=1 system-ubuntu-18.04

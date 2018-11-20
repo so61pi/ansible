@@ -1,1 +1,2 @@
 localhost               ansible_connection=local        ansible_user=root
+# localhost               ansible_connection=local        ansible_user=so61pi
