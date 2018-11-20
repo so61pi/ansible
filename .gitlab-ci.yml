@@ -1,9 +1,8 @@
-image: opensuse/tumbleweed
-
-build:
+build-opensuse-tumbleweed:
   stage: build
+  image: opensuse/tumbleweed
   script:
-    - mkdir ~/Documents
-    - mkdir ~/Downloads
     - zypper --non-interactive install make python python-xml ansible
+    - mkdir ~/Documents ~/Downloads
+    - make env
     - make cicd

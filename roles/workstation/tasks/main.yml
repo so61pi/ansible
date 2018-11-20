@@ -1,4 +1,5 @@
 ---
-- import_tasks: os/Suse.yml
+- import_tasks: os/opensuse-tumbleweed.yml
   when: ansible_os_family == "Suse"
+
 - import_tasks: user.yml
