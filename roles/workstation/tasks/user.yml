@@ -67,9 +67,9 @@
             - { key: "alias.ggrep", value: "grep --break --heading --line-number" }
             - { key: "oh-my-zsh.hide-dirty", value: 1 }
             - { key: "user.useConfigOnly", value: true }
-        - file:
-            path: ~/.gitconfig
-            attributes: "+i"
+        # - file:
+        #     path: ~/.gitconfig
+        #     attributes: "+i"
           become: true
           become_user: root
       when: not p.stat.exists
