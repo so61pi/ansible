@@ -38,7 +38,7 @@
         update_cache: yes
         name:
           - bzip2
-          - chromium
+          - chromium-browser
           - clang
           - clang-format
           - clang-tidy
