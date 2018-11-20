@@ -11,6 +11,7 @@ build-ubuntu-18.04:
   stage: build
   image: ubuntu:18.04
   script:
+    - apt update
     - apt --assume-yes install make python python-xml ansible
     - mkdir ~/Documents ~/Downloads
     - make env
