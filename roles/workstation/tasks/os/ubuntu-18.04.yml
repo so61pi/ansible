@@ -55,7 +55,6 @@
           - htop
           - inkscape
           - libboost-all-dev
-          - libclang
           - make
           - okular
           - openssh
