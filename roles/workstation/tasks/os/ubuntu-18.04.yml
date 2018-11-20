@@ -54,7 +54,7 @@
           - git
           - htop
           - inkscape
-          - libboost-dev-all
+          - libboost-all-dev
           - libclang
           - make
           - okular
