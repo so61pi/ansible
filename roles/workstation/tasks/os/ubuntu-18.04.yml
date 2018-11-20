@@ -15,7 +15,7 @@
     - name: Adding SublimeText Repository
       block:
         - apt_key:
-            key: https://download.sublimetext.com/sublimehq-rpm-pub.gpg
+            url: https://download.sublimetext.com/sublimehq-rpm-pub.gpg
             state: present
         - apt_repository:
             filename: sublime-text
@@ -25,7 +25,7 @@
     - name: Adding Docker Repository
       block:
         - apt_key:
-            key: https://download.docker.com/linux/ubuntu/gpg
+            url: https://download.docker.com/linux/ubuntu/gpg
             state: present
         - apt_repository:
             filename: docker
