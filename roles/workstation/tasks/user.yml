@@ -34,42 +34,22 @@
         - { src : "~/work/documents", symlink : "~/Documents" }
         - { src : "~/work/downloads", symlink : "~/Downloads" }
 
-# - name: Downloading And Extracting FireFox And ThunderBird
-#   block:
-#     - block:
-#         - stat:
-#             path: ~/work/tools/firefox
-#           register: p
-#         - unarchive:
-#             src: "{{ urls.mozilla.firefox }}"
-#             dest: ~/work/tools
-#             remote_src: yes
-#           when: not p.stat.exists
-#     - block:
-#         - stat:
-#             path: ~/work/tools/thunderbird
-#           register: p
-#         - unarchive:
-#             src: "{{ urls.mozilla.thunderbird }}"
-#             dest: ~/work/tools
-#             remote_src: yes
-#           when: not p.stat.exists
-
-- name: Enabling Oh-My-Zsh
+- name: Downloading FireFox And ThunderBird
   block:
-    - stat:
-        path: ~/.oh-my-zsh
-      register: p
-    - block:
-        - git:
-            repo: https://github.com/robbyrussell/oh-my-zsh
-            dest: ~/.oh-my-zsh
-        - user:
-            name: "{{ ansible_user }}"
-            shell: /usr/bin/zsh
-          become: true
-          become_user: root
-      when: not p.stat.exists
+    - command: wget -O firefox.tar.bz2 "{{ urls.mozilla.firefox }}"
+        chdir: ~/work/tools
+        creates: firefox.tar.bz2
+    - command: wget -O thunderbird.tar.bz2 "{{ urls.mozilla.thunderbird }}"
+        chdir: ~/work/tools
+        creates: thunderbird.tar.bz2
+
+- name: Cloning Oh-My-Zsh
+  block:
+    - git:
+        repo: https://github.com/robbyrussell/oh-my-zsh
+        dest: ~/.oh-my-zsh
+    - debug:
+        msg: Please run ~/.oh-my-zsh/master/tools/install.sh to install oh-my-zsh
 
 - name: Configuring Git
   block:
