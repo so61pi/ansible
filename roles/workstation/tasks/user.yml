@@ -45,14 +45,6 @@
         chdir: ~/work/tools
         creates: thunderbird.tar.bz2
 
-- name: Cloning Oh-My-Zsh
-  block:
-    - git:
-        repo: https://github.com/robbyrussell/oh-my-zsh
-        dest: ~/.oh-my-zsh
-    - debug:
-        msg: Please run ~/.oh-my-zsh/master/tools/install.sh to install oh-my-zsh
-
 - name: Configuring Git
   block:
     - stat:
@@ -67,10 +59,20 @@
             - { key: "alias.ggrep", value: "grep --break --heading --line-number" }
             - { key: "oh-my-zsh.hide-dirty", value: 1 }
             - { key: "user.useConfigOnly", value: true }
-        - file:
-            path: ~/.gitconfig
-            attributes: "+i"
-          when: target_system != "ubuntu-18.04"
+        - shell: chattr +i ~/.gitconfig
           become: true
           become_user: root
       when: not p.stat.exists
+
+- name: Oh-My-Zsh
+  block:
+    - git:
+        repo: https://github.com/robbyrussell/oh-my-zsh
+        dest: ~/.oh-my-zsh
+    - copy:
+        src=files/zshrc
+        dest=~/.zshrc
+        force=no
+    - user:
+        name="{{ ansible_user }}"
+        shell=/bin/zsh
