@@ -52,6 +52,8 @@
           - gcc
           - gcc-c++
           - git
+          - go
+          - go-doc
           - htop
           - inkscape
           - kdevelop5
@@ -69,6 +71,7 @@
           - qdirstat
           - qemu
           - qemu-kvm
+          - rust
           - sensors
           - socat
           - speedcrunch

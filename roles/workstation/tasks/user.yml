@@ -56,9 +56,11 @@
             scope: global
             value: "{{ item.value }}"
           with_items:
-            - { key: "alias.ggrep", value: "grep --break --heading --line-number" }
+            - { key: "user.name",            value: "{{ git.user.name }}" }
+            - { key: "user.email",           value: "{{ git.user.email }}" }
+            - { key: "user.useConfigOnly",   value: true }
+            - { key: "alias.ggrep",          value: "grep --break --heading --line-number" }
             - { key: "oh-my-zsh.hide-dirty", value: 1 }
-            - { key: "user.useConfigOnly", value: true }
         - shell: chattr +i ~/.gitconfig
           become: true
           become_user: root

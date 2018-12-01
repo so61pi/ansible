@@ -6,3 +6,7 @@ urls:
   opensuse:
     tumbleweed:
       packman: https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/
+git:
+  user:
+    name: root
+    email: root@example.com
