@@ -1,0 +1,10 @@
+- Set up private and public keys
+- Firefox
+  - HTTPS Everywhere
+  - KeePassXC-Browser
+  - Download all Images
+  - LeechBlock
+  - Mate Translate
+  - Sound is OFF
+  - uBlock Original
+  - https://gitlab.com/so61pi/examples/tree/master/snippets/firefox-config
