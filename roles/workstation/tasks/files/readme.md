@@ -5,6 +5,6 @@
   - Download all Images
   - LeechBlock
   - Mate Translate
-  - Sound is OFF
+  - Mute sites by default
   - uBlock Original
   - https://gitlab.com/so61pi/examples/tree/master/snippets/firefox-config
