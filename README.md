@@ -16,4 +16,5 @@
 
 - Golang
   - Set up GOPATH
+    - In openSUSE, it is already set up by `/etc/profile.d/go.sh`
     - https://github.com/golang/go/wiki/SettingGOPATH
