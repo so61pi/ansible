@@ -18,3 +18,13 @@
   - Set up GOPATH
     - In openSUSE, it is already set up by `/etc/profile.d/go.sh`
     - https://github.com/golang/go/wiki/SettingGOPATH
+
+- ZSH
+  - Run following commands to save them to history
+```shell
+print -s git config --global user.name "Example"
+print -s git config --global user.email "example@example.com"
+
+print -s rsync --delete --archive --recursive --verbose srcdir/ dstdir
+print -s find /var/www/ -type f -name "*.html"
+```
