@@ -61,9 +61,6 @@
             - { key: "user.useConfigOnly",   value: true }
             - { key: "alias.ggrep",          value: "grep --break --heading --line-number" }
             - { key: "oh-my-zsh.hide-dirty", value: 1 }
-        - shell: chattr +i ~/.gitconfig
-          become: true
-          become_user: root
       when: not p.stat.exists
 
 - name: Oh-My-Zsh
@@ -78,3 +75,5 @@
     - user:
         name="{{ ansible_user }}"
         shell=/bin/zsh
+      become: true
+      become_user: root

@@ -32,3 +32,6 @@ print -s git config --global user.email "example@example.com"
 print -s rsync --delete --archive --recursive --verbose srcdir/ dstdir
 print -s find /var/www/ -type f -name "*.html"
 ```
+
+- Git
+  - Run `sudo chattr +i ~/.gitconfig` to prevent accidental changes to gitconfig
