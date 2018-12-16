@@ -1,5 +1,9 @@
 [![pipeline status](https://gitlab.com/so61pi/ansible/badges/master/pipeline.svg)](https://gitlab.com/so61pi/ansible/commits/master)
 
+- Edit these files before running
+  - `hosts`
+  - `roles/workstation/defaults/main.yml`
+
 - SSH
   - Set up private and public keys
 
