@@ -77,3 +77,13 @@
         shell=/bin/zsh
       become: true
       become_user: root
+
+- name: fzf
+  block:
+    - git:
+        repo: https://github.com/junegunn/fzf
+        dest: ~/.fzf
+    - shell: ~/.fzf/install --all --no-fish
+
+- name: Adding frequently used commands in history
+  script: files/commands
