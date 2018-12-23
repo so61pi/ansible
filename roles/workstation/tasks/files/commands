@@ -109,6 +109,7 @@ print -s "cargo run --release"
 print -s "cargo test"
 print -s "cargo clean"
 print -s "cargo clean --release"
+print -s "cargo fmt --all"
 print -s "cargo doc"
 print -s "cargo doc --release"
 
