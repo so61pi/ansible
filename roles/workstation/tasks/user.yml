@@ -78,7 +78,13 @@
       become: true
       become_user: root
 
-- name: fzf
+- name: Copying gdbinit
+  copy:
+    src=files/gdbinit
+    dest=~/.gdbinit
+    force=no
+
+- name: Installing fzf
   block:
     - git:
         repo: https://github.com/junegunn/fzf
