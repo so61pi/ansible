@@ -15,6 +15,17 @@
     - ~/work/vms
     - ~/work/warehouse
 
+- name: Touching Files
+  copy:
+    content: ""
+    dest: "{{ item }}"
+    force: no
+    mode: 0600
+  with_items:
+    - ~/.ssh/config
+    - ~/.curlrc
+    - ~/.wgetrc
+
 - name: Moving ~/Downloads And ~/Documents
   block:
     - name: Moving Files
@@ -69,20 +80,20 @@
         repo: https://github.com/robbyrussell/oh-my-zsh
         dest: ~/.oh-my-zsh
     - copy:
-        src=files/zshrc
-        dest=~/.zshrc
-        force=no
+        src: files/zshrc
+        dest: ~/.zshrc
+        force: no
     - user:
-        name="{{ ansible_user }}"
-        shell=/bin/zsh
+        name: "{{ ansible_user }}"
+        shell: /bin/zsh
       become: true
       become_user: root
 
 - name: Copying gdbinit
   copy:
-    src=files/gdbinit
-    dest=~/.gdbinit
-    force=no
+    src: files/gdbinit
+    dest: ~/.gdbinit
+    force: no
 
 - name: Installing fzf
   block:
@@ -91,5 +102,12 @@
         dest: ~/.fzf
     - shell: ~/.fzf/install --all --no-fish
 
-- name: Adding frequently used commands in history
-  script: files/commands
+- name: Adding Frequently Used Commands In History
+  block:
+    - copy:
+        src: files/commands
+        dest: ~/commands
+        force: no
+    - shell: source ~/commands
+      args:
+        executable: /bin/zsh

@@ -11,10 +11,12 @@
   - Add-on
     - HTTPS Everywhere
     - KeePassXC-Browser
+    - Dark Reader
     - Download all Images
     - LeechBlock
     - Mate Translate
     - Mute sites by default
+    - To Google Translate
     - uBlock Original
   - https://gitlab.com/so61pi/examples/tree/master/snippets/firefox-config
 
