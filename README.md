@@ -7,6 +7,9 @@
 - SSH
   - Set up private and public keys
 
+- ZSH
+  - Run `source ~/commands` to add frequently used commands
+
 - Firefox
   - Add-on
     - HTTPS Everywhere

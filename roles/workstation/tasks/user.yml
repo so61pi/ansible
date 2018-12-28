@@ -79,6 +79,12 @@
     - git:
         repo: https://github.com/robbyrussell/oh-my-zsh
         dest: ~/.oh-my-zsh
+    - git:
+        repo: https://github.com/zsh-users/zsh-autosuggestions
+        dest: ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+    - git:
+        repo: https://github.com/zsh-users/zsh-syntax-highlighting
+        dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
     - copy:
         src: files/zshrc
         dest: ~/.zshrc
@@ -102,12 +108,8 @@
         dest: ~/.fzf
     - shell: ~/.fzf/install --all --no-fish
 
-- name: Adding Frequently Used Commands In History
-  block:
-    - copy:
-        src: files/commands
-        dest: ~/commands
-        force: no
-    - shell: source ~/commands
-      args:
-        executable: /bin/zsh
+- name: Copying Frequently Used Commands
+  copy:
+    src: files/commands
+    dest: ~/commands
+    force: no
