@@ -72,7 +72,6 @@
           - tree
           - unzip
           - valgrind
-          - virtualbox
           - vlc
           - wget
           - zsh

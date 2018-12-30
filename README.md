@@ -15,6 +15,10 @@
     - HTTPS Everywhere
     - KeePassXC-Browser
     - Dark Reader
+      - 9gag.com
+      - docker.com
+      - mail.google.com
+      - youtube.com
     - Download all Images
     - LeechBlock
     - Mate Translate

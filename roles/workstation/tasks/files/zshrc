@@ -96,6 +96,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ggrep="grep -Frn"
+alias cdw="cd ~/work"
+alias cdp="cd ~/work/programming/projects"
 
 export LESS=-XFR
 

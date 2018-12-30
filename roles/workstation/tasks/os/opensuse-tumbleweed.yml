@@ -80,7 +80,6 @@
           - tree
           - unzip
           - valgrind
-          - virtualbox
           - vlc
           - wget
           - yakuake
