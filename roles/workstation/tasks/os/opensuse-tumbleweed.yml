@@ -39,6 +39,7 @@
         name:
           - bzip2
           - chromium
+          - cargo
           - clang
           - clang-checker
           - clang-devel
