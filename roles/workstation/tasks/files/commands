@@ -310,6 +310,7 @@ print -s "tail -F file.log"
 print -s "time cal"
 print -s "uname -a"
 print -s "uptime"
+print -s "chroot ubuntu/ /bin/bash"
 
 print -s "cat /proc/cmdline"
 print -s "cat /proc/cpuinfo"
