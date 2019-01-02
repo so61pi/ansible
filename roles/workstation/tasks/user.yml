@@ -4,6 +4,7 @@
     path: "{{ item }}"
     state: directory
   with_items:
+    - ~/.cargo
     - ~/.ssh
     - ~/work/media/images
     - ~/work/media/videos
@@ -22,6 +23,7 @@
     force: no
     mode: 0600
   with_items:
+    - ~/.cargo/config
     - ~/.ssh/config
     - ~/.curlrc
     - ~/.wgetrc

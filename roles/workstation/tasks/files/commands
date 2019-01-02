@@ -22,6 +22,8 @@ print -s "zypper lr --uri"
 
 print -s "git config --global user.name 'Example'"
 print -s "git config --global user.email 'example@example.com'"
+print -s "git config --global http.proxy http://<proxy>:<port>"
+print -s "git config --global --unset http.proxy"
 print -s "git config --list"
 print -s "git init"
 print -s "git clone <url>"
