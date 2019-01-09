@@ -37,6 +37,7 @@
       zypper:
         state: present
         name:
+          - bat
           - bzip2
           - chromium
           - cargo
@@ -47,6 +48,7 @@
           - curl
           - docker
           - docker-compose
+          - fd
           - ffmpeg
           - filezilla
           - firefox
@@ -64,6 +66,7 @@
           - libboost_headers-devel
           - libqt5-creator
           - make
+          - ncdu
           - okular
           - openssh
           - picocom
@@ -72,6 +75,7 @@
           - qdirstat
           - qemu
           - qemu-kvm
+          - ripgrep
           - rust
           - sensors
           - socat
