@@ -20,6 +20,18 @@ print -s "zypper info usbutils"
 print -s "zypper repos --uri"
 print -s "zypper lr --uri"
 
+print -s "btrfs subvolume list /"
+print -s "btrfs filesystem df /"
+print -s "btrfs filesystem show /"
+print -s "btrfs filesystem sync /"
+print -s "btrfs filesystem label /"
+
+print -s "snapper list-configs"
+print -s "snapper list"
+print -s "snapper create --description 'Snapshot'"
+print -s "snapper create --cleanup-algorithm number --description 'Snapshot'"
+print -s "snapper create --cleanup-algorithm number --userdata 'important=yes' --description 'Snapshot'"
+
 print -s "git config --global user.name 'Example'"
 print -s "git config --global user.email 'example@example.com'"
 print -s "git config --global http.proxy http://<proxy>:<port>"
