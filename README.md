@@ -16,13 +16,16 @@
     - KeePassXC-Browser
     - Dark Reader
       - 9gag.com
-      - docker.com
+      - docs.docker.com
       - mail.google.com
+      - office.com
       - youtube.com
     - Download all Images
     - LeechBlock
     - Mate Translate
     - Mute sites by default
+      - translate.google.com
+      - youtube.com
     - To Google Translate
     - uBlock Original
   - https://gitlab.com/so61pi/examples/tree/master/snippets/firefox-config
