@@ -6,6 +6,7 @@
   with_items:
     - ~/.cargo
     - ~/.ssh
+    - ~/go
     - ~/work/media/images
     - ~/work/media/videos
     - ~/work/others
