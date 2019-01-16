@@ -2,7 +2,7 @@ build-opensuse-tumbleweed:
   stage: build
   image: opensuse/tumbleweed
   script:
-    - zypper --non-interactive install make python python-xml ansible
+    - zypper --non-interactive install git make python python-xml python-urllib3 ansible
     - mkdir ~/Documents ~/Downloads
     - make env
     - make CICD=1 system-opensuse-tumbleweed
@@ -13,7 +13,7 @@ build-ubuntu-18.04:
   image: ubuntu:18.04
   script:
     - apt update
-    - apt --assume-yes install make python ansible
+    - apt --assume-yes install git make python ansible
     - mkdir ~/Documents ~/Downloads
     - make env
     - make CICD=1 system-ubuntu-18.04
