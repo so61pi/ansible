@@ -155,6 +155,10 @@ print -s "machinectl read-only ubuntu-18.04"
 print -s "machinectl clone src dst"
 print -s "machinectl rename old new"
 
+print -s "dmesg"
+print -s "dmesg --follow"
+print -s "dmesg -f"
+
 print -s "ssh-copy-id user@host"
 print -s "ssh-copy-id -i ~/.ssh/key.pub user@host"
 print -s "ssh-copy-id 'user@host -p 22'"
