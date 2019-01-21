@@ -114,3 +114,5 @@ setopt      autocd                      # Enable auto cd.
 setopt      autopushd                   # Auto push current directory each time you cd
 unsetopt    sharehistory                # Disable share history across terminals.
 bindkey -e                              # Emacs mode.
+
+[ -f ~/.pet.zsh ] && source ~/.pet.zsh
