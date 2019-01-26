@@ -552,7 +552,7 @@
 
 [[snippets]]
   description = "run a command in a new container"
-  command = "docker run --env "TERM=xterm" --init --tty --volume $(pwd):/code --workdir /code <image> <cmd=bash>"
+  command = "docker run --env 'TERM=xterm' --init --tty --volume $(pwd):/code --workdir /code <image> <cmd=bash>"
   tag = ["docker"]
   output = ""
 

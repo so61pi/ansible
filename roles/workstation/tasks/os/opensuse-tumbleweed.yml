@@ -71,7 +71,7 @@
           - ncdu
           - okular
           - openssh
-          - perl-cgi
+          - perl-CGI
           - picocom
           - python2-pip
           - python3-pip
