@@ -6,6 +6,7 @@
   with_items:
     - ~/.cargo
     - ~/.ssh
+    - ~/bin
     - ~/go
     - ~/work/media/images
     - ~/work/media/videos
@@ -97,6 +98,10 @@
         shell: /bin/zsh
       become: true
       become_user: root
+    - copy:
+        src: files/zsh-shortcuts
+        dest: ~/bin/zsh-shortcuts
+        force: no
 
 - name: Copying gdbinit
   copy:
