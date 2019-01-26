@@ -1,0 +1,617 @@
+[[snippets]]
+  description = "update and upgrade system"
+  command = "sudo sh -c 'zypper update && zypper dist-upgrade && zypper ps -s'"
+  tag = ["zypper"]
+  output = ""
+
+[[snippets]]
+  description = "install package"
+  command = "sudo zypper in <package>"
+  tag = ["zypper"]
+  output = ""
+
+[[snippets]]
+  description = "install package without confirmation"
+  command = "sudo zypper in -y <package>"
+  tag = ["zypper"]
+  output = ""
+
+[[snippets]]
+  description = "remove package"
+  command = "sudo zypper rm <package>"
+  tag = ["zypper"]
+  output = ""
+
+[[snippets]]
+  description = "remove package without confirmation"
+  command = "sudo zypper rm -y <package>"
+  tag = ["zypper"]
+  output = ""
+
+[[snippets]]
+  description = "remove package and its dependencies"
+  command = "sudo zypper rm --clean-deps <package>"
+  tag = ["zypper"]
+  output = ""
+
+[[snippets]]
+  description = "update system"
+  command = "sudo zypper up"
+  tag = ["zypper"]
+  output = ""
+
+[[snippets]]
+  description = "upgrade system"
+  command = "sudo zypper dup"
+  tag = ["zypper"]
+  output = ""
+
+[[snippets]]
+  description = "remove repository"
+  command = "sudo zypper rr repo"
+  tag = ["zypper"]
+  output = ""
+
+[[snippets]]
+  description = "list processes that use removed/deleted files"
+  command = "sudo zypper ps -s"
+  tag = ["zypper"]
+  output = ""
+
+[[snippets]]
+  description = "refresh repositories"
+  command = "sudo zypper ref"
+  tag = ["zypper"]
+  output = ""
+
+[[snippets]]
+  description = "list repositories"
+  command = "zypper lr"
+  tag = ["zypper"]
+  output = ""
+
+[[snippets]]
+  description = "list repositories with uri"
+  command = "zypper lr --uri"
+  tag = ["zypper"]
+  output = ""
+
+[[snippets]]
+  description = "list available updates"
+  command = "zypper list-updates"
+  tag = ["zypper"]
+  output = ""
+
+[[snippets]]
+  description = "search for package"
+  command = "zypper se <pattern='usb*'>"
+  tag = ["zypper"]
+  output = ""
+
+[[snippets]]
+  description = "display info of a package"
+  command = "zypper info <package=usbutils>"
+  tag = ["zypper"]
+  output = ""
+
+[[snippets]]
+  description = "list subvolume"
+  command = "sudo btrfs subvolume list /"
+  tag = ["btrfs"]
+  output = ""
+
+[[snippets]]
+  description = "force a sync of the filesystem"
+  command = "sudo btrfs filesystem sync /"
+  tag = ["btrfs"]
+  output = ""
+
+[[snippets]]
+  description = "show detailed information about internal filesystem usage"
+  command = "sudo btrfs filesystem usage /"
+  tag = ["btrfs"]
+  output = ""
+
+[[snippets]]
+  description = "show configurations"
+  command = "sudo snapper list-configs"
+  tag = ["snapper"]
+  output = ""
+
+[[snippets]]
+  description = "list snapshots"
+  command = "sudo snapper list"
+  tag = ["snapper"]
+  output = ""
+
+[[snippets]]
+  description = "create a snapshot"
+  command = "sudo snapper create -d <desc=Snapshot>"
+  tag = ["snapper"]
+  output = ""
+
+[[snippets]]
+  description = "create a snapshot"
+  command = "sudo snapper create -c number -d <desc=Snapshot>"
+  tag = ["snapper"]
+  output = ""
+
+[[snippets]]
+  description = "create a snapshot"
+  command = "sudo snapper create -c number -u 'important=yes' -d <desc=Snapshot>"
+  tag = ["snapper"]
+  output = ""
+
+[[snippets]]
+  description = "config user name"
+  command = "git config --global user.name <name=Example>"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "config user email"
+  command = "git config --global user.email <email=example@example.com>"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "disable ssl verification"
+  command = "git config --global http.sslVerify false"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "set http proxy"
+  command = "git config --global http.proxy http://<proxy>:<port>"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "unset setting"
+  command = "git config --global --unset <setting=http.proxy>"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "list all config"
+  command = "git config -l"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "initialize a repository"
+  command = "git init"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "clone a repository"
+  command = "git clone --recurse-submodules <url>"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "add all modified or new files"
+  command = "git add -A"
+  tag = ["git", "gaa"]
+  output = ""
+
+[[snippets]]
+  description = "show status"
+  command = "git status"
+  tag = ["git", "gst"]
+  output = ""
+
+[[snippets]]
+  description = "commit"
+  command = "git commit -m <message=''>"
+  tag = ["git", "gcmsg"]
+  output = ""
+
+[[snippets]]
+  description = "amend last commit"
+  command = "git commit --amend -m <message=''>"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "amend last commit without change message"
+  command = "git commit --amend --no-edit"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "add files and commit"
+  command = "git commit --all -m <message=''>"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "pull changes"
+  command = "git pull"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "pull changes and rebase local changes on top"
+  command = "git pull --rebase"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "execute pull in a directory"
+  command = "git -C <directory> pull"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "push changes"
+  command = "git push"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "soft reset to a commit"
+  command = "git reset <dst-commit>"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "hard reset to a commit"
+  command = "git reset --hard <dst-commit>"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "group several commits together"
+  command = "git reset --soft HEAD~<number-of-commits> && git commit -m <message=''>"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "search for files"
+  command = "git ls-files | grep <file-pattern>"
+  tag = ["git", "gfg"]
+  output = ""
+
+[[snippets]]
+  description = "list local branches"
+  command = "git branch"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "list remote-tracking branches and local branches"
+  command = "git branch -a"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "list remote-tracking branches"
+  command = "git branch -r"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "remove/delete a branch"
+  command = "git branch -d <name>"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "force remove/delete a branch"
+  command = "git branch -D <name>"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "rename branch"
+  command = "git branch -m <old> <new>"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "filter branches"
+  command = "git branch -l <pattern='feature/*'>"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "mark a file as removed/deleted"
+  command = "git rm -- <file>"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "mark a directory as removed/deleted"
+  command = "git rm -r -- <directory>"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "reset content of a file"
+  command = "git checkout -- <file>"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "switch to a branch"
+  command = "git checkout <branch=master>"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "create and switch to a new branch"
+  command = "git checkout -b <branch>"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "view changes relative to the staging area"
+  command = "git diff"
+  tag = ["git", "gd"]
+  output = ""
+
+[[snippets]]
+  description = "view changes relative to the staging area of a specific file"
+  command = "git diff -- <file>"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "view changes of the staging area"
+  command = "git diff --staged"
+  tag = ["git", "gds"]
+  output = ""
+
+[[snippets]]
+  description = "view changes of a file between commits"
+  command = "git diff <old=HEAD~3> <new=HEAD> -- <file>"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "view changes relative to the staging area"
+  command = "git difftool"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "view changes of the staging area"
+  command = "git difftool --staged"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "display commit log"
+  command = "git log --graph"
+  tag = ["git", "glgg"]
+  output = ""
+
+[[snippets]]
+  description = "display commit log with changed files"
+  command = "git log --graph --name-status"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "display commit log with changed files"
+  command = "git log --graph --stat"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "search for text in all commits/history"
+  command = "git log -S <text> --source --all"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "push current changes to temporary stack"
+  command = "git stash"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "pop changes from temporary stack"
+  command = "git stash pop"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "drop latest changes from temporary stack"
+  command = "git stash drop"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "list temporary stack"
+  command = "git stash list"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "update submodule code"
+  command = "git submodule update --recursive"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "initialize submodule code"
+  command = "git submodule update --recursive --init"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "merge branch to current branch"
+  command = "git merge <branch=bugfix>"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "squash merge branch to current branch"
+  command = "git merge --squash <branch=bugfix>"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "reset working directory"
+  command = "git clean -xdf"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "show reflog"
+  command = "git reflog"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "start local webserver for curent repository"
+  command = "git instaweb"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "stop webserver"
+  command = "git instaweb stop"
+  tag = ["git"]
+  output = ""
+
+[[snippets]]
+  description = "initializes a new Vagrant environment by creating a Vagrantfile"
+  command = "vagrant init <image='ubuntu/bionic64'>"
+  tag = ["vagrant"]
+  output = ""
+
+[[snippets]]
+  description = "starts and provisions the vagrant environment"
+  command = "vagrant up"
+  tag = ["vagrant"]
+  output = ""
+
+[[snippets]]
+  description = "connects to machine via SSH"
+  command = "vagrant ssh"
+  tag = ["vagrant"]
+  output = ""
+
+[[snippets]]
+  description = "outputs OpenSSH valid configuration to connect to the machine"
+  command = "vagrant ssh-config"
+  tag = ["vagrant"]
+  output = ""
+
+[[snippets]]
+  description = "stops the vagrant machine"
+  command = "vagrant halt"
+  tag = ["vagrant"]
+  output = ""
+
+[[snippets]]
+  description = "stops and deletes all traces of the vagrant machine"
+  command = "vagrant destroy"
+  tag = ["vagrant"]
+  output = ""
+
+[[snippets]]
+  description = "provisions the vagrant machine"
+  command = "vagrant provision"
+  tag = ["vagrant"]
+  output = ""
+
+[[snippets]]
+  description = "restarts vagrant machine, loads new Vagrantfile configuration"
+  command = "vagrant reload"
+  tag = ["vagrant"]
+  output = ""
+
+[[snippets]]
+  description = "outputs status of the vagrant machine"
+  command = "vagrant status"
+  tag = ["vagrant"]
+  output = ""
+
+[[snippets]]
+  description = "displays information about guest port mappings"
+  command = "vagrant port"
+  tag = ["vagrant"]
+  output = ""
+
+[[snippets]]
+  description = "build an image from a Dockerfile"
+  command = "docker build --tag <name:tag> ."
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "build an image from a Dockerfile in a directory"
+  command = "docker build --tag <name:tag> <directory>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "run a command in a new container"
+  command = "docker run --env "TERM=xterm" --init --tty --volume $(pwd):/code --workdir /code <image> <cmd=bash>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "run a command in a running container"
+  command = "docker exec --tty --interactive --privileged <container> <cmd=bash>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "list containers"
+  command = "docker ps"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "list images"
+  command = "docker image ls"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "list containers"
+  command = "docker container ls"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "remove one or more images"
+  command = "docker rmi <image>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "remove unused data"
+  command = "docker system prune"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "remove unused all data"
+  command = "docker system prune --all"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "save one or more images to a tar archive"
+  command = "docker save -o file.tar image"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "load an image from a tar archive"
+  command = "docker load -i file.tar"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "export a container's filesystem as a tar archive"
+  command = "docker export \"$(docker create --name <image> <image> true)\" > ubuntu-18.04.tar && docker rm <image>"
+  tag = ["docker"]
+  output = ""
