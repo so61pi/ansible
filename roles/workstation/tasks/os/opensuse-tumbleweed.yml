@@ -39,8 +39,8 @@
         name:
           - bat
           - bzip2
-          - chromium
           - cargo
+          - chromium
           - clang
           - clang-checker
           - clang-devel
@@ -55,6 +55,7 @@
           - gcc
           - gcc-c++
           - git
+          - git-web
           - go
           - go-doc
           - htop
@@ -65,10 +66,12 @@
           - kolourpaint
           - libboost_headers-devel
           - libqt5-creator
+          - lighttpd
           - make
           - ncdu
           - okular
           - openssh
+          - perl-cgi
           - picocom
           - python2-pip
           - python3-pip
@@ -89,6 +92,8 @@
           - wget
           - yakuake
           - zsh
+          # - vagrant
+          # - virtualbox
 
     - name: Adding User To Groups
       user:
