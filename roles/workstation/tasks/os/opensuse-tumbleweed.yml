@@ -39,7 +39,6 @@
         name:
           - bat
           - bzip2
-          - cargo
           - chromium
           - clang
           - clang-checker
@@ -79,7 +78,6 @@
           - qemu
           - qemu-kvm
           - ripgrep
-          - rust
           - sensors
           - socat
           - speedcrunch
@@ -92,6 +90,8 @@
           - wget
           - yakuake
           - zsh
+          # - cargo
+          # - rust
           # - vagrant
           # - virtualbox
 
