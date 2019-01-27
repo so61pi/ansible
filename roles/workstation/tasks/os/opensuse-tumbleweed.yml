@@ -114,3 +114,11 @@
         name: "*"
         state: dist-upgrade
         extra_args: "--no-allow-vendor-change --allow-arch-change"
+
+    - name: Changing sysctl
+      sysctl:
+        name: "{{ item.key }}"
+        value: "{{ item.value }}"
+        state: present
+      with_items:
+        - { key : "fs.inotify.max_user_watches", value : 524288 }
