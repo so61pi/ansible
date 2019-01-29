@@ -104,7 +104,7 @@
         force: no
 
 - name: Install rust
-  command: curl https://sh.rustup.rs -sSf | sh -s -- -y
+  shell: curl https://sh.rustup.rs -sSf | sh -s -- -y
 
 - name: Installing fzf
   block:
