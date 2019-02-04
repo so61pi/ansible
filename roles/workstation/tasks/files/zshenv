@@ -1,0 +1,2 @@
+# This file is read everytime when zsh runs
+# and should only be used to set environment variables.

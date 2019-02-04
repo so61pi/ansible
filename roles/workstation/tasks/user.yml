@@ -4,7 +4,8 @@
     path: "{{ item }}"
     state: directory
   with_items:
-    - ~/.cargo
+    - ~/.cargo/bin
+    - ~/.local/bin
     - ~/.ssh
     - ~/bin
     - ~/go
@@ -90,9 +91,13 @@
         repo: https://github.com/zsh-users/zsh-syntax-highlighting
         dest: ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
     - copy:
-        src: files/zshrc
-        dest: ~/.zshrc
+        src: "{{ item.src }}"
+        dest: "{{ item.dst }}"
         force: no
+      with_items:
+        - { src : "files/zshenv", dst : "~/.zshenv" }
+        - { src : "files/zprofile", dst : "~/.zprofile" }
+        - { src : "files/zshrc", dst : "~/.zshrc" }
     - user:
         name: "{{ ansible_user }}"
         shell: /bin/zsh

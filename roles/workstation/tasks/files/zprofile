@@ -1,0 +1,4 @@
+# This file is read at login after `.zshenv`
+# and should contain things that are not changed frequently.
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
