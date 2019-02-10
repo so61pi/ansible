@@ -2,6 +2,7 @@
 
 echo
 echo -e "  \e[92mALT\e[0m  + \e[95mQ\e[0m : Temporarily hide current line"
+echo -e "  \e[93mCTRL\e[0m + \e[95mQ\e[0m"
 echo
 echo -e "  \e[93mCTRL\e[0m + \e[95mA\e[0m : Go to the beginning"
 echo -e "  \e[93mCTRL\e[0m + \e[95mE\e[0m : Go to the end"

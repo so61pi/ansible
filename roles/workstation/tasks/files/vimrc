@@ -1,0 +1,4 @@
+set nocompatible
+set number
+set showcmd
+set wildmenu
