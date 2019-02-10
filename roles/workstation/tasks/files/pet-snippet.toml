@@ -1,6 +1,6 @@
 [[snippets]]
   description = "update and upgrade system"
-  command = "sudo sh -c 'zypper update && zypper dist-upgrade && zypper ps -s'"
+  command = "sudo sh -c 'zypper refresh && zypper update && zypper dist-upgrade && zypper ps -s'"
   tag = ["zypper"]
   output = ""
 

@@ -1,7 +1,7 @@
 #!/usr/bin/zsh
 
 # print -s sudo sh -c "'apt update && apt upgrade && apt autoremove'"
-print -s sudo sh -c "'zypper update && zypper dist-upgrade && zypper ps -s'"
+print -s sudo sh -c "'zypper refresh && zypper update && zypper dist-upgrade && zypper ps -s'"
 print -s "zypper install package"
 print -s "zypper in package"
 print -s "zypper remove package"
@@ -336,7 +336,6 @@ print -s "cat /proc/meminfo"
 print -s "cat /proc/uptime"
 print -s "cat /proc/version"
 print -s "cat /proc/vmstat"
-
 print -s "cat /etc/passwd"
 print -s "cat /etc/group"
 print -s "cat /etc/profile"
