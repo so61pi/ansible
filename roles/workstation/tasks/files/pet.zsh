@@ -1,5 +1,5 @@
-if [[ ! "$PATH" == */home/so61pi/.pet/bin* ]]; then
-  export PATH="$PATH:/home/so61pi/.pet/bin"
+if [[ ! "$PATH" == *$HOME/.pet/bin* ]]; then
+  export PATH="$PATH:$HOME/.pet/bin"
 fi
 
 function pet-select() {

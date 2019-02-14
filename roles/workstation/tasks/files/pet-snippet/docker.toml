@@ -1,0 +1,77 @@
+[[snippets]]
+  description = "build an image from a Dockerfile"
+  command = "docker build --tag <name:tag> ."
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "build an image from a Dockerfile in a directory"
+  command = "docker build --tag <name:tag> <directory>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "run a command in a new container"
+  command = "docker run --env 'TERM=xterm' --init --tty --volume $(pwd):/code --workdir /code <image> <cmd=bash>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "run a command in a running container"
+  command = "docker exec --tty --interactive --privileged <container> <cmd=bash>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "list containers"
+  command = "docker ps"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "list images"
+  command = "docker image ls"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "list containers"
+  command = "docker container ls"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "remove one or more images"
+  command = "docker rmi <image>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "remove unused data"
+  command = "docker system prune"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "remove unused all data"
+  command = "docker system prune --all"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "save one or more images to a tar archive"
+  command = "docker save -o file.tar image"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "load an image from a tar archive"
+  command = "docker load -i file.tar"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "export a container's filesystem as a tar archive"
+  command = "docker export \"$(docker create --name <image> <image> true)\" > ubuntu-18.04.tar && docker rm <image>"
+  tag = ["docker"]
+  output = ""

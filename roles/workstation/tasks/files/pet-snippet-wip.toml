@@ -1,0 +1,388 @@
+################################################################################
+docker-compose up
+docker-compose up --build
+docker-compose down
+
+################################################################################
+systemctl status
+systemctl status docker
+systemctl start docker
+systemctl stop docker
+systemctl restart docker
+systemctl enable docker
+systemctl disable docker
+systemctl edit docker
+systemctl cat docker
+
+################################################################################
+systemd-analyze
+systemd-analyze blame
+systemd-analyze plot
+
+################################################################################
+journalctl --unit ssh.service --follow
+journalctl --unit ssh.service --boot
+
+################################################################################
+systemd-nspawn -b -M ubuntu-18.04
+systemd-nspawn -a -M ubuntu-18.04 /bin/bash
+
+################################################################################
+resolvectl query example.com
+resolvectl query 8.8.8.8
+resolvectl status
+
+################################################################################
+machinectl shell ubuntu-18.04 /bin/bash
+machinectl start ubuntu-18.04
+machinectl login ubuntu-18.04
+machinectl stop ubuntu-18.04
+machinectl reboot ubuntu-18.04
+machinectl status ubuntu-18.04
+machinectl bind --read-only --mkdir src dst
+machinectl copy-to src dst
+machinectl copy-from src dst
+machinectl enable ubuntu-18.04
+machinectl disable ubuntu-18.04
+machinectl list-images
+machinectl clean
+machinectl export-tar ubuntu-18.04 ubuntu-18.04.tar.xz
+machinectl import-tar ubuntu-18.04.tar ubuntu-18.04
+machinectl import-fs dir/ ubuntu-18.04
+machinectl remove ubuntu-18.04
+machinectl read-only ubuntu-18.04
+machinectl clone src dst
+machinectl rename old new
+
+################################################################################
+dmesg
+dmesg -f
+
+################################################################################
+ssh-copy-id user@host
+ssh-copy-id -i ~/.ssh/key.pub user@host
+ssh-copy-id 'user@host -p 22'
+sshfs -o uid=0,gid=0,default_permissions,reconnect,no_readahead,cache=yes,kernel_cache,compression=no,Cipher=arcfour,ro admin@example.com:/dir /dir
+fusermount -u /dir
+ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no admin@example.com
+ssh -p 443 admin@example.com
+ssh -N -f -L 9000:example.com:80 admin@server.com
+ssh -N -f -L '*:9000:example.com:80' admin@server.com
+ssh -N -f -R 9000:localhost:3000 admin@server.com
+ssh -N -f -R 9000:address:3000 admin@server.com
+ssh -N -f -D localhost:3000 admin@server.com
+
+################################################################################
+scp file user@server:/file
+scp user@server:/file file
+scp -r dir user@server:/dir
+scp -r user@server:/dir dir
+scp user1@server1:/file1 user2@server2:/file2
+scp -r user1@server1:/dir1 user2@server2:/dir2
+
+
+################################################################################
+cargo init
+cargo init --bin
+cargo build
+cargo build --release
+cargo run
+cargo run --release
+cargo test
+cargo clean
+cargo clean --release
+cargo fmt --all
+cargo doc
+cargo doc --release
+
+################################################################################
+rustup show
+rustup update
+rustup toolchain list
+rustup default <toolchain=stable>
+rustup doc
+
+
+################################################################################
+go build
+go clean
+go env
+go fmt './...'
+go run
+go vet './...'
+
+################################################################################
+g++ -std=c++17 -Wall -Wextra -Werror -O3 -pedantic -pthread -o main main.cpp
+g++ -S main.cpp
+
+################################################################################
+rsync --dry-run --delete --archive --recursive --progress --verbose srcdir/ dstdir
+rsync --delete --archive --recursive --progress --verbose srcdir/ dstdir
+
+################################################################################
+find dir/ -type f -name '*.log'
+find dir/ -type f -name '.*'
+find dir/ -type f -empty -delete
+find dir/ -type f -executable
+find dir/ -type d -empty -delete
+find dir/ -user root
+
+################################################################################
+fd
+
+################################################################################
+tar -cvSf archived.tar dir/
+tar -cvSf compressed.tar.xz --xz dir/
+tar -cvSf compressed.tar.gz --gzip dir/
+tar -cvSf compressed.tar.bz2 --bzip2 dir/
+tar -xvf archived.tar
+tar -xvf compressed.tar.xz --xz
+tar -xvf compressed.tar.gz --gzip
+tar -xvf compressed.tar.bz2 --bzip2
+tar -xvf archived.tar -C dir/
+
+################################################################################
+wget https://example.com/
+wget -O example.html https://example.com/
+wget -i links.txt
+
+################################################################################
+curl https://example.com/
+curl -o example.html https://example.com/
+curl --proxy yourproxy:port https://example.com/
+curl --location https://example.com/
+
+################################################################################
+ip addr
+ip route
+ip neigh
+ip link set eth0 up
+ip link set eth0 down
+
+################################################################################
+ss --tcp --all
+ss --tcp
+ss -t -a
+
+################################################################################
+dig
+nslookup
+traceroute
+
+
+################################################################################
+cp src dst
+cp -a src dst
+
+################################################################################
+mv src dst
+
+################################################################################
+ln -sfn src dst
+
+################################################################################
+chmod +r file
+chmod -r file
+chmod +x file
+chmod -x file
+chmod 664 file
+chmod 755 script
+chmod 1755 suscript
+
+################################################################################
+chown root file
+chown root: file
+chown :root file
+chown nobody: file
+chown nobody:nogroup file
+
+################################################################################
+md5sum
+sha1sum
+sha256sum
+sha512sum
+
+################################################################################
+seq 10
+seq 0 10
+seq 0 2 10
+seq -s , 0 10
+seq -w 0 10
+
+################################################################################
+date
+date '+%F.%H-%M-%S'
+date '+%Y-%m-%d_%H-%M-%S'
+
+################################################################################
+tree -d
+tree -f
+tree -h --du
+tree -h
+tree -L 3
+tree
+
+################################################################################
+chattr +i ~/.gitconfig
+chattr -i ~/.gitconfig
+lsattr ~/.gitconfig
+
+################################################################################
+sysctl fs.inotify.max_user_watches
+sysctl fs.inotify.max_user_watches=1048576
+
+################################################################################
+python -m SimpleHTTPServer 8080
+python3 -m http.server 8080 --directory /tmp
+
+################################################################################
+ping
+
+################################################################################
+ps aux
+ps axjf
+
+################################################################################
+top
+
+################################################################################
+htop
+
+################################################################################
+mount
+
+################################################################################
+dd bs=512k status=progress if=/dev/urandom of=/dev/null
+df -h
+lsblk
+sync
+
+################################################################################
+echo {0..3} | xargs mkdir
+du -h | sort -h
+free -h
+id3v2 -D **/*.mp3
+lscpu
+lsof
+lspci
+lsusb
+picocom -b 115200 /dev/ttyUSB0
+sleep 1
+tail -F file.log
+time cal
+uname -a
+uptime
+chroot ubuntu/ /bin/bash
+
+################################################################################
+nmcli general status
+
+nmcli networking
+nmcli networking connectivity
+nmcli networking on
+nmcli networking off
+
+nmcli radio
+nmcli radio wifi
+nmcli radio wifi on
+nmcli radio wifi off
+
+nmcli connection
+nmcli connection up "activate connection"
+nmcli connection down "deactivate connection"
+
+nmcli device
+nmcli device show
+
+nmcli device wifi
+nmcli device wifi rescan
+nmcli device wifi list
+nmcli device wifi connect <SSID-Name> password <wireless-password>
+nmcli device wifi hotspot ssid <SSID> password <password>
+
+nmcli monitor
+nmcli connection monitor
+nmcli device monitor
+
+nmtui
+
+################################################################################
+list available interfaces
+tcpdump -D
+
+capture packets
+tcpdump
+
+capture with less verbose output than default
+tcpdump -q
+
+capture only 5 packets
+tcpdump -c 5
+
+capture packets for all interfaces
+tcpdump -i any
+
+capture packets with specified port
+tcpdump -n dst port <port>
+
+capture packets arriving at or departing from host
+tcpdump -n host <host>
+
+capture packets arriving at host
+tcpdump -n dst host <host>
+
+capture packets departing from host
+tcpdump -n src host <host>
+
+capture packets arriving at host at port 443
+tcpdump -n "dst host <host> and dst port 443"
+
+capture packets and save result to file
+tcpdump -w <file=capture.cap>
+
+capture icmp package
+tcpdump -v icmp
+
+
+################################################################################
+strace
+
+addgroup
+
+usermod
+
+bitbake
+
+perf
+
+################################################################################
+cat /proc/cmdline
+cat /proc/cpuinfo
+cat /proc/meminfo
+cat /proc/uptime
+cat /proc/version
+cat /proc/vmstat
+cat /etc/passwd
+cat /etc/group
+cat /etc/profile
+cat /etc/hosts
+cat /etc/resolv.conf
+cat /etc/hostname
+
+################################################################################
+vim /etc/sysctl.d/99-sysctl.conf
+vim /etc/gitlab-runner/config.toml
+vim /etc/systemd/system/gitlab-runner.service
+vim ~/.ssh/config
+vim ~/.ssh/known_hosts
+vim ~/.curlrc
+vim ~/.gdbinit
+vim ~/.gitconfig
+vim ~/.hgrc
+vim ~/.wgetrc
+vim ~/.zshrc
+vim .git/config
+vim .gitignore
+vim .gitmodules
+vim Dockerfile
+vim Makefile

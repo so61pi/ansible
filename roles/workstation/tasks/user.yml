@@ -5,6 +5,7 @@
     state: directory
   with_items:
     - ~/.cargo/bin
+    ~ ~/.config/pet
     - ~/.local/bin
     - ~/.ssh
     - ~/bin
@@ -120,3 +121,9 @@
     - { src : "files/zprofile", dst : "~/.zprofile" }
     - { src : "files/zshrc", dst : "~/.zshrc" }
     - { src : "files/zsh-shortcuts", dst : "~/bin/zsh-shortcuts" }
+
+- name: Creating pet snippet
+  assemble:
+    remote_src: False
+    src: files/pet-snippet/
+    dest: ~/.config/pet/snippet.toml

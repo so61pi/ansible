@@ -1,0 +1,29 @@
+[[snippets]]
+  description = "show configurations"
+  command = "sudo snapper list-configs"
+  tag = ["snapper"]
+  output = ""
+
+[[snippets]]
+  description = "list snapshots"
+  command = "sudo snapper list"
+  tag = ["snapper"]
+  output = ""
+
+[[snippets]]
+  description = "create a snapshot"
+  command = "sudo snapper create -d <desc=Snapshot>"
+  tag = ["snapper"]
+  output = ""
+
+[[snippets]]
+  description = "create a snapshot"
+  command = "sudo snapper create -c number -d <desc=Snapshot>"
+  tag = ["snapper"]
+  output = ""
+
+[[snippets]]
+  description = "create a snapshot"
+  command = "sudo snapper create -c number -u 'important=yes' -d <desc=Snapshot>"
+  tag = ["snapper"]
+  output = ""

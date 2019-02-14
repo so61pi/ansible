@@ -1,0 +1,17 @@
+[[snippets]]
+  description = "list subvolume"
+  command = "sudo btrfs subvolume list /"
+  tag = ["btrfs"]
+  output = ""
+
+[[snippets]]
+  description = "force a sync of the filesystem"
+  command = "sudo btrfs filesystem sync /"
+  tag = ["btrfs"]
+  output = ""
+
+[[snippets]]
+  description = "show detailed information about internal filesystem usage"
+  command = "sudo btrfs filesystem usage /"
+  tag = ["btrfs"]
+  output = ""
