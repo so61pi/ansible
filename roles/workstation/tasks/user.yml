@@ -5,7 +5,7 @@
     state: directory
   with_items:
     - ~/.cargo/bin
-    ~ ~/.config/pet
+    - ~/.config/pet
     - ~/.local/bin
     - ~/.ssh
     - ~/bin
