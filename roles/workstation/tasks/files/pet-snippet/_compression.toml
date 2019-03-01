@@ -1,9 +1,0 @@
-tar -cvSf archived.tar dir/
-tar -cvSf compressed.tar.xz --xz dir/
-tar -cvSf compressed.tar.gz --gzip dir/
-tar -cvSf compressed.tar.bz2 --bzip2 dir/
-tar -xvf archived.tar
-tar -xvf compressed.tar.xz --xz
-tar -xvf compressed.tar.gz --gzip
-tar -xvf compressed.tar.bz2 --bzip2
-tar -xvf archived.tar -C dir/

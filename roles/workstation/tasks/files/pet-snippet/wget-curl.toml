@@ -1,0 +1,35 @@
+[[snippets]]
+  description = "download a web page and save to file"
+  command = "wget <url=https://example.com>"
+  tag = ["wget"]
+  output = ""
+
+[[snippets]]
+  description = "download a web page and save to file"
+  command = "wget -O <file=example.html> <url=https://example.com>"
+  tag = ["wget"]
+  output = ""
+
+[[snippets]]
+  description = "download web pages that are provided in link file"
+  command = "wget -i <file=links.txt>"
+  tag = ["wget"]
+  output = ""
+
+[[snippets]]
+  description = "download a web page and print to terminal"
+  command = "curl <url=https://example.com>"
+  tag = ["curl"]
+  output = ""
+
+[[snippets]]
+  description = "download a web page and save to file"
+  command = "curl -o <file=example.html> <url=https://example.com>"
+  tag = ["curl"]
+  output = ""
+
+[[snippets]]
+  description = "download a web page through proxy"
+  command = "curl --proxy <proxy:port> <url=https://example.com>"
+  tag = ["curl"]
+  output = ""
