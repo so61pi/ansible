@@ -1,0 +1,9 @@
+wget https://example.com/
+wget -O example.html https://example.com/
+wget -i links.txt
+
+################################################################################
+curl https://example.com/
+curl -o example.html https://example.com/
+curl --proxy yourproxy:port https://example.com/
+curl --location https://example.com/

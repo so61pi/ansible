@@ -1,0 +1,94 @@
+nmcli general status
+
+nmcli networking
+nmcli networking connectivity
+nmcli networking on
+nmcli networking off
+
+nmcli radio
+nmcli radio wifi
+nmcli radio wifi on
+nmcli radio wifi off
+
+nmcli connection
+nmcli connection up "activate connection"
+nmcli connection down "deactivate connection"
+
+nmcli device
+nmcli device show
+
+nmcli device wifi
+nmcli device wifi rescan
+nmcli device wifi list
+nmcli device wifi connect <SSID-Name> password <wireless-password>
+nmcli device wifi hotspot ssid <SSID> password <password>
+
+nmcli monitor
+nmcli connection monitor
+nmcli device monitor
+
+nmtui
+
+
+
+################################################################################
+list available interfaces
+tcpdump -D
+
+capture packets
+tcpdump
+
+capture with less verbose output than default
+tcpdump -q
+
+capture only 5 packets
+tcpdump -c 5
+
+capture packets for all interfaces
+tcpdump -i any
+
+capture packets with specified port
+tcpdump -n dst port <port>
+
+capture packets arriving at or departing from host
+tcpdump -n host <host>
+
+capture packets arriving at host
+tcpdump -n dst host <host>
+
+capture packets departing from host
+tcpdump -n src host <host>
+
+capture packets arriving at host at port 443
+tcpdump -n "dst host <host> and dst port 443"
+
+capture packets and save result to file
+tcpdump -w <file=capture.cap>
+
+capture icmp package
+tcpdump -v icmp
+
+################################################################################
+ping
+
+################################################################################
+ip addr
+ip route
+ip neigh
+ip link set eth0 up
+ip link set eth0 down
+
+################################################################################
+ss --tcp --all
+ss --tcp
+ss -t -a
+
+################################################################################
+dig
+nslookup
+traceroute
+
+################################################################################
+python -m SimpleHTTPServer 8080
+python3 -m http.server 8080 --directory /tmp
+

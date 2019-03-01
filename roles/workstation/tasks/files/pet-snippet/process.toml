@@ -1,0 +1,23 @@
+[[snippets]]
+  description = "list all processes"
+  command = "ps aux"
+  tag = ["process"]
+  output = ""
+
+[[snippets]]
+  description = "list all processes in tree"
+  command = "ps axjf"
+  tag = ["process"]
+  output = ""
+
+[[snippets]]
+  description = "display processes continuously"
+  command = "top"
+  tag = ["process"]
+  output = ""
+
+[[snippets]]
+  description = "display processes continuously"
+  command = "htop"
+  tag = ["process"]
+  output = ""

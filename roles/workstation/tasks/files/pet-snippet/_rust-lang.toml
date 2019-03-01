@@ -1,0 +1,19 @@
+cargo init
+cargo init --bin
+cargo build
+cargo build --release
+cargo run
+cargo run --release
+cargo test
+cargo clean
+cargo clean --release
+cargo fmt --all
+cargo doc
+cargo doc --release
+
+################################################################################
+rustup show
+rustup update
+rustup toolchain list
+rustup default <toolchain=stable>
+rustup doc

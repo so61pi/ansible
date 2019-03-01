@@ -1,0 +1,73 @@
+
+################################################################################
+seq 10
+seq 0 10
+seq 0 2 10
+seq -s , 0 10
+seq -w 0 10
+
+################################################################################
+date
+date '+%F.%H-%M-%S'
+date '+%Y-%m-%d_%H-%M-%S'
+
+
+
+
+
+
+################################################################################
+echo {0..3} | xargs mkdir
+id3v2 -D **/*.mp3
+
+
+sleep 1
+
+time cal
+
+chroot ubuntu/ /bin/bash
+
+################################################################################
+
+
+
+################################################################################
+strace
+perf
+
+
+bitbake
+
+
+
+################################################################################
+cat /proc/cmdline
+cat /proc/cpuinfo
+cat /proc/meminfo
+cat /proc/uptime
+cat /proc/version
+cat /proc/vmstat
+cat /etc/passwd
+cat /etc/group
+cat /etc/profile
+cat /etc/hosts
+cat /etc/resolv.conf
+cat /etc/hostname
+
+################################################################################
+vim /etc/sysctl.d/99-sysctl.conf
+vim /etc/gitlab-runner/config.toml
+vim /etc/systemd/system/gitlab-runner.service
+vim ~/.ssh/config
+vim ~/.ssh/known_hosts
+vim ~/.curlrc
+vim ~/.gdbinit
+vim ~/.gitconfig
+vim ~/.hgrc
+vim ~/.wgetrc
+vim ~/.zshrc
+vim .git/config
+vim .gitignore
+vim .gitmodules
+vim Dockerfile
+vim Makefile

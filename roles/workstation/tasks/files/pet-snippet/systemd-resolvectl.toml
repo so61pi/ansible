@@ -1,0 +1,11 @@
+[[snippets]]
+  description = "resolve hostname or ip address"
+  command = "resolvectl query <hostname-or-ip>"
+  tag = ["resolvectl", "systemd"]
+  output = ""
+
+[[snippets]]
+  description = "show DNS settings"
+  command = "resolvectl status"
+  tag = ["resolvectl", "systemd"]
+  output = ""

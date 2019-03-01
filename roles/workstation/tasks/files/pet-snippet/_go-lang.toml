@@ -1,0 +1,6 @@
+go build
+go clean
+go env
+go fmt './...'
+go run
+go vet './...'

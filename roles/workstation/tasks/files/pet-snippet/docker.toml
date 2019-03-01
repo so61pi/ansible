@@ -11,6 +11,30 @@
   output = ""
 
 [[snippets]]
+  description = "build an image from an arbitrary Dockerfile with a directory"
+  command = "docker build --tag <name:tag> -f <dockerfile> <directory>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "copy files/folders between a container and the local filesystem"
+  command = "docker cp <container:src> <dst>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "copy files/folders between a container and the local filesystem"
+  command = "docker cp <dst> <container:src>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "inspect changes to files or directories on a container’s filesystem"
+  command = "docker diff <container>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
   description = "run a command in a new container"
   command = "docker run --env 'TERM=xterm' --init --tty --volume $(pwd):/code --workdir /code <image> <cmd=bash>"
   tag = ["docker"]
@@ -23,20 +47,104 @@
   output = ""
 
 [[snippets]]
-  description = "list containers"
-  command = "docker ps"
+  description = "display detailed information on one or more containers"
+  command = "docker container inspect <container>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "fetch the logs of a container"
+  command = "docker logs <container>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "list port mappings or a specific mapping for the container"
+  command = "docker port <container>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "remove all stopped containers"
+  command = "docker container prune"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "rename a container"
+  command = "docker rename <container> <new-name>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "restart one or more containers"
+  command = "docker restart <container>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "start one or more stopped containers"
+  command = "docker start <container>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "stop one or more running containers"
+  command = "docker stop <container>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "display the running processes of a container"
+  command = "docker top <container>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "build an image from a Dockerfile"
+  command = "docker build --tag <name:tag> ."
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "build an image from a Dockerfile in a directory"
+  command = "docker build --tag <name:tag> <directory>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "build an image from an arbitrary Dockerfile with a directory"
+  command = "docker build --tag <name:tag> -f <dockerfile> <directory>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "load an image from a tar archive or stdin"
+  command = "docker load -i <file>"
   tag = ["docker"]
   output = ""
 
 [[snippets]]
   description = "list images"
-  command = "docker image ls"
+  command = "docker images"
   tag = ["docker"]
   output = ""
 
 [[snippets]]
-  description = "list containers"
-  command = "docker container ls"
+  description = "remove unused images"
+  command = "docker image prune"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "pull an image or a repository from a registry"
+  command = "docker pull <image:tag>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "push an image or a repository to a registry"
+  command = "docker push"
   tag = ["docker"]
   output = ""
 
@@ -47,26 +155,98 @@
   output = ""
 
 [[snippets]]
-  description = "remove unused data"
-  command = "docker system prune"
-  tag = ["docker"]
-  output = ""
-
-[[snippets]]
-  description = "remove unused all data"
-  command = "docker system prune --all"
-  tag = ["docker"]
-  output = ""
-
-[[snippets]]
   description = "save one or more images to a tar archive"
-  command = "docker save -o file.tar image"
+  command = "docker save -o <file=file.tar> <image>"
   tag = ["docker"]
   output = ""
 
 [[snippets]]
-  description = "load an image from a tar archive"
-  command = "docker load -i file.tar"
+  description = "tag an image"
+  command = "docker tag <image> <image:tag>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "display system-wide information"
+  command = "docker info"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "return low-level information on docker objects"
+  command = "docker inspect <object>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "connect a container to a network"
+  command = "docker network connect"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "create a network"
+  command = "docker network create <name>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "disconnect a container from a network"
+  command = "docker network disconnect <network> <container>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "display detailed information on one or more networks"
+  command = "docker network inspect"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "list networks"
+  command = "docker network ls"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "remove all unused networks"
+  command = "docker network prune"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "remove one or more networks"
+  command = "docker network rm"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "list containers"
+  command = "docker ps"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "run a command in a new container"
+  command = "docker run --env 'TERM=xterm' --init --tty --volume $(pwd):/code --workdir /code <image> <cmd=bash>"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "list volumes"
+  command = "docker volume ls"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "remove all unused local volumes"
+  command = "docker volume prune"
+  tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "display detailed information on one or more volumes"
+  command = "docker volume inspect"
   tag = ["docker"]
   output = ""
 
@@ -74,4 +254,46 @@
   description = "export a container's filesystem as a tar archive"
   command = "docker export \"$(docker create --name <image> <image> true)\" > ubuntu-18.04.tar && docker rm <image>"
   tag = ["docker"]
+  output = ""
+
+[[snippets]]
+  description = "lists containers"
+  command = "docker-compose ps"
+  tag = ["docker-compose"]
+  output = ""
+
+[[snippets]]
+  description = "start containers for a service"
+  command = "docker-compose up"
+  tag = ["docker-compose"]
+  output = ""
+
+[[snippets]]
+  description = "create and start containers for a service"
+  command = "docker-compose up --build --renew-anon-volumes"
+  tag = ["docker-compose"]
+  output = ""
+
+[[snippets]]
+  description = "restarts all stopped and running services"
+  command = "docker-compose restart <service>"
+  tag = ["docker-compose"]
+  output = ""
+
+[[snippets]]
+  description = "stops running containers without removing them"
+  command = "docker-compose stop <service>"
+  tag = ["docker-compose"]
+  output = ""
+
+[[snippets]]
+  description = "starts existing containers for a service"
+  command = "docker-compose start <service>"
+  tag = ["docker-compose"]
+  output = ""
+
+[[snippets]]
+  description = "displays log output from services"
+  command = "docker-compose logs -f <service>"
+  tag = ["docker-compose"]
   output = ""

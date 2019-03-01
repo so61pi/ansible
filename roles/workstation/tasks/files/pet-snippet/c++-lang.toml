@@ -1,0 +1,11 @@
+[[snippets]]
+  description = "compile a c++ program"
+  command = "g++ -std=c++17 -Wall -Wextra -Werror -O3 -pedantic -pthread -o main main.cpp"
+  tag = ["c++", "g++"]
+  output = ""
+
+[[snippets]]
+  description = "print out assembly of c++ program"
+  command = "g++ -S main.cpp"
+  tag = ["c++", "g++"]
+  output = ""

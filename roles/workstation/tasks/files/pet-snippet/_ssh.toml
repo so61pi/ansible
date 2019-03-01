@@ -1,0 +1,19 @@
+ssh-copy-id user@host
+ssh-copy-id -i ~/.ssh/key.pub user@host
+ssh-copy-id 'user@host -p 22'
+sshfs -o uid=0,gid=0,default_permissions,reconnect,no_readahead,cache=yes,kernel_cache,compression=no,Cipher=arcfour,ro admin@example.com:/dir /dir
+fusermount -u /dir
+ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no admin@example.com
+ssh -p 443 admin@example.com
+ssh -N -f -L 9000:example.com:80 admin@server.com
+ssh -N -f -L '*:9000:example.com:80' admin@server.com
+ssh -N -f -R 9000:localhost:3000 admin@server.com
+ssh -N -f -R 9000:address:3000 admin@server.com
+ssh -N -f -D localhost:3000 admin@server.com
+
+scp file user@server:/file
+scp user@server:/file file
+scp -r dir user@server:/dir
+scp -r user@server:/dir dir
+scp user1@server1:/file1 user2@server2:/file2
+scp -r user1@server1:/dir1 user2@server2:/dir2
