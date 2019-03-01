@@ -1,0 +1,257 @@
+[[snippets]]
+  description = "show overall status"
+  command = "nmcli general status"
+  tag = ["network", "manager"]
+  output = ""
+
+[[snippets]]
+  description = "show network status"
+  command = "nmcli networking"
+  tag = ["network", "manager"]
+  output = ""
+
+[[snippets]]
+  description = "get network connectivity state"
+  command = "nmcli networking connectivity"
+  tag = ["network", "manager"]
+  output = ""
+
+[[snippets]]
+  description = "enable networking control"
+  command = "nmcli networking on"
+  tag = ["network", "manager"]
+  output = ""
+
+[[snippets]]
+  description = "disable networking control"
+  command = "nmcli networking off"
+  tag = ["network", "manager"]
+  output = ""
+
+[[snippets]]
+  description = "show radio switches status"
+  command = "nmcli radio"
+  tag = ["network", "manager"]
+  output = ""
+
+[[snippets]]
+  description = "show wifi status"
+  command = "nmcli radio wifi"
+  tag = ["network", "manager"]
+  output = ""
+
+[[snippets]]
+  description = "enable wifi"
+  command = "nmcli radio wifi on"
+  tag = ["network", "manager"]
+  output = ""
+
+[[snippets]]
+  description = "disable wifi"
+  command = "nmcli radio wifi off"
+  tag = ["network", "manager"]
+  output = ""
+
+[[snippets]]
+  description = "list all connection profiles"
+  command = "nmcli connection"
+  tag = ["network", "manager"]
+  output = ""
+
+[[snippets]]
+  description = "activate a connection"
+  command = "nmcli connection up <name>"
+  tag = ["network", "manager"]
+  output = ""
+
+[[snippets]]
+  description = "deactivate a connection"
+  command = "nmcli connection down <name>"
+  tag = ["network", "manager"]
+  output = ""
+
+[[snippets]]
+  description = "show network interfaces"
+  command = "nmcli device"
+  tag = ["network", "manager"]
+  output = ""
+
+[[snippets]]
+  description = "show detail network interfaces"
+  command = "nmcli device show"
+  tag = ["network", "manager"]
+  output = ""
+
+[[snippets]]
+  description = "list all access points"
+  command = "nmcli device wifi"
+  tag = ["network", "manager"]
+  output = ""
+
+[[snippets]]
+  description = "rescan all access points"
+  command = "nmcli device wifi rescan"
+  tag = ["network", "manager"]
+  output = ""
+
+[[snippets]]
+  description = "connect to a wifi network"
+  command = "nmcli device wifi connect <SSID-Name> password <wireless-password>"
+  tag = ["network", "manager"]
+  output = ""
+
+[[snippets]]
+  description = "create a wifi hotspot"
+  command = "nmcli device wifi hotspot ssid <SSID> password <password>"
+  tag = ["network", "manager"]
+  output = ""
+
+[[snippets]]
+  description = "open TUI network manager"
+  command = "nmtui"
+  tag = ["network", "manager"]
+  output = ""
+
+[[snippets]]
+  description = "list available interfaces"
+  command = "tcpdump -D"
+  tag = ["capture", "packet"]
+  output = ""
+
+[[snippets]]
+  description = "capture packets"
+  command = "tcpdump"
+  tag = ["capture", "packet"]
+  output = ""
+
+[[snippets]]
+  description = "capture with less verbose output than default"
+  command = "tcpdump -q"
+  tag = ["capture", "packet"]
+  output = ""
+
+[[snippets]]
+  description = "capture only 5 packets"
+  command = "tcpdump -c 5"
+  tag = ["capture", "packet"]
+  output = ""
+
+[[snippets]]
+  description = "capture packets for all interfaces"
+  command = "tcpdump -i any"
+  tag = ["capture", "packet"]
+  output = ""
+
+[[snippets]]
+  description = "capture packets with specified port"
+  command = "tcpdump -n dst port <port>"
+  tag = ["capture", "packet"]
+  output = ""
+
+[[snippets]]
+  description = "capture packets arriving at or departing from host"
+  command = "tcpdump -n host <host>"
+  tag = ["capture", "packet"]
+  output = ""
+
+[[snippets]]
+  description = "capture packets arriving at host"
+  command = "tcpdump -n dst host <host>"
+  tag = ["capture", "packet"]
+  output = ""
+
+[[snippets]]
+  description = "capture packets departing from host"
+  command = "tcpdump -n src host <host>"
+  tag = ["capture", "packet"]
+  output = ""
+
+[[snippets]]
+  description = "capture packets arriving at host at port 443"
+  command = "tcpdump -n 'dst host <host> and dst port 443'"
+  tag = ["capture", "packet"]
+  output = ""
+
+[[snippets]]
+  description = "capture packets and save result to file"
+  command = "tcpdump -w <file=capture.cap>"
+  tag = ["capture", "packet"]
+  output = ""
+
+[[snippets]]
+  description = "capture icmp package"
+  command = "tcpdump -v icmp"
+  tag = ["capture", "packet"]
+  output = ""
+
+[[snippets]]
+  description = "show interface details"
+  command = "ip addr"
+  tag = ["network"]
+  output = ""
+
+[[snippets]]
+  description = "show all routes"
+  command = "ip route"
+  tag = ["network"]
+  output = ""
+
+[[snippets]]
+  description = "show current neighbor table in kernel"
+  command = "ip neigh"
+  tag = ["network"]
+  output = ""
+
+[[snippets]]
+  description = "bring interface up"
+  command = "ip link set <interface> up"
+  tag = ["network"]
+  output = ""
+
+[[snippets]]
+  description = "bring interface down"
+  command = "ip link set <interface> down"
+  tag = ["network"]
+  output = ""
+
+[[snippets]]
+  description = "show all TCP connections"
+  command = "ss --tcp --all --processes"
+  tag = ["network", "monitor"]
+  output = ""
+
+[[snippets]]
+  description = "show all established TCP connections"
+  command = "ss --tcp --processes"
+  tag = ["network", "monitor"]
+  output = ""
+
+[[snippets]]
+  description = "issue and show DNS lookup progress"
+  command = "dig <hostname>"
+  tag = ["network", "dns"]
+  output = ""
+
+[[snippets]]
+  description = "query DNS of a host"
+  command = "nslookup <hostname>"
+  tag = ["network", "dns"]
+  output = ""
+
+[[snippets]]
+  description = "print the route packet goes through"
+  command = "traceroute <host>"
+  tag = ["network", "packet"]
+  output = ""
+
+[[snippets]]
+  description = "open http server in python 2"
+  command = "python -m SimpleHTTPServer 8080"
+  tag = ["network", "python"]
+  output = ""
+
+[[snippets]]
+  description = "open http server in python 3"
+  command = "python3 -m http.server 8080 --directory /tmp"
+  tag = ["network", "python"]
+  output = ""

@@ -1,0 +1,83 @@
+[[snippets]]
+  description = "add public key to server's authorized_keys"
+  command = "ssh-copy-id -i <file=~/.ssh/key.pub> <user>@<host>"
+  tag = ["ssh"]
+  output = ""
+
+[[snippets]]
+  description = "mount a remote directory to local one"
+  command = "sshfs -o uid=0,gid=0,default_permissions,reconnect,no_readahead,cache=yes,kernel_cache,compression=no,Cipher=arcfour,ro <user>@<host>:<server-dir> <local-dir>"
+  tag = ["sshfs"]
+  output = ""
+
+[[snippets]]
+  description = "unmount sshfs directory"
+  command = "fusermount -u <dir>"
+  tag = ["sshfs"]
+  output = ""
+
+[[snippets]]
+  description = "ssh to a remote server without checking host key"
+  command = "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no <user>@<host>"
+  tag = ["ssh"]
+  output = ""
+
+[[snippets]]
+  description = "ssh to remote server using unofficial"
+  command = "ssh -p <port=443> <user>@<host>"
+  tag = ["ssh"]
+  output = ""
+
+[[snippets]]
+  description = "create a port forwarding bridge from localhost:9000 to example.com:80 through server.com"
+  command = "ssh -N -f -L localhost:9000:example.com:80 admin@server.com"
+  tag = ["ssh", "port", "forward"]
+  output = ""
+
+[[snippets]]
+  description = "create a port forwarding bridge from server.com:9000 to address:3000"
+  command = "ssh -N -f -R 9000:address:3000 admin@server.com"
+  tag = ["ssh", "port", "forward"]
+  output = ""
+
+[[snippets]]
+  description = "create a SOCKS proxy"
+  command = "ssh -N -f -D localhost:3000 admin@server.com"
+  tag = ["ssh", "proxy"]
+  output = ""
+
+[[snippets]]
+  description = "copy local file to remote server"
+  command = "scp <file> <user>@<server>:<file>"
+  tag = ["ssh", "scp"]
+  output = ""
+
+[[snippets]]
+  description = "copy remote file to local"
+  command = "scp <user>@<server>:<file> <file>"
+  tag = ["ssh", "scp"]
+  output = ""
+
+[[snippets]]
+  description = "copy local directory to remote server"
+  command = "scp -r <dir> <user>@<server>:<dir>"
+  tag = ["ssh", "scp"]
+  output = ""
+
+[[snippets]]
+  description = "copy remote directory to local"
+  command = "scp -r <user>@<server>:<dir> <dir>"
+  tag = ["ssh", "scp"]
+  output = ""
+
+[[snippets]]
+  description = "copy file from one server to another"
+  command = "scp <user1>@<server1>:<file1> <user2>@<server2>:<file2>"
+  tag = ["ssh", "scp"]
+  output = ""
+
+[[snippets]]
+  description = "copy directory from one server to another"
+  command = "scp -r <user1>@<server1>:<dir1> <user2>@<server2>:<dir2>"
+  tag = ["ssh", "scp"]
+  output = ""
