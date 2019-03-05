@@ -1,0 +1,71 @@
+[[snippets]]
+  description = "show kernel log"
+  command = "dmesg"
+  tag = ["system"]
+  output = ""
+
+[[snippets]]
+  description = "show kernel log continuously"
+  command = "dmesg -f"
+  tag = ["system"]
+  output = ""
+
+[[snippets]]
+  description = "show sysctl value"
+  command = "sysctl <key=fs.inotify.max_user_watches>"
+  tag = ["system"]
+  output = ""
+
+[[snippets]]
+  description = "temporarily set sysctl value"
+  command = "sysctl <key=fs.inotify.max_user_watches>=<value=1048576>"
+  tag = ["system"]
+  output = ""
+
+[[snippets]]
+  description = "show system memory status"
+  command = "free -h"
+  tag = ["system"]
+  output = ""
+
+[[snippets]]
+  description = "show CPU info"
+  command = "lscpu"
+  tag = ["system"]
+  output = ""
+
+[[snippets]]
+  description = "show open files"
+  command = "lsof"
+  tag = ["system"]
+  output = ""
+
+[[snippets]]
+  description = "show PCI bus information"
+  command = "lspci"
+  tag = ["system"]
+  output = ""
+
+[[snippets]]
+  description = "show USB bus information"
+  command = "lsusb"
+  tag = ["system"]
+  output = ""
+
+[[snippets]]
+  description = "connect to serial port"
+  command = "picocom -b 115200 /dev/ttyUSB0"
+  tag = ["system"]
+  output = ""
+
+[[snippets]]
+  description = "show system information"
+  command = "uname -a"
+  tag = ["system"]
+  output = ""
+
+[[snippets]]
+  description = "show uptime"
+  command = "uptime"
+  tag = ["system"]
+  output = ""

@@ -1,75 +1,58 @@
-################################################################################
-rsync --dry-run --delete --archive --recursive --progress --verbose srcdir/ dstdir
-rsync --delete --archive --recursive --progress --verbose srcdir/ dstdir
+# rsync --dry-run --delete --archive --recursive --progress --verbose srcdir/ dstdir
+# rsync --delete --archive --recursive --progress --verbose srcdir/ dstdir
 
-################################################################################
-find dir/ -type f -name '*.log'
-find dir/ -type f -name '.*'
-find dir/ -type f -empty -delete
-find dir/ -type f -executable
-find dir/ -type d -empty -delete
-find dir/ -user root
+# find dir/ -type f -name '*.log'
+# find dir/ -type f -name '.*'
+# find dir/ -type f -empty -delete
+# find dir/ -type f -executable
+# find dir/ -type d -empty -delete
+# find dir/ -user root
 
-################################################################################
-fd
+# fd
 
-################################################################################
-cp src dst
-cp -a src dst
+# cp src dst
+# cp -a src dst
 
+# mv src dst
 
-################################################################################
-mv src dst
+# ln -sfn src dst
 
-################################################################################
-ln -sfn src dst
+# chmod +r file
+# chmod -r file
+# chmod +x file
+# chmod -x file
+# chmod 664 file
+# chmod 755 script
+# chmod 1755 suscript
 
+# chown root file
+# chown root: file
+# chown :root file
+# chown nobody: file
+# chown nobody:nogroup file
 
-################################################################################
-chmod +r file
-chmod -r file
-chmod +x file
-chmod -x file
-chmod 664 file
-chmod 755 script
-chmod 1755 suscript
+# md5sum
+# sha1sum
+# sha256sum
+# sha512sum
 
-################################################################################
-chown root file
-chown root: file
-chown :root file
-chown nobody: file
-chown nobody:nogroup file
+# tree -d
+# tree -f
+# tree -h --du
+# tree -h
+# tree -L 3
+# tree
 
+# chattr +i ~/.gitconfig
+# chattr -i ~/.gitconfig
+# lsattr ~/.gitconfig
 
-################################################################################
-md5sum
-sha1sum
-sha256sum
-sha512sum
+# mount
 
-################################################################################
-tree -d
-tree -f
-tree -h --du
-tree -h
-tree -L 3
-tree
+# dd bs=512k status=progress if=/dev/urandom of=/dev/null
+# df -h
+# lsblk
+# sync
+# du -h | sort -h
 
-
-################################################################################
-chattr +i ~/.gitconfig
-chattr -i ~/.gitconfig
-lsattr ~/.gitconfig
-
-################################################################################
-mount
-
-################################################################################
-dd bs=512k status=progress if=/dev/urandom of=/dev/null
-df -h
-lsblk
-sync
-du -h | sort -h
-
-tail -F file.log
+# tail -F file.log
