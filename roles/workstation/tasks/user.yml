@@ -76,6 +76,7 @@
             - { key: "user.name",            value: "{{ git.user.name }}" }
             - { key: "user.email",           value: "{{ git.user.email }}" }
             - { key: "user.useConfigOnly",   value: true }
+            - { key: "commit.template",      value: ~/.gitmessage }
             - { key: "alias.ggrep",          value: "grep --break --heading --line-number" }
             - { key: "oh-my-zsh.hide-dirty", value: 1 }
       when: not p.stat.exists
@@ -113,13 +114,14 @@
     dest: "{{ item.dst }}"
     force: no
   with_items:
-    - { src : "files/commands", dst : "~/commands" }
-    - { src : "files/gdbinit", dst : "~/.gdbinit" }
-    - { src : "files/tmux.conf", dst : "~/.tmux.conf" }
-    - { src : "files/vimrc", dst : "~/.vimrc" }
-    - { src : "files/zshenv", dst : "~/.zshenv" }
-    - { src : "files/zprofile", dst : "~/.zprofile" }
-    - { src : "files/zshrc", dst : "~/.zshrc" }
+    - { src : "files/commands",      dst : "~/commands" }
+    - { src : "files/gdbinit",       dst : "~/.gdbinit" }
+    - { src : "files/gitmessage",    dst : "~/.gitmessage" }
+    - { src : "files/tmux.conf",     dst : "~/.tmux.conf" }
+    - { src : "files/vimrc",         dst : "~/.vimrc" }
+    - { src : "files/zshenv",        dst : "~/.zshenv" }
+    - { src : "files/zprofile",      dst : "~/.zprofile" }
+    - { src : "files/zshrc",         dst : "~/.zshrc" }
     - { src : "files/zsh-shortcuts", dst : "~/bin/zsh-shortcuts" }
 
 - name: Creating pet snippet
