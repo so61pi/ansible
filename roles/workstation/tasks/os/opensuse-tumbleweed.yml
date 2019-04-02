@@ -70,6 +70,7 @@
           - ncdu
           - okular
           - openssh
+          - perf
           - perl-CGI
           - picocom
           - python2-pip
