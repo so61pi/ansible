@@ -108,7 +108,7 @@
         dest: ~/.fzf
     - shell: ~/.fzf/install --all --no-fish
 
-- name: Copying files
+- name: Copying Files
   copy:
     src: "{{ item.src }}"
     dest: "{{ item.dst }}"

@@ -7,7 +7,7 @@
       zypper_repository:
         repo: '*'
         runrefresh: true
-  
+
     - name: Adding Packman Repository
       block:
         - zypper_repository:
@@ -123,3 +123,18 @@
         state: present
       with_items:
         - { key : "fs.inotify.max_user_watches", value : 524288 }
+
+    - name: Creating Directories
+      file:
+        path: "{{ item }}"
+        state: directory
+      with_items:
+        - /etc/systemd/journald.conf.d
+
+    - name: Copying Files
+      copy:
+        src: "{{ item.src }}"
+        dest: "{{ item.dst }}"
+        force: no
+      with_items:
+        - { src : "files/journal-storage.conf", dst : "/etc/systemd/journald.conf.d/00-journal-storage.conf" }
