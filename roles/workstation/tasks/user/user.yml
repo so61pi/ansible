@@ -98,7 +98,7 @@
       become: true
       become_user: root
 
-- name: Install rust
+- name: Installing rust
   block:
     - shell: curl https://sh.rustup.rs -sSf | sh -s -- -y
     - shell: rustup component add clippy rustfmt
