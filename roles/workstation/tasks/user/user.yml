@@ -103,13 +103,6 @@
     - shell: curl https://sh.rustup.rs -sSf | sh -s -- -y
     - shell: ". ~/.cargo/env && rustup component add clippy rustfmt"
 
-- name: Installing fzf
-  block:
-    - git:
-        repo: https://github.com/junegunn/fzf
-        dest: ~/.fzf
-    - shell: ~/.fzf/install --all --no-fish
-
 - name: Copying Files
   copy:
     src: "{{ item.src }}"

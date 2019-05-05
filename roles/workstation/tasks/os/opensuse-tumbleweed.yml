@@ -51,6 +51,7 @@
           - ffmpeg
           - filezilla
           - firefox
+          - fzf
           - gcc
           - gcc-c++
           - git
