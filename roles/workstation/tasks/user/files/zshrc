@@ -110,11 +110,13 @@ alias c=cat
 export LESS=-XFR
 
 HISTFILE=$HOME/.zshhist
-HISTSIZE=1000000                        # Number of lines of history in memory.
-SAVEHIST=1000000                        # Number of lines of history in history file.
+HISTSIZE=1000000000                     # Number of lines of history in memory.
+SAVEHIST=$HISTSIZE                      # Number of lines of history in history file.
 setopt      incappendhistory            # Immediately append to the history file, not just when a term is killed.
-setopt      histignoredups              # Don't add duplicated commands.
-setopt      histexpiredupsfirst         # Save unique hist entries longer.
+setopt      histignoredups              # Don't add adjacent duplicated commands.
+setopt      histexpiredupsfirst         # Remove duplicated commands first when hist file fills up.
+setopt      histfindnodups              # Display no duplicated commands when searching backward.
+setopt      histreduceblanks            # Remove superfluous blanks from each command line being added to the history list. 
 setopt      histverify                  # Edit recalled history before running.
 setopt      extendedhistory             # Save timestamp on history entries.
 setopt      extendedglob                # Enable extended glob.
