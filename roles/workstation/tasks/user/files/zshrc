@@ -114,9 +114,9 @@ HISTFILE=$HOME/.zshhist
 HISTSIZE=1000000000                     # Number of lines of history in memory.
 SAVEHIST=$HISTSIZE                      # Number of lines of history in history file.
 setopt      inc_append_history          # Immediately append to the history file, not just when a term is killed.
-unsetopt    hist_ignore_dups            #
 unsetopt    hist_expire_dups_first      #
 unsetopt    hist_ignore_space           #
+setopt      hist_ignore_dups            # Ignore adjacent duplicated commands.
 setopt      hist_reduce_blanks          # Remove superfluous blanks before saving.
 setopt      hist_find_no_dups           # Display no duplicated commands when searching backward.
 setopt      hist_verify                 # Edit recalled history before running.
