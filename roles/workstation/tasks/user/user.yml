@@ -73,8 +73,6 @@
             scope: global
             value: "{{ item.value }}"
           with_items:
-            - { key: "user.name",            value: "{{ git.user.name }}" }
-            - { key: "user.email",           value: "{{ git.user.email }}" }
             - { key: "user.useConfigOnly",   value: true }
             - { key: "commit.template",      value: ~/.gitmessage }
             - { key: "alias.ggrep",          value: "grep --break --heading --line-number" }
@@ -114,10 +112,21 @@
     - { src : "files/gitmessage",    dst : "~/.gitmessage" }
     - { src : "files/tmux.conf",     dst : "~/.tmux.conf" }
     - { src : "files/vimrc",         dst : "~/.vimrc" }
-    - { src : "files/zshenv",        dst : "~/.zshenv" }
     - { src : "files/zprofile",      dst : "~/.zprofile" }
-    - { src : "files/zshrc",         dst : "~/.zshrc" }
+    - { src : "files/zpull",         dst : "~/bin/zpull" }
+    - { src : "files/zpush",         dst : "~/bin/zpush" }
     - { src : "files/zsh-shortcuts", dst : "~/bin/zsh-shortcuts" }
+    - { src : "files/zshenv",        dst : "~/.zshenv" }
+    - { src : "files/zshrc",         dst : "~/.zshrc" }
+
+- name: Changing Files To Executable
+  file:
+    dest: "{{ item.dst }}"
+    mode: a+x
+  with_items:
+    - { dst : "~/bin/zpull" }
+    - { dst : "~/bin/zpush" }
+    - { dst : "~/bin/zsh-shortcuts" }
 
 - name: Creating pet snippet
   assemble:

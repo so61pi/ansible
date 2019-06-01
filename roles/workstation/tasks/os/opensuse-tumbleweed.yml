@@ -63,6 +63,7 @@
           - kdevelop5
           - kdevelop5-plugin-clang-tidy
           - kdevelop5-plugin-python3
+          - keepassxc
           - kolourpaint
           - libboost_headers-devel
           - libqt5-creator
@@ -139,3 +140,11 @@
         force: no
       with_items:
         - { src : "files/journal-storage.conf", dst : "/etc/systemd/journald.conf.d/00-journal-storage.conf" }
+        - { src : "files/sys-upgrade",          dst : "/usr/local/bin/sys-upgrade" }
+
+    - name: Changing Files To Executable
+      file:
+        dest: "{{ item.dst }}"
+        mode: a+x
+      with_items:
+        - { dst : "/usr/local/bin/sys-upgrade" }

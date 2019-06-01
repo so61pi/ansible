@@ -1,5 +1,14 @@
-# rsync --dry-run --delete --archive --recursive --progress --verbose srcdir/ dstdir
-# rsync --delete --archive --recursive --progress --verbose srcdir/ dstdir
+[[snippets]]
+  description = "copy directory and delete extraneous files from dest dirs"
+  command = "rsync --dry-run --delete --archive --recursive --progress --verbose <src=srcdir/> <dst=dstdir>"
+  tag = ["rsync"]
+  output = ""
+
+[[snippets]]
+  description = "merge directory to directory"
+  command = "rsync --dry-run --archive --recursive --progress --verbose <src=srcdir/> <dst=dstdir>"
+  tag = ["rsync"]
+  output = ""
 
 # find dir/ -type f -name '*.log'
 # find dir/ -type f -name '.*'

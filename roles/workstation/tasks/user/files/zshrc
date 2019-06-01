@@ -104,6 +104,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cdw="cd ~/work/"
 alias cdp="cd ~/work/programming/projects/"
+alias cds="cd ~/work/programming/sources/"
 alias b=bat
 alias c=cat
 
@@ -126,5 +127,9 @@ setopt      auto_cd                     # Enable auto cd.
 setopt      auto_pushd                  # Auto push current directory each time you cd
 unsetopt    share_history               # Disable share history across terminals.
 bindkey -e                              # Emacs mode.
+
+# Load key bindings for fzf.
+# http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions
+autoload fzf-key-bindings; fzf-key-bindings
 
 [ -f ~/.pet.zsh ] && source ~/.pet.zsh

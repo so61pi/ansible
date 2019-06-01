@@ -1,0 +1,75 @@
+# strace
+# perf
+# bitbake
+
+[[snippets]]
+  description = "view kernel command line"
+  command = "cat /proc/cmdline"
+  tag = ["cat"]
+  output = ""
+
+[[snippets]]
+  description = "view cpu information"
+  command = "cat /proc/cpuinfo"
+  tag = ["cat"]
+  output = ""
+
+[[snippets]]
+  description = "view memory information"
+  command = "cat /proc/meminfo"
+  tag = ["cat"]
+  output = ""
+
+[[snippets]]
+  description = "view system uptime"
+  command = "cat /proc/uptime"
+  tag = ["cat"]
+  output = ""
+
+[[snippets]]
+  description = "view linux version"
+  command = "cat /proc/version"
+  tag = ["cat"]
+  output = ""
+
+[[snippets]]
+  description = "view virtual memory information"
+  command = "cat /proc/vmstat"
+  tag = ["cat"]
+  output = ""
+
+[[snippets]]
+  description = "view users"
+  command = "cat /etc/passwd"
+  tag = ["cat"]
+  output = ""
+
+[[snippets]]
+  description = "view groups"
+  command = "cat /etc/group"
+  tag = ["cat"]
+  output = ""
+
+[[snippets]]
+  description = "view shell profile"
+  command = "cat /etc/profile"
+  tag = ["cat"]
+  output = ""
+
+[[snippets]]
+  description = "view hosts/DNS mapping"
+  command = "cat /etc/hosts"
+  tag = ["cat"]
+  output = ""
+
+[[snippets]]
+  description = "view domain name servers"
+  command = "cat /etc/resolv.conf"
+  tag = ["cat"]
+  output = ""
+
+[[snippets]]
+  description = "view current hostname"
+  command = "cat /etc/hostname"
+  tag = ["cat"]
+  output = ""
