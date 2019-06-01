@@ -108,13 +108,13 @@
     force: no
   with_items:
     - { src : "files/commands",      dst : "~/commands" }
+    - { src : "files/gapull",        dst : "~/bin/gapull" }
+    - { src : "files/gapush",        dst : "~/bin/gapush" }
     - { src : "files/gdbinit",       dst : "~/.gdbinit" }
     - { src : "files/gitmessage",    dst : "~/.gitmessage" }
     - { src : "files/tmux.conf",     dst : "~/.tmux.conf" }
     - { src : "files/vimrc",         dst : "~/.vimrc" }
     - { src : "files/zprofile",      dst : "~/.zprofile" }
-    - { src : "files/zpull",         dst : "~/bin/zpull" }
-    - { src : "files/zpush",         dst : "~/bin/zpush" }
     - { src : "files/zsh-shortcuts", dst : "~/bin/zsh-shortcuts" }
     - { src : "files/zshenv",        dst : "~/.zshenv" }
     - { src : "files/zshrc",         dst : "~/.zshrc" }
@@ -124,8 +124,8 @@
     dest: "{{ item.dst }}"
     mode: a+x
   with_items:
-    - { dst : "~/bin/zpull" }
-    - { dst : "~/bin/zpush" }
+    - { dst : "~/bin/gapull" }
+    - { dst : "~/bin/gapush" }
     - { dst : "~/bin/zsh-shortcuts" }
 
 - name: Creating pet snippet
