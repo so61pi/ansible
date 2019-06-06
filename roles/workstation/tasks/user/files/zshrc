@@ -60,6 +60,9 @@ ENABLE_CORRECTION="true"
 # Auto start tmux
 ZSH_TMUX_AUTOSTART="true"
 
+autoload -U select-word-style
+select-word-style bash
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -69,6 +72,9 @@ plugins=(
   bgnotify
   tmux
   zsh-autosuggestions
+
+  # zsh-syntax-highlighting must be at the end of plugin list
+  # https://github.com/zsh-users/zsh-syntax-highlighting#why-must-zsh-syntax-highlightingzsh-be-sourced-at-the-end-of-the-zshrc-file
   zsh-syntax-highlighting
 )
 
