@@ -2,8 +2,11 @@ build-opensuse-tumbleweed:
   stage: build
   image: opensuse/tumbleweed
   script:
-    - zypper --non-interactive install git make python python-xml python-urllib3 ansible
-    - mkdir ~/Documents ~/Downloads
-    - make env
-    - make CICD=1 system-opensuse-tumbleweed
-    - make CICD=1 system-opensuse-tumbleweed
+    - env
+    - zypper --non-interactive install sudo git make python python-xml python-urllib3 ansible
+    - echo "root:r00T15243" | chpasswd
+    - useradd -g users -m -s /bin/bash -u 1000 worker
+    - su -l -c "mkdir ~/Documents ~/Downloads" - worker
+    - su -l -c "cd $CI_PROJECT_DIR && make env" - worker
+    - su -l -c "cd $CI_PROJECT_DIR && make CICD=1 system-opensuse-tumbleweed" - worker
+    - su -l -c "cd $CI_PROJECT_DIR && make CICD=1 system-opensuse-tumbleweed" - worker
