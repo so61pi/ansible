@@ -53,11 +53,11 @@
 
 - name: Downloading FireFox And ThunderBird
   block:
-    - command: wget -O firefox.tar.bz2 "{{ urls.mozilla.firefox }}"
+    - command: wget -O firefox.tar.bz2 https://download.mozilla.org/?product=firefox-nightly-latest-ssl&os=linux64&lang=en-US
       args:
         chdir: ~/work/tools
         creates: firefox.tar.bz2
-    - command: wget -O thunderbird.tar.bz2 "{{ urls.mozilla.thunderbird }}"
+    - command: wget -O thunderbird.tar.bz2 https://download.mozilla.org/?product=thunderbird-beta-latest-SSL&os=linux64&lang=en-US
       args:
         chdir: ~/work/tools
         creates: thunderbird.tar.bz2
@@ -101,6 +101,18 @@
     - shell: curl https://sh.rustup.rs -sSf | sh -s -- -y
     - shell: ". ~/.cargo/env && rustup component add clippy rustfmt"
 
+- name: Installing vscode Extensions
+  command: code --install-extension "{{ item }}"
+  with_items:
+    - bungcip.better-toml
+    - eamodio.gitlens
+    - lextudio.restructuredtext
+    - ms-python.python
+    - ms-vscode.Go
+    - PeterJausovec.vscode-docker
+    - rust-lang.rust
+    - vscode-icons-team.vscode-icons
+
 - name: Copying Files
   copy:
     src: "{{ item.src }}"
@@ -121,12 +133,12 @@
 
 - name: Changing Files To Executable
   file:
-    dest: "{{ item.dst }}"
+    dest: "{{ item }}"
     mode: a+x
   with_items:
-    - { dst : "~/bin/gapull" }
-    - { dst : "~/bin/gapush" }
-    - { dst : "~/bin/zsh-shortcuts" }
+    - ~/bin/gapull
+    - ~/bin/gapush
+    - ~/bin/zsh-shortcuts
 
 - name: Creating pet snippet
   assemble:

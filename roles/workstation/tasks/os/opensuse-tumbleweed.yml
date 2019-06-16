@@ -12,7 +12,7 @@
       block:
         - zypper_repository:
             name: packman
-            repo: "{{ urls.opensuse.tumbleweed.packman }}"
+            repo: https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/
             priority: 90
             state: present
             auto_import_keys: true
@@ -33,6 +33,17 @@
             state: present
             runrefresh: true
 
+    - name: Adding VSCode Repository
+      block:
+        - rpm_key:
+            key: https://packages.microsoft.com/keys/microsoft.asc
+            state: present
+        - zypper_repository:
+            name: vscode
+            repo: https://packages.microsoft.com/yumrepos/vscode
+            state: present
+            runrefresh: true
+
     - name: Installing Packages
       zypper:
         state: present
@@ -44,6 +55,7 @@
           - clang-checker
           - clang-devel
           - cmake
+          - code
           - curl
           - docker
           - docker-compose
@@ -60,6 +72,7 @@
           - go-doc
           - htop
           - inkscape
+          - kalgebra
           - kdevelop5
           - kdevelop5-plugin-clang-tidy
           - kdevelop5-plugin-python3
@@ -86,17 +99,19 @@
           - speedcrunch
           - sublime-text
           - thunderbird
+          - trace-cmd
           - tree
           - unzip
           - valgrind
           - vlc
           - wget
-          - yakuake
+          - wireshark
+          - yast2-docker
+          - yast2-vm
           - zsh
-          # - cargo
-          # - rust
           # - vagrant
           # - virtualbox
+          # - yakuake
 
     - name: Adding User To Groups
       user:
@@ -144,7 +159,7 @@
 
     - name: Changing Files To Executable
       file:
-        dest: "{{ item.dst }}"
+        dest: "{{ item }}"
         mode: a+x
       with_items:
-        - { dst : "/usr/local/bin/sys-upgrade" }
+        - /usr/local/bin/sys-upgrade

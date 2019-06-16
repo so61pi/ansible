@@ -1,8 +1,1 @@
 ---
-urls:
-  mozilla:
-    firefox: https://download.mozilla.org/?product=firefox-nightly-latest-ssl&os=linux64&lang=en-US
-    thunderbird: https://download.mozilla.org/?product=thunderbird-beta-latest-SSL&os=linux64&lang=en-US
-  opensuse:
-    tumbleweed:
-      packman: https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/
