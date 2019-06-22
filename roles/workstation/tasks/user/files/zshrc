@@ -57,8 +57,8 @@ ENABLE_CORRECTION="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-# Auto start tmux
-ZSH_TMUX_AUTOSTART="true"
+# Auto start tmux.
+# ZSH_TMUX_AUTOSTART="true"
 
 autoload -U select-word-style
 select-word-style bash
