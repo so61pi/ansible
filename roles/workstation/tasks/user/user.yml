@@ -107,9 +107,9 @@
     - bungcip.better-toml
     - eamodio.gitlens
     - lextudio.restructuredtext
+    - ms-azuretools.vscode-docker
     - ms-python.python
     - ms-vscode.Go
-    - PeterJausovec.vscode-docker
     - rust-lang.rust
     - vscode-icons-team.vscode-icons
 
@@ -124,6 +124,7 @@
     - { src : "files/gapush",        dst : "~/bin/gapush" }
     - { src : "files/gdbinit",       dst : "~/.gdbinit" }
     - { src : "files/gitmessage",    dst : "~/.gitmessage" }
+    - { src : "files/pet.zsh",       dst : "~/.pet.zsh" }
     - { src : "files/tmux.conf",     dst : "~/.tmux.conf" }
     - { src : "files/vimrc",         dst : "~/.vimrc" }
     - { src : "files/zprofile",      dst : "~/.zprofile" }
