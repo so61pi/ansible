@@ -154,6 +154,7 @@
         dest: "{{ item.dst }}"
         force: no
       with_items:
+        - { src : "files/fzf-key-bindings",     dst : "/etc/zsh_completion.d/fzf-key-bindings" }
         - { src : "files/journal-storage.conf", dst : "/etc/systemd/journald.conf.d/00-journal-storage.conf" }
         - { src : "files/sys-upgrade",          dst : "/usr/local/bin/sys-upgrade" }
 

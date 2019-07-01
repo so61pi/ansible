@@ -8,6 +8,7 @@ endif
 system-opensuse-tumbleweed:
 	ANSIBLE_CONFIG=ansible.cfg ansible-playbook -vvv $(ANSIBLEEX) --extra-vars target_system=opensuse-tumbleweed site.yml
 	tree -a -p -u -g -L 1 ~
+	tree -a -p -u -g -L 4 ~/.config
 	tree -a -p -u -g -L 4 ~/work
 	tree -a -p -u -g -L 2 /root
 

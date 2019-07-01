@@ -70,7 +70,7 @@ select-word-style bash
 plugins=(
   git
   bgnotify
-  tmux
+  # tmux
   zsh-autosuggestions
 
   # zsh-syntax-highlighting must be at the end of plugin list

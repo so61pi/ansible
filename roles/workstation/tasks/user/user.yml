@@ -141,8 +141,7 @@
     - ~/bin/gapush
     - ~/bin/zsh-shortcuts
 
-- name: Creating pet snippet
+- name: Creating pet Snippet
   assemble:
-    remote_src: False
-    src: files/pet-snippet/
+    src: files/pet-snippet
     dest: ~/.config/pet/snippet.toml
