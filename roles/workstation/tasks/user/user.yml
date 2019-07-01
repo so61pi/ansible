@@ -143,5 +143,6 @@
 
 - name: Creating pet Snippet
   assemble:
-    src: files/pet-snippet
+    remote_src: no
+    src: files/pet-snippet/
     dest: ~/.config/pet/snippet.toml
