@@ -120,6 +120,7 @@
         groups: "{{ item }}"
         append: yes
       with_items:
+        - dialout
         - docker
         - kvm
 
