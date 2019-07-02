@@ -83,6 +83,7 @@
           - lighttpd
           - make
           - ncdu
+          - okteta
           - okular
           - openssh
           - perf
@@ -105,7 +106,7 @@
           - valgrind
           - vlc
           - wget
-          - wireshark
+          - wireshark-ui-qt
           - yast2-docker
           - yast2-vm
           - zsh
