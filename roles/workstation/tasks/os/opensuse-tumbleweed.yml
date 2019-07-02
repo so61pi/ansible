@@ -114,16 +114,6 @@
           # - virtualbox
           # - yakuake
 
-    - name: Adding User To Groups
-      user:
-        name: "{{ ansible_user }}"
-        groups: "{{ item }}"
-        append: yes
-      with_items:
-        - dialout
-        - docker
-        - kvm
-
     - name: Updating All Packages To Latest
       zypper:
         name: "*"
@@ -134,6 +124,22 @@
         name: "*"
         state: dist-upgrade
         extra_args: "--no-allow-vendor-change --allow-arch-change"
+
+    - name: Adding User To Groups
+      user:
+        name: "{{ ansible_user }}"
+        groups: "{{ item }}"
+        append: yes
+      with_items:
+        - dialout
+        - docker
+        - kvm
+
+    - name: Enabling docker Service
+      systemd:
+        name: docker
+        enabled: yes
+        masked: no
 
     - name: Changing sysctl
       sysctl:
