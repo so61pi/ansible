@@ -1,10 +1,10 @@
 #!/bin/sh
 
 for dir in *; do
-	if [ -d "$dir" ]; then
-		echo "***** pushing $dir"
-		git -C "$dir" push
-		git -C "$dir" push all || true
-		echo
-	fi
+    if [ -d "$dir" ] && git -C "$dir" status &> /dev/null; then
+        echo "***** pushing $dir"
+        git -C "$dir" push
+        git -C "$dir" push all || true
+        echo
+    fi
 done
