@@ -111,7 +111,7 @@
           - yast2-vm
           - zsh
           # - vagrant
-          # - virtualbox
+          # - virtualbox-qt
           # - yakuake
 
     - name: Updating All Packages To Latest
