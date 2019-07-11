@@ -76,6 +76,7 @@
           - kdevelop5
           - kdevelop5-plugin-clang-tidy
           - kdevelop5-plugin-python3
+          - kdiff3
           - keepassxc
           - kolourpaint
           - libboost_headers-devel
@@ -99,6 +100,7 @@
           - socat
           - speedcrunch
           - sublime-text
+          - systemd-container
           - thunderbird
           - trace-cmd
           - tree
