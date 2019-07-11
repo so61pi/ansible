@@ -106,6 +106,7 @@
           - tree
           - unzip
           - valgrind
+          - virtualbox-qt
           - vlc
           - wget
           - wireshark-ui-qt
@@ -113,7 +114,6 @@
           - yast2-vm
           - zsh
           # - vagrant
-          # - virtualbox-qt
           # - yakuake
 
     - name: Updating All Packages To Latest
@@ -136,6 +136,7 @@
         - dialout
         - docker
         - kvm
+        - vboxusers
 
     # - name: Enabling docker Service
     #   systemd:
