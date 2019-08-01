@@ -76,6 +76,8 @@
             - { key: "user.useConfigOnly",   value: true }
             - { key: "commit.template",      value: ~/.gitmessage }
             - { key: "alias.ggrep",          value: "grep --break --heading --line-number" }
+            - { key: "pull.rebase",          value: true }
+            - { key: "rebase.autoStash",     value: true }
             - { key: "oh-my-zsh.hide-dirty", value: 1 }
       when: not p.stat.exists
 
