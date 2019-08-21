@@ -111,6 +111,7 @@ source $ZSH/oh-my-zsh.sh
 alias cdw="cd ~/work/"
 alias cdp="cd ~/work/programming/projects/"
 alias cds="cd ~/work/programming/sources/"
+function cdroot() { cd "$(git rev-parse --show-toplevel)" }
 alias b=bat
 alias c=cat
 
