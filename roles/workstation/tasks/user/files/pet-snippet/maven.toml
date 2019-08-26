@@ -1,0 +1,35 @@
+[[snippets]]
+  description = "clean all generated files"
+  command = "mvn clean"
+  tag = ["maven"]
+  output = ""
+
+[[snippets]]
+  description = "clean all generated files then compile and install packages to local repository"
+  command = "mvn clean install"
+  tag = ["maven"]
+  output = ""
+
+[[snippets]]
+  description = "run all tests"
+  command = "mvn test"
+  tag = ["maven"]
+  output = ""
+
+[[snippets]]
+  description = "start tomcat"
+  command = "mvn tomcat7:run"
+  tag = ["maven"]
+  output = ""
+
+[[snippets]]
+  description = "start tomcat in debug mode for remote debugging"
+  command = "mvnDebug tomcat7:run"
+  tag = ["maven"]
+  output = ""
+
+[[snippets]]
+  description = "run a test method in debugging mode"
+  command = "mvn -Dmaven.surefire.debug -Dtest=TestClass#testMethod test"
+  tag = ["maven"]
+  output = ""

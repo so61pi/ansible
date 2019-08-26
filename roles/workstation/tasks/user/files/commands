@@ -199,6 +199,13 @@ print -s "go fmt ./..."
 print -s "go run"
 print -s "go vet ./..."
 
+print -s "mvn clean"
+print -s "mvn clean install"
+print -s "mvn test"
+print -s "mvn tomcat7:run"
+print -s "mvnDebug tomcat7:run"
+print -s "mvn -Dmaven.surefire.debug -Dtest=TestClass#testMethod test"
+
 print -s "g++ -std=c++17 -Wall -Wextra -Werror -O3 -pedantic -pthread -o main main.cpp"
 print -s "g++ -S main.cpp"
 
