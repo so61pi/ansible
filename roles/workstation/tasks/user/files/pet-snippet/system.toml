@@ -69,3 +69,39 @@
   command = "uptime"
   tag = ["system"]
   output = ""
+
+[[snippets]]
+  description = "show disk io"
+  command = "sudo iotop"
+  tag = ["system"]
+  output = ""
+
+[[snippets]]
+  description = "show network io per host name"
+  command = "sudo iftop"
+  tag = ["system"]
+  output = ""
+
+[[snippets]]
+  description = "show network io per process"
+  command = "sudo nethogs"
+  tag = ["system"]
+  output = ""
+
+[[snippets]]
+  description = "show devices and partitions io"
+  command = "iostat -d 1"
+  tag = ["system"]
+  output = ""
+
+[[snippets]]
+  description = "show system io"
+  command = "dstat -f"
+  tag = ["system"]
+  output = ""
+
+[[snippets]]
+  description = "show traces of the io traffic on block devices"
+  command = "btrace /dev/sda"
+  tag = ["system"]
+  output = ""

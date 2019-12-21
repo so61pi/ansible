@@ -49,6 +49,7 @@
         state: present
         name:
           - bat
+          - blktrace
           - bzip2
           - chromium
           - clang
@@ -59,6 +60,7 @@
           - curl
           - docker
           - docker-compose
+          - dstat
           - fd
           - ffmpeg
           - filezilla
@@ -71,7 +73,9 @@
           - go
           - go-doc
           - htop
+          - iftop
           - inkscape
+          - iotop
           - kalgebra
           - kdevelop5
           - kdevelop5-plugin-clang-tidy
@@ -84,6 +88,7 @@
           - lighttpd
           - make
           - ncdu
+          - nethogs
           - okteta
           - okular
           - openssh
@@ -100,6 +105,7 @@
           - socat
           - speedcrunch
           - sublime-text
+          - sysstat
           - systemd-container
           - thunderbird
           - trace-cmd
