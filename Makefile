@@ -1,5 +1,5 @@
 ifdef CICD
-ANSIBLEEX := -e "ansible_sudo_pass=r00T15243"
+ANSIBLEEX := -e "ansible_become_password=r00T15243"
 else
 ANSIBLEEX := --ask-become-pass
 endif
