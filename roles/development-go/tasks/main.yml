@@ -1,0 +1,28 @@
+---
+- name: Setting Up go Packages
+  become: true
+  become_user: root
+  block:
+    - name: Refreshing Repository
+      zypper_repository:
+        repo: '*'
+        runrefresh: true
+
+    - name: Installing Packages
+      zypper:
+        state: present
+        name:
+          - go
+          - go-doc
+
+- name: Creating Directory Structure
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - ~/go
+
+- name: Installing vscode Extensions
+  command: code --install-extension "{{ item }}"
+  with_items:
+    - ms-vscode.Go

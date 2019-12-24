@@ -1,0 +1,7 @@
+print -s "wget https://example.com/"
+print -s "wget -O example.html https://example.com/"
+print -s "wget -i links.txt"
+print -s "curl https://example.com/"
+print -s "curl -o example.html https://example.com/"
+print -s "curl --proxy yourproxy:port https://example.com/"
+print -s "curl --location https://example.com/"

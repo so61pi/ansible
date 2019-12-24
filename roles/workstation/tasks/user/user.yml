@@ -4,12 +4,10 @@
     path: "{{ item }}"
     state: directory
   with_items:
-    - ~/.cargo/bin
     - ~/.config/pet
     - ~/.local/bin
     - ~/.ssh
     - ~/bin
-    - ~/go
     - ~/work/media/images
     - ~/work/media/videos
     - ~/work/others
@@ -20,27 +18,15 @@
     - ~/work/vms
     - ~/work/warehouse
 
-- name: Touching Files
-  copy:
-    content: ""
-    dest: "{{ item }}"
-    force: no
-    mode: 0600
-  with_items:
-    - ~/.cargo/config
-    - ~/.ssh/config
-    - ~/.curlrc
-    - ~/.wgetrc
-
-- name: Moving ~/Downloads And ~/Documents
+- name: Creating ~/work/{documents, downloads}
   block:
     - name: Moving Files
       command: mv "{{ item.src }}" "{{ item.dst }}"
       args:
         creates: "{{ item.dst }}"
       with_items:
-        - { src : "~/Documents", dst : "~/work/documents" }
-        - { src : "~/Downloads", dst : "~/work/downloads" }
+        - { src: "~/Documents", dst: "~/work/documents" }
+        - { src: "~/Downloads", dst: "~/work/downloads" }
 
     - name: Creating Symlinks
       file:
@@ -48,38 +34,21 @@
         dest: "{{ item.symlink }}"
         state: link
       with_items:
-        - { src : "~/work/documents", symlink : "~/Documents" }
-        - { src : "~/work/downloads", symlink : "~/Downloads" }
-
+        - { src: "~/work/documents", symlink: "~/Documents" }
+        - { src: "~/work/downloads", symlink: "~/Downloads" }
+  
 - name: Downloading FireFox And ThunderBird
   block:
     - command: wget -O firefox.tar.bz2 https://download.mozilla.org/?product=firefox-nightly-latest-ssl&os=linux64&lang=en-US
       args:
         chdir: ~/work/tools
         creates: firefox.tar.bz2
+      when: download_firefox | bool
     - command: wget -O thunderbird.tar.bz2 https://download.mozilla.org/?product=thunderbird-beta-latest-SSL&os=linux64&lang=en-US
       args:
         chdir: ~/work/tools
         creates: thunderbird.tar.bz2
-
-- name: Configuring Git
-  block:
-    - stat:
-        path: ~/.gitconfig
-      register: p
-    - block:
-        - git_config:
-            name: "{{ item.key }}"
-            scope: global
-            value: "{{ item.value }}"
-          with_items:
-            - { key: "user.useConfigOnly",   value: true }
-            - { key: "commit.template",      value: ~/.gitmessage }
-            - { key: "alias.ggrep",          value: "grep --break --heading --line-number" }
-            - { key: "pull.rebase",          value: true }
-            - { key: "rebase.autoStash",     value: true }
-            - { key: "oh-my-zsh.hide-dirty", value: 1 }
-      when: not p.stat.exists
+      when: download_thunderbird | bool
 
 - name: Oh-My-Zsh
   block:
@@ -98,21 +67,6 @@
       become: true
       become_user: root
 
-- name: Installing rust
-  block:
-    - shell: curl https://sh.rustup.rs -sSf | sh -s -- -y
-    - shell: ". ~/.cargo/env && rustup component add clippy rustfmt"
-
-# --force is used because without it and the package is already installed,
-# cargo will return error.
-- name: Installing cargo third-party Subcommands
-  shell: ". ~/.cargo/env && cargo install --force {{ item }}"
-  with_items:
-    - cargo-audit
-    - cargo-deps
-    - cargo-expand
-    - cargo-release
-
 - name: Installing vscode Extensions
   command: code --install-extension "{{ item }}"
   with_items:
@@ -121,40 +75,29 @@
     - lextudio.restructuredtext
     - ms-azuretools.vscode-docker
     - ms-python.python
-    - ms-vscode.Go
-    - rust-lang.rust
     - vscode-icons-team.vscode-icons
 
 - name: Copying Files
-  copy:
+  template:
     src: "{{ item.src }}"
     dest: "{{ item.dst }}"
-    force: no
+    mode: "{{ item.mode | default('0644') }}"
   with_items:
-    - { src : "files/commands",      dst : "~/commands" }
-    - { src : "files/gapull",        dst : "~/bin/gapull" }
-    - { src : "files/gapush",        dst : "~/bin/gapush" }
-    - { src : "files/gdbinit",       dst : "~/.gdbinit" }
-    - { src : "files/gitmessage",    dst : "~/.gitmessage" }
-    - { src : "files/pet.zsh",       dst : "~/.pet.zsh" }
-    - { src : "files/tmux.conf",     dst : "~/.tmux.conf" }
-    - { src : "files/vimrc",         dst : "~/.vimrc" }
-    - { src : "files/zprofile",      dst : "~/.zprofile" }
-    - { src : "files/zsh-shortcuts", dst : "~/bin/zsh-shortcuts" }
-    - { src : "files/zshenv",        dst : "~/.zshenv" }
-    - { src : "files/zshrc",         dst : "~/.zshrc" }
-
-- name: Changing Files To Executable
-  file:
-    dest: "{{ item }}"
-    mode: a+x
-  with_items:
-    - ~/bin/gapull
-    - ~/bin/gapush
-    - ~/bin/zsh-shortcuts
-
-- name: Creating pet Snippet
-  assemble:
-    remote_src: no
-    src: files/pet-snippet/
-    dest: ~/.config/pet/snippet.toml
+    - { src: "files/commands.sh.j2", dst: "~/commands.sh"      , mode: 'a+x' }
+    - { src: "files/gapull"        , dst: "~/bin/gapull"       , mode: 'a+x' }
+    - { src: "files/gapush"        , dst: "~/bin/gapush"       , mode: 'a+x' }
+    - { src: "files/zsh-shortcuts" , dst: "~/bin/zsh-shortcuts", mode: 'a+x' }
+    - { src: "files/ssh-config"    , dst: "~/.ssh/config"      , mode: '0600' }
+    - { src: "files/curlrc"              , dst: "~/.curlrc" }
+    - { src: "files/gdbinit"             , dst: "~/.gdbinit" }
+    - { src: "files/gitconfig.j2"        , dst: "~/.gitconfig" }
+    - { src: "files/gitmessage"          , dst: "~/.gitmessage" }
+    - { src: "files/pet-snippets.toml.j2", dst: "~/.config/pet/snippet.toml" }
+    - { src: "files/pet.zsh"             , dst: "~/.pet.zsh" }
+    - { src: "files/psqlrc"              , dst: "~/.psqlrc" }
+    - { src: "files/tmux.conf"           , dst: "~/.tmux.conf" }
+    - { src: "files/vimrc"               , dst: "~/.vimrc" }
+    - { src: "files/wgetrc"              , dst: "~/.wgetrc" }
+    - { src: "files/zprofile"            , dst: "~/.zprofile" }
+    - { src: "files/zshenv"              , dst: "~/.zshenv" }
+    - { src: "files/zshrc"               , dst: "~/.zshrc" }
