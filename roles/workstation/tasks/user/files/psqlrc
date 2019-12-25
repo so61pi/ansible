@@ -1,0 +1,107 @@
+--  https://www.postgresql.org/docs/current/app-psql.html#APP-PSQL-PROMPTING
+--    %M : The full host name (with domain name) of the database server.
+--    %n : The database session user name.
+--    %/ : The name of the current database.
+--    %# : If the session user is a database superuser, then a `#`, otherwise a `>`.
+--    %R
+--      In PROMPT1:
+--        = normally
+--        ^ if in single-line mode
+--        ! if the session is disconnected from the database
+--      In PROMPT2:
+--        the sequence is replaced by -, *, a single quote, a double quote,
+--        or a dollar sign, depending on whether psql expects more input
+--        because the command wasn't terminated yet
+--    %x : Transaction status
+--        an empty string when not in a transaction block
+--        `*` when in a transaction block
+--        `!` when in a failed transaction block
+--        `?` when the transaction state is indeterminate
+--    %l : The line number inside the current statement.
+--    %[ ... %] : Contain terminal control characters.
+--            %[.......%]      %[..........%]  %[.......%]
+\set PROMPT1 '%[%033[1m%]%M %n@%[%033[1;32m%]%/%[%033[0m%]%R%# '
+--                       .. ..               ..           ....
+\set PROMPT2 '[more] %R > '
+
+\set HISTFILE ~/.psql/history- :DBNAME
+
+-- HISTCONTROL
+--    ignorespace: lines which begin with a space are not entered into the history list
+--    ignoredups: lines matching the previous history line are not entered
+--    ignoreboth: ignorespace + ignoredups
+--    none
+\set HISTCONTROL ignoredups
+
+\set HISTSIZE 2000
+
+-- COMP_KEYWORD_CASE: Determines which letter case to use when completing an SQL key word.
+--    lower/upper: completed word will be in lower or upper case
+--    preserve-lower/preserve-upper: the completed word will be in the case of the word already entered,
+--                                   but words being completed without anything entered will be in lower or upper case
+\set COMP_KEYWORD_CASE upper
+
+-- ON_ERROR_ROLLBACK: Whether or not to continue the transaction in case of an error.
+-- Values: on, interactive, off
+\set ON_ERROR_ROLLBACK interactive
+
+\set VERBOSITY verbose
+\set ECHO queries
+-- \set QUIET 0
+
+\pset null '(null)'
+
+-- on / off / always
+\pset pager off
+
+\pset border 2
+
+-- on / off / auto
+\pset expanded auto
+
+-- aligned / asciidoc / csv / html / latex / latex-longtable / troff-ms / unaligned / wrapped
+\pset format aligned
+
+-- ascii / old-ascii / unicode
+\pset linestyle unicode
+
+\pset unicode_border_linestyle double
+\pset unicode_column_linestyle single
+\pset unicode_header_linestyle single
+
+-- Turns displaying of how long each SQL statement takes on.
+\timing
+
+\set clear '\\! clear;'
+
+\echo '\nCurrent Host Server Date Time : '`date` '\n'
+\echo 'Administrative queries:\n'
+\echo '\t:settings\t-- Server Settings'
+
+\set conninfo 'SELECT now() - backend_start AS opentime FROM pg_stat_activity where pid = pg_backend_pid();'
+\set conncount 'SELECT usename, count(*) AS connections FROM pg_stat_activity group by usename ORDER BY connections DESC;'
+\set connall 'SELECT usename, backend_start AS from, now() - backend_start AS opentime FROM pg_stat_activity ORDER BY opentime DESC;'
+
+\set uptime 'select now() - pg_postmaster_start_time() AS uptime;'
+
+\set dbsize 'SELECT datname AS dbname, pg_size_pretty(pg_database_size(datname)) AS size FROM pg_database ORDER BY pg_database_size(datname) DESC;'
+
+\set tablesize 'SELECT tablename AS table, pg_size_pretty(pg_total_relation_size(tablename)) AS "total-size", pg_size_pretty(pg_table_size(tablename)) AS "size-without-indexes", pg_size_pretty(pg_indexes_size(tablename)) AS "indexes-size" FROM (SELECT tablename::regclass FROM pg_tables where schemaname = ''public'') AS tablename ORDER BY pg_total_relation_size(tablename) DESC;'
+
+\set seqscans 'SELECT relname AS table, seq_scan AS "seq-scans" FROM pg_stat_user_tables ORDER BY seq_scan DESC;'
+
+\set queryinfo 'SELECT total_time AS total, (total_time / calls) AS average, query FROM pg_stat_statements ORDER BY average DESC LIMIT 100;'
+
+\set settings 'SELECT name, setting, unit, context FROM pg_settings;'
+
+???
+\set activity 'SELECT datname, pid, usename, query, state FROM pg_stat_activity ORDER BY datname, usename;'
+
+waits
+'SELECT pg_stat_activity.pid, pg_stat_activity.query, pg_stat_activity.wait_event_type, pg_stat_activity.wait_event, now() - pg_stat_activity.query_start AS \"totaltime\", pg_stat_activity.backend_start FROM pg_stat_activity WHERE pg_stat_activity.query !~ \'%IDLE%\'::text AND pg_stat_activity.wait_event IS NOT NULL;
+
+\set locks  'SELECT bl.pid AS blocked_pid, a.usename AS blocked_user, kl.pid AS blocking_pid, ka.usename AS blocking_user, a.query AS blocked_statement FROM pg_catalog.pg_locks bl JOIN pg_catalog.pg_stat_activity a ON bl.pid = a.pid JOIN pg_catalog.pg_locks kl JOIN pg_catalog.pg_stat_activity ka ON kl.pid = ka.pid ON bl.transactionid = kl.transactionid AND bl.pid != kl.pid WHERE NOT bl.granted;'
+
+\set cache_hit 'SELECT ''index hit rate'' as name, (sum(idx_blks_hit)) / sum(idx_blks_hit + idx_blks_read) as ratio FROM pg_statio_user_indexes union all SELECT ''cache hit rate'' as name, sum(heap_blks_hit) / (sum(heap_blks_hit) + sum(heap_blks_read)) as ratio FROM pg_statio_user_tables;'
+
+\set blocking 'select bl.pid as blocked_pid, ka.query as blocking_statement, now() - ka.query_start as blocking_duration, kl.pid as blocking_pid, a.query as blocked_statement, now() - a.query_start as blocked_duration from pg_catalog.pg_locks bl join pg_catalog.pg_stat_activity a on bl.pid = a.pid join pg_catalog.pg_locks kl join pg_catalog.pg_stat_activity ka on kl.pid = ka.pid on bl.transactionid = kl.transactionid and bl.pid != kl.pid where not bl.granted;'
