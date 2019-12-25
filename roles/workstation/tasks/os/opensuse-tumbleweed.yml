@@ -146,8 +146,9 @@
     - name: Enabling docker Service
       systemd:
         name: docker
-        enabled: "{{ service_docker_enable | mandatory }}"
+        enabled: yes
         masked: no
+      when: service_docker_enable | bool
 
     - name: Changing sysctl
       sysctl:
