@@ -3,6 +3,6 @@
   roles:
   - workstation
   - development-rust
-  # - development-go
+  - development-go
   vars_files:
     - vars.yml
