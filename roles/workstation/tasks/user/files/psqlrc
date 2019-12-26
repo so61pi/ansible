@@ -81,6 +81,7 @@
 \set db_size 'SELECT datname AS dbname, pg_size_pretty(pg_database_size(datname)) AS size FROM pg_database ORDER BY pg_database_size(datname) DESC;'
 \set db_tablesize 'SELECT tablename AS table, pg_size_pretty(pg_total_relation_size(tablename)) AS total_size, pg_size_pretty(pg_table_size(tablename)) AS size_without_indexes, pg_size_pretty(pg_indexes_size(tablename)) AS indexes_size FROM (SELECT tablename::regclass FROM pg_tables where schemaname = ''public'') AS tablename ORDER BY pg_total_relation_size(tablename) DESC;'
 \set db_seqscans 'SELECT relname AS table, seq_scan AS seq_scans FROM pg_stat_user_tables ORDER BY seq_scan DESC;'
+\set db_indexes 'SELECT tablename, indexname, pg_size_pretty(pg_table_size(indexname::regclass)) FROM pg_indexes ORDER BY pg_table_size(indexname::regclass) DESC LIMIT 10;'
 
 \set query_stats 'SELECT total_time AS total, (total_time / calls) AS average, query FROM pg_stat_statements ORDER BY average DESC LIMIT 100;'
 \set query_activity 'SELECT datname, pid, usename, query, state FROM pg_stat_activity ORDER BY datname, usename;'
