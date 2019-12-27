@@ -8,6 +8,7 @@
 
 ```shell
 make env
+make install-tools
 make system-opensuse-tumbleweed
 ```
 
