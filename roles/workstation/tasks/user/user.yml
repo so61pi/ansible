@@ -8,6 +8,7 @@
     - ~/.local/bin
     - ~/.ssh
     - ~/bin
+    - ~/bin/pet
     - ~/work/media/images
     - ~/work/media/videos
     - ~/work/others
@@ -15,6 +16,8 @@
     - ~/work/programming/sources
     - ~/work/tmp
     - ~/work/tools
+    - ~/work/tools/firefox
+    - ~/work/tools/thunderbird
     - ~/work/vms
     - ~/work/warehouse
 
