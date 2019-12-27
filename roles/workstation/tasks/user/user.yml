@@ -25,8 +25,8 @@
       args:
         creates: "{{ item.dst }}"
       with_items:
-        - { src: "~/Documents", dst: "~/work/documents" }
-        - { src: "~/Downloads", dst: "~/work/downloads" }
+        - { src: ~/Documents, dst: ~/work/documents }
+        - { src: ~/Downloads, dst: ~/work/downloads }
 
     - name: Creating Symlinks
       file:
@@ -34,21 +34,50 @@
         dest: "{{ item.symlink }}"
         state: link
       with_items:
-        - { src: "~/work/documents", symlink: "~/Documents" }
-        - { src: "~/work/downloads", symlink: "~/Downloads" }
+        - { src: ~/work/documents, symlink: ~/Documents }
+        - { src: ~/work/downloads, symlink: ~/Downloads }
   
-- name: Downloading FireFox And ThunderBird
+- name: Downloading Tools
   block:
-    - command: wget -O firefox.tar.bz2 https://download.mozilla.org/?product=firefox-nightly-latest-ssl&os=linux64&lang=en-US
-      args:
-        chdir: ~/work/tools
-        creates: firefox.tar.bz2
-      when: download_firefox | bool
-    - command: wget -O thunderbird.tar.bz2 https://download.mozilla.org/?product=thunderbird-beta-latest-SSL&os=linux64&lang=en-US
-      args:
-        chdir: ~/work/tools
-        creates: thunderbird.tar.bz2
-      when: download_thunderbird | bool
+    - name: Firefox
+      get_url:
+        backup: yes
+        url: https://download.mozilla.org/?product=firefox-nightly-latest-ssl&os=linux64&lang=en-US
+        dest: ~/work/tools/firefox.tar.bz2
+
+    - name: Extracting Firefox
+      unarchive:
+        remote_src: yes
+        src: ~/work/tools/firefox.tar.bz2
+        dest: ~/work/tools/firefox
+        creates: ~/work/tools/firefox
+
+    - name: Thunderbird
+      get_url:
+        backup: yes
+        url: https://download.mozilla.org/?product=thunderbird-beta-latest-SSL&os=linux64&lang=en-US
+        dest: ~/work/tools/thunderbird.tar.bz2
+
+    - name: Extracting Thunderbird
+      unarchive:
+        remote_src: yes
+        src: ~/work/tools/thunderbird.tar.bz2
+        dest: ~/work/tools/thunderbird
+        creates: ~/work/tools/thunderbird
+
+    - name: Pet
+      get_url:
+        backup: yes
+        url: https://github.com/knqyf263/pet/releases/download/v0.3.6/pet_0.3.6_linux_amd64.tar.gz
+        dest: ~/work/tools/pet_0.3.6_linux_amd64.tar.gz
+        checksum: sha256:60f977ec23b219551186edab88264a5a3475663007a3cc0f0873785e603335bb
+
+    - name: Extracting Pet
+      unarchive:
+        remote_src: yes
+        src: ~/work/tools/pet_0.3.6_linux_amd64.tar.gz
+        dest: ~/bin/pet
+        creates: ~/bin/pet
 
 - name: Oh-My-Zsh
   block:
@@ -84,21 +113,21 @@
     dest: "{{ item.dst }}"
     mode: "{{ item.mode | default('0644') }}"
   with_items:
-    - { src: "files/commands.sh.j2", dst: "~/commands.sh"      , mode: 'a+x' }
-    - { src: "files/gapull"        , dst: "~/bin/gapull"       , mode: 'a+x' }
-    - { src: "files/gapush"        , dst: "~/bin/gapush"       , mode: 'a+x' }
-    - { src: "files/zsh-shortcuts" , dst: "~/bin/zsh-shortcuts", mode: 'a+x' }
-    - { src: "files/ssh-config"    , dst: "~/.ssh/config"      , mode: '0600' }
-    - { src: "files/curlrc"              , dst: "~/.curlrc" }
-    - { src: "files/gdbinit"             , dst: "~/.gdbinit" }
-    - { src: "files/gitconfig.j2"        , dst: "~/.gitconfig" }
-    - { src: "files/gitmessage"          , dst: "~/.gitmessage" }
-    - { src: "files/pet-snippets.toml.j2", dst: "~/.config/pet/snippet.toml" }
-    - { src: "files/pet.zsh"             , dst: "~/.pet.zsh" }
-    - { src: "files/psqlrc"              , dst: "~/.psqlrc" }
-    - { src: "files/tmux.conf"           , dst: "~/.tmux.conf" }
-    - { src: "files/vimrc"               , dst: "~/.vimrc" }
-    - { src: "files/wgetrc"              , dst: "~/.wgetrc" }
-    - { src: "files/zprofile"            , dst: "~/.zprofile" }
-    - { src: "files/zshenv"              , dst: "~/.zshenv" }
-    - { src: "files/zshrc"               , dst: "~/.zshrc" }
+    - { src: files/commands.sh.j2 , dst: ~/commands.sh       , mode: a+x }
+    - { src: files/gapull         , dst: ~/bin/gapull        , mode: a+x }
+    - { src: files/gapush         , dst: ~/bin/gapush        , mode: a+x }
+    - { src: files/zsh-shortcuts  , dst: ~/bin/zsh-shortcuts , mode: a+x }
+    - { src: files/ssh-config     , dst: ~/.ssh/config       , mode: 0600 }
+    - { src: files/curlrc               , dst: ~/.curlrc }
+    - { src: files/gdbinit              , dst: ~/.gdbinit }
+    - { src: files/gitconfig.j2         , dst: ~/.gitconfig }
+    - { src: files/gitmessage           , dst: ~/.gitmessage }
+    - { src: files/pet-snippets.toml.j2 , dst: ~/.config/pet/snippet.toml }
+    - { src: files/pet.zsh              , dst: ~/.pet.zsh }
+    - { src: files/psqlrc               , dst: ~/.psqlrc }
+    - { src: files/tmux.conf            , dst: ~/.tmux.conf }
+    - { src: files/vimrc                , dst: ~/.vimrc }
+    - { src: files/wgetrc               , dst: ~/.wgetrc }
+    - { src: files/zprofile             , dst: ~/.zprofile }
+    - { src: files/zshenv               , dst: ~/.zshenv }
+    - { src: files/zshrc                , dst: ~/.zshrc }

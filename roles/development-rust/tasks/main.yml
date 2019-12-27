@@ -8,12 +8,12 @@
 - name: Installing rust
   block:
     - shell: curl https://sh.rustup.rs -sSf | sh -s -- -y
-    - shell: ". ~/.cargo/env && rustup component add clippy rustfmt"
+    - shell: . ~/.cargo/env && rustup component add clippy rustfmt
 
 # --force is used because without it and the package is already installed,
 # cargo will return error.
 - name: Installing cargo third-party Subcommands
-  shell: ". ~/.cargo/env && cargo install --force {{ item }}"
+  shell: . ~/.cargo/env && cargo install --force {{ item }}
   with_items:
     - cargo-audit
     - cargo-deps
@@ -31,4 +31,4 @@
     src: "{{ item.src }}"
     dest: "{{ item.dst }}"
   with_items:
-    - { src: "files/cargo-config", dst: "~/.cargo/config" }
+    - { src: files/cargo-config , dst: ~/.cargo/config }

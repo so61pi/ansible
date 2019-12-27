@@ -156,7 +156,7 @@
         value: "{{ item.value }}"
         state: present
       with_items:
-        - { key : "fs.inotify.max_user_watches", value : 524288 }
+        - { key : fs.inotify.max_user_watches , value : 524288 }
 
     - name: Creating Directories
       file:
@@ -172,18 +172,18 @@
         dest: "{{ item.dst }}"
         mode: "{{ item.mode | default('0644') }}"
       with_items:
-        - { src: "files/fzf-key-bindings"    , dst: "/etc/zsh_completion.d/fzf-key-bindings" }
-        - { src: "files/journal-storage.conf", dst: "/etc/systemd/journald.conf.d/00-journal-storage.conf" }
-        - { src: "files/sys-upgrade"         , dst: "/usr/local/bin/sys-upgrade", mode: 'a+x' }
+        - { src: files/fzf-key-bindings     , dst: /etc/zsh_completion.d/fzf-key-bindings }
+        - { src: files/journal-storage.conf , dst: /etc/systemd/journald.conf.d/00-journal-storage.conf }
+        - { src: files/sys-upgrade          , dst: /usr/local/bin/sys-upgrade", mode: a+x }
 
     - name: Updating sshd Configuration File
       template:
         backup: yes
-        src: "files/sshd-config"
-        dest: "/etc/ssh/sshd_config"
+        src: files/sshd-config
+        dest: /etc/ssh/sshd_config
         owner: root
         group: root
-        mode: '0600'
+        mode: 0600
         validate: '/usr/sbin/sshd -T -f %s'
       notify:
       - restart sshd

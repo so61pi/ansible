@@ -4,6 +4,3 @@ git_user_email: example@example.com
 
 # Cannot enable docker service when running this inside a container.
 service_docker_enable: false
-
-download_firefox: true
-download_thunderbird: true
