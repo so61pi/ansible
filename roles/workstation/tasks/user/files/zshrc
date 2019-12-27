@@ -139,5 +139,6 @@ bindkey -e                              # Emacs mode.
 # Load key bindings for fzf.
 # http://zsh.sourceforge.net/Doc/Release/Functions.html#Autoloading-Functions
 autoload fzf-key-bindings; fzf-key-bindings
+export FZF_DEFAULT_OPTS='--color hl:#ff7700,hl+:#00ffff'
 
 [ -f ~/.pet.zsh ] && source ~/.pet.zsh
