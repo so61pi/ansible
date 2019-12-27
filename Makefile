@@ -12,8 +12,5 @@ system-opensuse-tumbleweed:
 	tree --du -h -a -p -u -g -L 4 ~/work
 	tree --du -h -a -p -u -g -L 2 /root
 
-dry-run:
-	ansible-playbook --check playbook.yml
-
 env:
 	ansible -m setup localhost

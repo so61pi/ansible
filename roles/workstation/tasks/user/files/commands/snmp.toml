@@ -1,0 +1,41 @@
+[[snippets]]
+  description = "get SNMP value"
+  command = "snmpget -v 2c -c public 127.0.0.1 SNMPv2-MIB::sysDescr.0"
+  tag = ["snmp", "network"]
+  output = ""
+
+[[snippets]]
+  description = "walk SNMP tree"
+  command = "snmpwalk -v 2c -c public 127.0.0.1 SNMPv2-MIB::system"
+  tag = ["snmp", "network"]
+  output = ""
+
+[[snippets]]
+  description = "view SNMP table's values"
+  command = "snmptable -v 2c -c public 127.0.0.1 SNMPv2-MIB::sysORTable"
+  tag = ["snmp", "network"]
+  output = ""
+
+[[snippets]]
+  description = "set SNMP value"
+  command = """snmpset -v 2c -c private 127.0.0.1 SNMPv2-MIB::sysLocation.0 s "New Value" """
+  tag = ["snmp", "network"]
+  output = ""
+
+[[snippets]]
+  description = "generate template code for scalar type"
+  command = "mib2c -c mib2c.scalar.conf netSnmpExampleInteger"
+  tag = ["snmp", "network"]
+  output = ""
+
+[[snippets]]
+  description = "generate template code for notification type"
+  command = "mib2c -c mib2c.notify.conf netSnmpExampleHeartbeatNotification"
+  tag = ["snmp", "network"]
+  output = ""
+
+[[snippets]]
+  description = "generate template code for table"
+  command = "mib2c -c mib2c.mfd.conf DirectoryContentTable"
+  tag = ["snmp", "network"]
+  output = ""

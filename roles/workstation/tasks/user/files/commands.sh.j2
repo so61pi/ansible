@@ -1,3 +1,5 @@
+#jinja2: trim_blocks:False
+
 {% include "./commands/btrfs.sh" %}
 {% include "./commands/c++-lang.sh" %}
 {% include "./commands/compression.sh" %}
@@ -7,6 +9,7 @@
 {% include "./commands/network.sh" %}
 {% include "./commands/process.sh" %}
 {% include "./commands/snapper.sh" %}
+{% include "./commands/snmp.sh" %}
 {% include "./commands/ssh.sh" %}
 {% include "./commands/systemd-analyze.sh" %}
 {% include "./commands/systemd-journalctl.sh" %}

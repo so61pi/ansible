@@ -1,3 +1,5 @@
+#jinja2: trim_blocks:False
+
 {% include "./commands/btrfs.toml" %}
 {% include "./commands/c++-lang.toml" %}
 {% include "./commands/compression.toml" %}
@@ -7,6 +9,7 @@
 {% include "./commands/network.toml" %}
 {% include "./commands/process.toml" %}
 {% include "./commands/snapper.toml" %}
+{% include "./commands/snmp.toml" %}
 {% include "./commands/ssh.toml" %}
 {% include "./commands/systemd-analyze.toml" %}
 {% include "./commands/systemd-journalctl.toml" %}

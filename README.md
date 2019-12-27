@@ -8,7 +8,6 @@
 
 ```shell
 make env
-make dry-run
 make system-opensuse-tumbleweed
 ```
 

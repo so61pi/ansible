@@ -1,7 +1,3 @@
-# strace
-# perf
-# bitbake
-
 [[snippets]]
   description = "view kernel command line"
   command = "cat /proc/cmdline"
@@ -72,4 +68,58 @@
   description = "view current hostname"
   command = "cat /etc/hostname"
   tag = ["cat"]
+  output = ""
+
+[[snippets]]
+  description = "trace system calls"
+  command = "strace -c -i -T app"
+  tag = ["debug", "trace"]
+  output = ""
+
+[[snippets]]
+  description = "trace network system calls only"
+  command = "strace -c -i -T -e trace=network app"
+  tag = ["debug", "trace"]
+  output = ""
+
+[[snippets]]
+  description = "trace system calls of child processes"
+  command = "strace -c -i -T -f app"
+  tag = ["debug", "trace"]
+  output = ""
+
+[[snippets]]
+  description = "trace system calls of a running application"
+  command = "strace -c -i -T -p pid"
+  tag = ["debug", "trace"]
+  output = ""
+
+[[snippets]]
+  description = "record your application for reverse execution"
+  command = "rr record app arg0 arg1"
+  tag = ["debug"]
+  output = ""
+
+[[snippets]]
+  description = "debug recorded execution in gdb"
+  command = "rr replay"
+  tag = ["debug"]
+  output = ""
+
+[[snippets]]
+  description = "run perf"
+  command = "xdg-open https://perf.wiki.kernel.org/index.php/Tutorial"
+  tag = ["debug", "perf"]
+  output = ""
+
+[[snippets]]
+  description = "run lldb"
+  command = "xdg-open https://lldb.llvm.org/use/tutorial.html"
+  tag = ["debug", "lldb"]
+  output = ""
+
+[[snippets]]
+  description = "run gdb"
+  command = "xdg-open https://sourceware.org/gdb/onlinedocs/gdb/"
+  tag = ["debug", "gdb"]
   output = ""

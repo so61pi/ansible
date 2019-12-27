@@ -252,7 +252,7 @@
 
 [[snippets]]
   description = "export a container's filesystem as a tar archive"
-  command = "docker export \"$(docker create --name <container> <image> true)\" > ubuntu-18.04.tar && docker rm <container>"
+  command = """docker export "$(docker create --name <container> <image> true)" > ubuntu-18.04.tar && docker rm <container>"""
   tag = ["docker"]
   output = ""
 
