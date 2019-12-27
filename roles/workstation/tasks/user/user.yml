@@ -8,7 +8,6 @@
     - ~/.local/bin
     - ~/.ssh
     - ~/bin
-    - ~/bin/pet
     - ~/work/media/images
     - ~/work/media/videos
     - ~/work/others
@@ -16,8 +15,6 @@
     - ~/work/programming/sources
     - ~/work/tmp
     - ~/work/tools
-    - ~/work/tools/firefox
-    - ~/work/tools/thunderbird
     - ~/work/vms
     - ~/work/warehouse
 
@@ -52,8 +49,8 @@
       unarchive:
         remote_src: yes
         src: ~/work/tools/firefox.tar.bz2
-        dest: ~/work/tools/firefox
-        creates: ~/work/tools/firefox
+        dest: ~/work/tools/
+        creates: ~/work/tools/firefox/
 
     - name: Thunderbird
       get_url:
@@ -65,22 +62,25 @@
       unarchive:
         remote_src: yes
         src: ~/work/tools/thunderbird.tar.bz2
-        dest: ~/work/tools/thunderbird
-        creates: ~/work/tools/thunderbird
+        dest: ~/work/tools/
+        creates: ~/work/tools/thunderbird/
 
     - name: Pet
       get_url:
         backup: yes
         url: https://github.com/knqyf263/pet/releases/download/v0.3.6/pet_0.3.6_linux_amd64.tar.gz
-        dest: ~/work/tools/pet_0.3.6_linux_amd64.tar.gz
+        dest: ~/work/tools/pet.tar.gz
         checksum: sha256:60f977ec23b219551186edab88264a5a3475663007a3cc0f0873785e603335bb
 
     - name: Extracting Pet
       unarchive:
         remote_src: yes
-        src: ~/work/tools/pet_0.3.6_linux_amd64.tar.gz
-        dest: ~/bin/pet
-        creates: ~/bin/pet
+        src: ~/work/tools/pet.tar.gz
+        dest: ~/bin/
+        creates: ~/bin/pet/
+        extra_opts:
+          - --transform
+          - s,^,pet/,
 
 - name: Oh-My-Zsh
   block:
@@ -120,7 +120,7 @@
     - { src: files/gapull         , dst: ~/bin/gapull        , mode: a+x }
     - { src: files/gapush         , dst: ~/bin/gapush        , mode: a+x }
     - { src: files/zsh-shortcuts  , dst: ~/bin/zsh-shortcuts , mode: a+x }
-    - { src: files/ssh-config     , dst: ~/.ssh/config       , mode: 0600 }
+    - { src: files/ssh-config     , dst: ~/.ssh/config       , mode: "0600" }
     - { src: files/curlrc               , dst: ~/.curlrc }
     - { src: files/gdbinit              , dst: ~/.gdbinit }
     - { src: files/gitconfig.j2         , dst: ~/.gitconfig }
