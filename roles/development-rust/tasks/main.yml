@@ -27,6 +27,7 @@
 
 - name: Copying Files
   template:
+    backup: yes
     src: "{{ item.src }}"
     dest: "{{ item.dst }}"
   with_items:

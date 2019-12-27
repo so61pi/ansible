@@ -166,7 +166,8 @@
         - /etc/systemd/journald.conf.d
 
     - name: Copying Files
-      copy:
+      template:
+        backup: yes
         src: "{{ item.src }}"
         dest: "{{ item.dst }}"
         mode: "{{ item.mode | default('0644') }}"
@@ -174,3 +175,15 @@
         - { src: "files/fzf-key-bindings"    , dst: "/etc/zsh_completion.d/fzf-key-bindings" }
         - { src: "files/journal-storage.conf", dst: "/etc/systemd/journald.conf.d/00-journal-storage.conf" }
         - { src: "files/sys-upgrade"         , dst: "/usr/local/bin/sys-upgrade", mode: 'a+x' }
+
+    - name: Updating sshd Configuration File
+      template:
+        backup: yes
+        src: "files/sshd-config"
+        dest: "/etc/ssh/sshd_config"
+        owner: root
+        group: root
+        mode: '0600'
+        validate: '/usr/sbin/sshd -T -f %s'
+      notify:
+      - restart sshd

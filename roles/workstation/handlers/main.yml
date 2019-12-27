@@ -1,2 +1,7 @@
 ---
 # https://docs.ansible.com/ansible/latest/user_guide/playbooks_intro.html#handlers-running-operations-on-change
+handlers:
+- name: restart sshd
+  service:
+    name: sshd
+    state: restarted

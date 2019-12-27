@@ -79,6 +79,7 @@
 
 - name: Copying Files
   template:
+    backup: yes
     src: "{{ item.src }}"
     dest: "{{ item.dst }}"
     mode: "{{ item.mode | default('0644') }}"
