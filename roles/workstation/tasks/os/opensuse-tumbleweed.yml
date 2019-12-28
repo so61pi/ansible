@@ -176,14 +176,26 @@
         - { src: files/journal-storage.conf , dst: /etc/systemd/journald.conf.d/00-journal-storage.conf }
         - { src: files/sys-upgrade          , dst: /usr/local/bin/sys-upgrade", mode: a+x }
 
-    - name: Updating sshd Configuration File
-      template:
-        backup: yes
-        src: files/sshd-config
-        dest: /etc/ssh/sshd_config
-        owner: root
-        group: root
-        mode: 0600
-        validate: '/usr/sbin/sshd -T -f %s'
-      notify:
-      - restart sshd
+    - name: Updating sshd
+      block:
+        - name: Generating Missing Host Keys
+          openssh_keypair:
+            path: "/etc/ssh/ssh_host_{{ item }}_key"
+          with_items:
+            - rsa
+            - dsa
+            - ecdsa
+            - ed25519
+          notify:
+            - restart sshd
+        - name: Configuration File
+          template:
+            backup: yes
+            src: files/sshd-config
+            dest: /etc/ssh/sshd_config
+            owner: root
+            group: root
+            mode: 0600
+            validate: '/usr/sbin/sshd -T -f %s'
+          notify:
+            - restart sshd
