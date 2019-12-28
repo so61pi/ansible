@@ -71,6 +71,7 @@
           - git
           - git-web
           - htop
+          - id3v2
           - iftop
           - inkscape
           - iotop
@@ -110,6 +111,7 @@
           - trace-cmd
           - tree
           - unzip
+          - vagrant
           - valgrind
           - virtualbox-qt
           - vlc
@@ -118,7 +120,6 @@
           - yast2-docker
           - yast2-vm
           - zsh
-          # - vagrant
           # - yakuake
 
     - name: Updating All Packages To Latest
