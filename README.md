@@ -1,14 +1,13 @@
-[![pipeline status](https://gitlab.com/so61pi/ansible/badges/master/pipeline.svg)](https://gitlab.com/so61pi/ansible/commits/master)
-
 - Edit these files before running
   - `hosts`
   - `vars.yml`
+  - `playbook.yml`
 
 - Run commands
 
 ```shell
-make env
 make install-tools
+make check-localhost
 make system-opensuse-tumbleweed
 ```
 

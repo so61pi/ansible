@@ -1,6 +1,3 @@
 ---
 git_user_name: Example
 git_user_email: example@example.com
-
-# Cannot enable docker service when running this inside a container.
-service_docker_enable: false

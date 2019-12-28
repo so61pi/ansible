@@ -148,7 +148,6 @@
         name: docker
         enabled: yes
         masked: no
-      when: service_docker_enable | bool
 
     - name: Changing sysctl
       sysctl:
