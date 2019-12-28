@@ -4,3 +4,5 @@
   service:
     name: sshd
     state: restarted
+  become: true
+  become_user: root
