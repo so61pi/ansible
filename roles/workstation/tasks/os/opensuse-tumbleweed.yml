@@ -181,6 +181,7 @@
         - name: Generating Missing Host Keys
           openssh_keypair:
             path: "/etc/ssh/ssh_host_{{ item }}_key"
+            type: "{{ item }}"
           with_items:
             - rsa
             - dsa

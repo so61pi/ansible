@@ -14,6 +14,7 @@ system-opensuse-tumbleweed:
 	tree --du -h -a -p -u -g -L 1 ~
 	tree --du -h -a -p -u -g -L 4 ~/.config
 	tree --du -h -a -p -u -g -L 4 ~/work
+	tree --du -h -a -p -u -g -L 2 /etc
 	tree --du -h -a -p -u -g -L 2 /root
 
 .PHONY: env
