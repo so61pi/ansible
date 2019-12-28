@@ -83,6 +83,8 @@
           - keepassxc
           - kolourpaint
           - libboost_headers-devel
+          - libmnl-devel
+          - libnetfilter_acct-devel
           - libopenssl-devel
           - libqt5-creator
           - lighttpd

@@ -113,6 +113,12 @@
   output = ""
 
 [[snippets]]
+  description = "run perf"
+  command = "xdg-open http://www.brendangregg.com/perf.html"
+  tag = ["debug", "perf"]
+  output = ""
+
+[[snippets]]
   description = "run lldb"
   command = "xdg-open https://lldb.llvm.org/use/tutorial.html"
   tag = ["debug", "lldb"]
