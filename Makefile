@@ -9,8 +9,3 @@ check-localhost:
 .PHONY: system-opensuse-tumbleweed
 system-opensuse-tumbleweed:
 	ANSIBLE_CONFIG=ansible.cfg ansible-playbook -vvv --ask-become-pass playbook.yml
-	tree --du -h -a -p -u -g -L 1 ~
-	tree --du -h -a -p -u -g -L 4 ~/.config
-	tree --du -h -a -p -u -g -L 4 ~/work
-	tree --du -h -a -p -u -g -L 2 /etc
-	tree --du -h -a -p -u -g -L 2 /root
