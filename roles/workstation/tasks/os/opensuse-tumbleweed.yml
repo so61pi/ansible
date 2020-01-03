@@ -49,6 +49,8 @@
         state: present
         name:
           - bat
+          - bcc-examples
+          - bcc-tools
           - blktrace
           - bzip2
           - chromium
@@ -159,7 +161,7 @@
         state: present
       with_items:
         - { key: fs.inotify.max_user_watches , value: 524288 }
-        - { key: vm.max_map_count=262144     , value: 262144 }
+        - { key: vm.max_map_count            , value: 262144 }
 
     - name: Creating Directories
       file:
