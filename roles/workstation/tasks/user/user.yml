@@ -36,8 +36,8 @@
       with_items:
         - { src: ~/work/documents, symlink: ~/Documents }
         - { src: ~/work/downloads, symlink: ~/Downloads }
-  
-- name: Downloading Tools
+
+- name: Downloading Things
   block:
     - name: Firefox
       get_url:
@@ -81,6 +81,13 @@
         extra_opts:
           - --transform
           - s,^,pet/,
+
+    - name: FiraCode Font
+      get_url:
+        backup: yes
+        url: https://github.com/tonsky/FiraCode/releases/download/2/FiraCode_2.zip
+        dest: ~/work/tools/FiraCode.zip
+        checksum: sha256:60d5b1106b708cc134c521aae4e503bb1d2ec3c9bf8ad978f2c659820505d492
 
 - name: Oh-My-Zsh
   block:
