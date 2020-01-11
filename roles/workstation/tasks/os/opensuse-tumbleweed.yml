@@ -52,6 +52,8 @@
           - bcc-examples
           - bcc-tools
           - blktrace
+          - bpftrace
+          - bpftrace-tools
           - bzip2
           - chromium
           - clang
@@ -121,10 +123,10 @@
           - vlc
           - wget
           - wireshark-ui-qt
+          - yakuake
           - yast2-docker
           - yast2-vm
           - zsh
-          # - yakuake
 
     - name: Updating All Packages To Latest
       zypper:
