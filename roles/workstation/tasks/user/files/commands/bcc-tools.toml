@@ -1,0 +1,83 @@
+[[snippets]]
+  description = "print a histogram of allocation sizes passed to kmalloc"
+  command = "argdist -H 'p::__kmalloc(u64 size):u64:size'"
+  tag = ["bcc", "argdist"]
+  output = ""
+
+[[snippets]]
+  description = "print a frequency count of how many times process 1005 called malloc with an allocation size of 16 bytes"
+  command = "argdist -p 1005 -C 'p:c:malloc(size_t size):size_t:size:size==16'"
+  tag = ["bcc", "argdist"]
+  output = ""
+
+[[snippets]]
+  description = "print a histogram of results (sizes) returned by read() in process 1005"
+  command = "argdist -p 1005 -H 'r:c:read()'"
+  tag = ["bcc", "argdist"]
+  output = ""
+
+[[snippets]]
+  description = "summarize block device I/O latency as a histogram"
+  command = "biolatency"
+  tag = ["bcc", "biolatency"]
+  output = ""
+
+[[snippets]]
+  description = "summarize block device I/O latency as a histogram per disk"
+  command = "biolatency -D"
+  tag = ["bcc", "biolatency"]
+  output = ""
+
+[[snippets]]
+  description = "summarize block device I/O latency as a histogram including OS queued time"
+  command = "biolatency -Q"
+  tag = ["bcc", "biolatency"]
+  output = ""
+
+[[snippets]]
+  description = "trace block device I/O activities"
+  command = "biosnoop"
+  tag = ["bcc", "biosnoop"]
+  output = ""
+
+[[snippets]]
+  description = "trace block device I/O activities including OS queued time"
+  command = "biosnoop -Q"
+  tag = ["bcc", "biosnoop"]
+  output = ""
+
+[[snippets]]
+  description = "top block device I/O by process"
+  command = "biotop"
+  tag = ["bcc", "biotop"]
+  output = ""
+
+[[snippets]]
+  description = "block device I/O size histogram per process"
+  command = "bitesize"
+  tag = ["bcc", "bitesize"]
+  output = ""
+
+[[snippets]]
+  description = "summarize btrfs operation latency"
+  command = "btrfsdist"
+  tag = ["bcc", "btrfsdist"]
+  output = ""
+
+[[snippets]]
+  description = "summarize btrfs operation latency for process 181"
+  command = "btrfsdist -p 181"
+  tag = ["bcc", "btrfsdist"]
+  output = ""
+
+[[snippets]]
+  description = "trace common btrfs file operations slower than a threshold"
+  command = "btrfsslower"
+  tag = ["bcc", "btrfsslower"]
+  output = ""
+
+[[snippets]]
+  description = "trace common btrfs file operations slower than a threshold for process 185"
+  command = "btrfsslower -p 185"
+  tag = ["bcc", "btrfsslower"]
+  output = ""

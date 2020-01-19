@@ -1,0 +1,11 @@
+[[snippets]]
+  description = "list symbols of elf files"
+  command = "readelf -s $(which readelf)"
+  tag = ["readelf"]
+  output = ""
+
+[[snippets]]
+  description = "list symbols of elf files"
+  command = "readelf -s /lib64/libpthread-2.30.so"
+  tag = ["readelf"]
+  output = ""
