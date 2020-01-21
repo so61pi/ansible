@@ -317,6 +317,12 @@
   output = ""
 
 [[snippets]]
+  description = "trace off-CPU stack time and build flamegraph for process 217"
+  command = "offcputime --folded -p 217 | flamegraph.pl > stack.svg"
+  tag = ["bcc"]
+  output = ""
+
+[[snippets]]
   description = "trace all open() syscalls"
   command = "opensnoop"
   tag = ["bcc"]
@@ -341,6 +347,12 @@
   output = ""
 
 [[snippets]]
+  description = "profile stack traces at 49 Hertz and build flamegraph for process 229"
+  command = "profile --folded -p 229 | flamegraph.pl > stack.svg"
+  tag = ["bcc"]
+  output = ""
+
+[[snippets]]
   description = "summarize run queue latency as a histogram by measuring the time a task spends waiting on a run queue for a turn on-CPU"
   command = "runqlat"
   tag = ["bcc"]
@@ -361,6 +373,18 @@
 [[snippets]]
   description = "show soft irq event time as histograms"
   command = "softirqs -d"
+  tag = ["bcc"]
+  output = ""
+
+[[snippets]]
+  description = "count stacks for funcs matching tcp_send*"
+  command = "stackcount 'tcp_send*'"
+  tag = ["bcc"]
+  output = ""
+
+[[snippets]]
+  description = "count stacks for malloc and build flamegraph for process 185"
+  command = "stackcount -p 185 c:malloc | flamegraph.pl > stack.svg"
   tag = ["bcc"]
   output = ""
 

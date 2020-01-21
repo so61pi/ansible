@@ -74,6 +74,7 @@
           - gcc-c++
           - git
           - git-web
+          - hotspot
           - htop
           - id3v2
           - iftop
@@ -86,6 +87,7 @@
           - kdiff3
           - keepassxc
           - kolourpaint
+          - ktimer
           - libboost_headers-devel
           - libmnl-devel
           - libnetfilter_acct-devel
