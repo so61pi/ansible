@@ -1,13 +1,13 @@
 [[snippets]]
   description = "copy directory and delete extraneous files from dest dirs"
   command = "rsync --dry-run --delete --archive --recursive --progress --verbose <src=srcdir/> <dst=dstdir>"
-  tag = ["rsync"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "merge directory to directory"
   command = "rsync --dry-run --archive --recursive --progress --verbose <src=srcdir/> <dst=dstdir>"
-  tag = ["rsync"]
+  tag = []
   output = ""
 
 # find dir/ -type f -name '*.log'

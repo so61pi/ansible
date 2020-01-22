@@ -1,101 +1,101 @@
 [[snippets]]
   description = "update and upgrade system"
   command = "sudo sh -c 'zypper ref && zypper up -y -l && zypper dup -y -l && zypper ps -s'"
-  tag = ["zypper"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "update and upgrade system with confirmation"
   command = "sudo sh -c 'zypper ref && zypper up && zypper dup && zypper ps -s'"
-  tag = ["zypper"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "install package"
   command = "sudo zypper in <package>"
-  tag = ["zypper"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "install package without confirmation"
   command = "sudo zypper in -y <package>"
-  tag = ["zypper"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "remove package"
   command = "sudo zypper rm <package>"
-  tag = ["zypper"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "remove package without confirmation"
   command = "sudo zypper rm -y <package>"
-  tag = ["zypper"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "remove package and its dependencies"
   command = "sudo zypper rm --clean-deps <package>"
-  tag = ["zypper"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "update system"
   command = "sudo zypper up"
-  tag = ["zypper"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "upgrade system"
   command = "sudo zypper dup"
-  tag = ["zypper"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "remove repository"
   command = "sudo zypper rr <repository>"
-  tag = ["zypper"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "list processes that use removed/deleted files"
   command = "sudo zypper ps -s"
-  tag = ["zypper"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "refresh repositories"
   command = "sudo zypper ref"
-  tag = ["zypper"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "list repositories"
   command = "zypper lr"
-  tag = ["zypper"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "list repositories with uri"
   command = "zypper lr -u"
-  tag = ["zypper"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "list available updates"
   command = "zypper lu"
-  tag = ["zypper"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "search for package"
   command = "zypper se <pattern='usb*'>"
-  tag = ["zypper"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "display info of a package"
   command = "zypper info <package=usbutils>"
-  tag = ["zypper"]
+  tag = []
   output = ""

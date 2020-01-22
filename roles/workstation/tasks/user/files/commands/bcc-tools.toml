@@ -1,479 +1,479 @@
 [[snippets]]
   description = "display kernel tracepoints or USDT probes and their formats"
   command = "tplist -v"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "print a histogram of allocation sizes passed to kmalloc"
   command = "argdist -H 'p::__kmalloc(u64 size):u64:size'"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "print a frequency count of how many times process 1005 called malloc with an allocation size of 16 bytes"
   command = "argdist -p 1005 -C 'p:c:malloc(size_t size):size_t:size:size==16'"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "print a histogram of results (sizes) returned by read() in process 1005"
   command = "argdist -p 1005 -H 'r:c:read()'"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "summarize block device I/O latency as a histogram"
   command = "biolatency"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "summarize block device I/O latency as a histogram per disk"
   command = "biolatency -D"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "summarize block device I/O latency as a histogram including OS queued time"
   command = "biolatency -Q"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace block device I/O activities"
   command = "biosnoop"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace block device I/O activities including OS queued time"
   command = "biosnoop -Q"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "top block device I/O by process"
   command = "biotop"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "block device I/O size histogram per process"
   command = "bitesize"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "summarize btrfs operation latency"
   command = "btrfsdist"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "summarize btrfs operation latency for process 181"
   command = "btrfsdist -p 181"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace common btrfs file operations slower than a threshold"
   command = "btrfsslower"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace common btrfs file operations slower than a threshold for process 185"
   command = "btrfsslower -p 185"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show page cache hit/miss statistics"
   command = "cachestat"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show page cache hit/miss statistics per process"
   command = "cachetop"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "summarize object allocations in c language of process 145"
   command = "uobjnew"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "summarize object allocations in java language of process 145"
   command = "uobjnew"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "summarize on-CPU time per task as a histogram"
   command = "cpudist"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "summarize on-CPU time per task as a histogram for process 73"
   command = "cpudist -p 73"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "summarize off-CPU time per task as a histogram"
   command = "cpudist -O"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "sample CPU run queues and calculate unclaimed idle CPU"
   command = "cpuunclaimed"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace PostgreSQL queries slower than 1ms"
   command = "dbslower postgres"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace MySQL queries slower than 30ms"
   command = "dbslower mysql -m 30"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "display a histogram of PostgreSQL query latencies"
   command = "dbstat postgres"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace failed directory entry cache lookups"
   command = "dcsnoop"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "directory entry cache lookups stats"
   command = "dcstat"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "detect potential deadlocks in a running binary by tracing pthread mutex lock and unlock calls for process 181"
   command = "deadlock 181"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace all direct reclaim of memory"
   command = "drsnoop"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace all exec() syscalls"
   command = "execsnoop"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace exec() syscalls that have 'main' in command line"
   command = "execsnoop -n main"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace all process termination"
   command = "exitsnoop"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace the lifespan of short-lived files"
   command = "filelife"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace the lifespan of short-lived files for process 167"
   command = "filelife -p 167"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace sync file I/O slower than 10ms"
   command = "fileslower"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace sync file I/O slower than 10ms for process 149"
   command = "fileslower -p 149"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "top file reads and writes by process"
   command = "filetop"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "top file reads and writes for process 181"
   command = "filetop -p 181"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "count kernel fns starting with 'vfs'"
   command = "funccount 'vfs_*'"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "count all malloc() calls in libc for process 185"
   command = "funccount -p 185 c:malloc"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "count 'read*' calls in the ./test binary"
   command = "funccount ./test:read*"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "time the do_sys_open() kernel function and print out as histogram"
   command = "funclatency do_sys_open"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "time the vfs_read() kernel function and print out as histogram for process 181"
   command = "funclatency -p 181 vfs_read"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "time the *printf family of functions and print out as histogram"
   command = "funclatency 'c:*printf'"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace vfs_write calls slower than 1ms"
   command = "funcslower vfs_write"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace open calls slower than 1ms for process 135"
   command = "funcslower -p 135 c:open"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show latency for getaddrinfo/gethostbyname calls"
   command = "gethostlatency"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show latency for getaddrinfo/gethostbyname calls for process 217"
   command = "gethostlatency -p 217"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show hard irq event time as histograms"
   command = "hardirqs -d"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "summarize CPU cache references and misses by PID"
   command = "llcstat"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace allocations and display a summary of 'leaked' (outstanding) allocations every 5 seconds for process 211"
   command = "memleak -p 211"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace off-CPU stack time for process 217"
   command = "offcputime -p 217"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace off-CPU stack time and build flamegraph for process 217"
   command = "offcputime --folded -p 217 | flamegraph.pl > stack.svg"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace all open() syscalls"
   command = "opensnoop"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace all open() syscalls for process 223"
   command = "opensnoop -p 223"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "count new processes via fork"
   command = "pidpersec"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "profile stack traces at 49 Hertz for process 229"
   command = "profile -p 229"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "profile stack traces at 49 Hertz and build flamegraph for process 229"
   command = "profile --folded -p 229 | flamegraph.pl > stack.svg"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "summarize run queue latency as a histogram by measuring the time a task spends waiting on a run queue for a turn on-CPU"
   command = "runqlat"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "summarize run queue length as a histogram excluding the currently running threads"
   command = "runqlen"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show the time threads spending waiting on run queue higher than 10000us"
   command = "runqslower"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show soft irq event time as histograms"
   command = "softirqs -d"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "count stacks for funcs matching tcp_send*"
   command = "stackcount 'tcp_send*'"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "count stacks for malloc and build flamegraph for process 185"
   command = "stackcount -p 185 c:malloc | flamegraph.pl > stack.svg"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace all stat() syscalls"
   command = "statsnoop"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace all sync() syscalls"
   command = "syncsnoop"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "summarize syscall counts"
   command = "syscount"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "summarize syscall counts for process 157"
   command = "syscount -p 157"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace TCP accepts"
   command = "tcpaccept"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace TCP connects"
   command = "tcpconnect"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace TCP connects and show connection latency"
   command = "tcpconnlat"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace TCP drops by the kernel"
   command = "tcpdrop"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace TCP retransmits"
   command = "tcpretrans"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "summarize TCP send and aggregate by subnet"
   command = "tcpsubnet"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "summarize TCP send/recv throughput by host"
   command = "tcptop"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace the open syscall and print a default trace message when entered"
   command = "trace do_sys_open"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace the open syscall and print the filename being opened"
   command = """trace 'do_sys_open "%s", arg2'"""
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "count VFS calls vfs_*"
   command = "vfscount"
-  tag = ["bcc"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "count some VFS calls"
   command = "vfsstat"
-  tag = ["bcc"]
+  tag = []
   output = ""

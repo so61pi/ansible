@@ -1,53 +1,53 @@
 [[snippets]]
   description = "archive directory"
   command = "tar -cvSf <file=archived.tar> <dir>"
-  tag = ["tar", "compress", "decompress"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "compress a directory"
   command = "tar -cvSf <file=compressed.tar.xz> --xz <dir>"
-  tag = ["tar", "compress", "decompress"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "compress a directory"
   command = "tar -cvSf <file=compressed.tar.gz> --gzip <dir>"
-  tag = ["tar", "compress", "decompress"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "compress a directory"
   command = "tar -cvSf <file=compressed.tar.bz2> --bzip2 <dir>"
-  tag = ["tar", "compress", "decompress"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "de-archive a file"
   command = "tar -xvf <file=archived.tar>"
-  tag = ["tar", "compress", "decompress"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "decompress a file"
   command = "tar -xvf <file=compressed.tar.xz> --xz"
-  tag = ["tar", "compress", "decompress"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "decompress a file"
   command = "tar -xvf <file=compressed.tar.gz> --gzip"
-  tag = ["tar", "compress", "decompress"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "decompress a file"
   command = "tar -xvf <file=compressed.tar.bz2> --bzip2"
-  tag = ["tar", "compress", "decompress"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "de-archive a file to directory"
   command = "tar -xvf <file=archived.tar> -C <dir>"
-  tag = ["tar", "compress", "decompress"]
+  tag = []
   output = ""

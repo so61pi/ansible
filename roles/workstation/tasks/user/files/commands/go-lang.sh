@@ -1,6 +1,0 @@
-print -s "go build"
-print -s "go clean"
-print -s "go env"
-print -s "go fmt ./..."
-print -s "go run"
-print -s "go vet ./..."

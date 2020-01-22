@@ -1,131 +1,119 @@
 [[snippets]]
   description = "view kernel command line"
   command = "cat /proc/cmdline"
-  tag = ["cat"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "view cpu information"
   command = "cat /proc/cpuinfo"
-  tag = ["cat"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "view memory information"
   command = "cat /proc/meminfo"
-  tag = ["cat"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "view system uptime"
   command = "cat /proc/uptime"
-  tag = ["cat"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "view linux version"
   command = "cat /proc/version"
-  tag = ["cat"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "view virtual memory information"
   command = "cat /proc/vmstat"
-  tag = ["cat"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "view users"
   command = "cat /etc/passwd"
-  tag = ["cat"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "view groups"
   command = "cat /etc/group"
-  tag = ["cat"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "view shell profile"
   command = "cat /etc/profile"
-  tag = ["cat"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "view hosts/DNS mapping"
   command = "cat /etc/hosts"
-  tag = ["cat"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "view domain name servers"
   command = "cat /etc/resolv.conf"
-  tag = ["cat"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "view current hostname"
   command = "cat /etc/hostname"
-  tag = ["cat"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace system calls"
   command = "strace -c -i -T app"
-  tag = ["debug", "trace"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace network system calls only"
   command = "strace -c -i -T -e trace=network app"
-  tag = ["debug", "trace"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace system calls of child processes"
   command = "strace -c -i -T -f app"
-  tag = ["debug", "trace"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "trace system calls of a running application"
   command = "strace -c -i -T -p pid"
-  tag = ["debug", "trace"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "record your application for reverse execution"
   command = "rr record app arg0 arg1"
-  tag = ["debug"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "debug recorded execution in gdb"
   command = "rr replay"
-  tag = ["debug"]
-  output = ""
-
-[[snippets]]
-  description = "run perf"
-  command = "xdg-open https://perf.wiki.kernel.org/index.php/Tutorial"
-  tag = ["debug", "perf"]
-  output = ""
-
-[[snippets]]
-  description = "run perf"
-  command = "xdg-open http://www.brendangregg.com/perf.html"
-  tag = ["debug", "perf"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "run lldb"
   command = "xdg-open https://lldb.llvm.org/use/tutorial.html"
-  tag = ["debug", "lldb"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "run gdb"
   command = "xdg-open https://sourceware.org/gdb/onlinedocs/gdb/"
-  tag = ["debug", "gdb"]
+  tag = []
   output = ""

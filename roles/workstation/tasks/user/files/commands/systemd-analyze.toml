@@ -1,17 +1,17 @@
 [[snippets]]
   description = "show system boot time"
   command = "systemd-analyze"
-  tag = ["systemd-analyze", "systemd"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show startup time for each unit"
   command = "systemd-analyze blame"
-  tag = ["systemd-analyze", "systemd"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "print system startup time for each service in SVG"
   command = "systemd-analyze plot"
-  tag = ["systemd-analyze", "systemd"]
+  tag = []
   output = ""

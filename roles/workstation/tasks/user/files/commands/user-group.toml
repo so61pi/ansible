@@ -1,23 +1,23 @@
 [[snippets]]
   description = "view all users of a group"
   command = "getent group <group>"
-  tag = ["user", "group"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "view user's groups"
   command = "groups <user>"
-  tag = ["user", "group"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "add user to group"
   command = "usermod -aG <group> <user>"
-  tag = ["user", "group"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "view all groups in the system"
   command = "getent group"
-  tag = ["user", "group"]
+  tag = []
   output = ""

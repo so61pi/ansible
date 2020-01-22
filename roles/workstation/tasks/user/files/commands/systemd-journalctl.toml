@@ -1,17 +1,17 @@
 [[snippets]]
   description = "list all boots"
   command = "journalctl --list-boots"
-  tag = ["journalctl", "systemd"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "follow system log"
   command = "journalctl --follow"
-  tag = ["journalctl", "systemd"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "follow service log"
   command = "journalctl --follow --unit <service>"
-  tag = ["journalctl", "systemd"]
+  tag = []
   output = ""

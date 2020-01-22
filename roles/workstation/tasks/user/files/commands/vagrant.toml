@@ -1,59 +1,59 @@
 [[snippets]]
   description = "initializes a new Vagrant environment by creating a Vagrantfile"
   command = "vagrant init <image='ubuntu/bionic64'>"
-  tag = ["vagrant"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "starts and provisions the vagrant environment"
   command = "vagrant up"
-  tag = ["vagrant"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "connects to machine via SSH"
   command = "vagrant ssh"
-  tag = ["vagrant"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "outputs OpenSSH valid configuration to connect to the machine"
   command = "vagrant ssh-config"
-  tag = ["vagrant"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "stops the vagrant machine"
   command = "vagrant halt"
-  tag = ["vagrant"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "stops and deletes all traces of the vagrant machine"
   command = "vagrant destroy"
-  tag = ["vagrant"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "provisions the vagrant machine"
   command = "vagrant provision"
-  tag = ["vagrant"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "restarts vagrant machine, loads new Vagrantfile configuration"
   command = "vagrant reload"
-  tag = ["vagrant"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "outputs status of the vagrant machine"
   command = "vagrant status"
-  tag = ["vagrant"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "displays information about guest port mappings"
   command = "vagrant port"
-  tag = ["vagrant"]
+  tag = []
   output = ""

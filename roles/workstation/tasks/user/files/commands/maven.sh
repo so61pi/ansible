@@ -1,7 +1,0 @@
-print -s "mvn clean"
-print -s "mvn clean install"
-print -s "mvn clean install -U"
-print -s "mvn clean test"
-print -s "mvn clean tomcat7:run"
-print -s "mvnDebug clean tomcat7:run"
-print -s "mvn clean -Dmaven.surefire.debug -Dtest=TestClass#testMethod test"

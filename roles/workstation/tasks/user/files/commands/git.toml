@@ -1,335 +1,335 @@
 [[snippets]]
   description = "config user name"
   command = "git config --global user.name <name=Example>"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "config user email"
   command = "git config --global user.email <email=example@example.com>"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "disable ssl verification"
   command = "git config --global http.sslVerify false"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "set http proxy"
   command = "git config --global http.proxy http://<proxy>:<port>"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "unset setting"
   command = "git config --global --unset <setting=http.proxy>"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "list all config"
   command = "git config -l"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "initialize a repository"
   command = "git init"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "clone a repository"
   command = "git clone --recurse-submodules <url>"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "add all modified or new files"
   command = "git add -A"
-  tag = ["git", "gaa"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show status"
   command = "git status"
-  tag = ["git", "gst"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "commit"
   command = "git commit -m <message=''>"
-  tag = ["git", "gcmsg"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "amend last commit"
   command = "git commit --amend -m <message=''>"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "amend last commit without change message"
   command = "git commit --amend --no-edit"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "add files and commit"
   command = "git commit --all -m <message=''>"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "pull changes"
   command = "git pull"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "pull changes and rebase local changes on top"
   command = "git pull --rebase"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "execute pull in a directory"
   command = "git -C <directory> pull"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "push changes"
   command = "git push"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "soft reset to a commit"
   command = "git reset <dst-commit>"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "hard reset to a commit"
   command = "git reset --hard <dst-commit>"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "group several commits together"
   command = "git reset --soft HEAD~<number-of-commits> && git commit -m <message=''>"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "search for files"
   command = "git ls-files | grep <file-pattern>"
-  tag = ["git", "gfg"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "list local branches"
   command = "git branch"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "list remote-tracking branches and local branches"
   command = "git branch -a"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "list remote-tracking branches"
   command = "git branch -r"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "remove/delete a branch"
   command = "git branch -d <name>"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "force remove/delete a branch"
   command = "git branch -D <name>"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "rename branch"
   command = "git branch -m <old> <new>"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "filter branches"
   command = "git branch -l <pattern='feature/*'>"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "mark a file as removed/deleted"
   command = "git rm -- <file>"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "mark a directory as removed/deleted"
   command = "git rm -r -- <directory>"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "reset content of a file"
   command = "git checkout -- <file>"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "switch to a branch"
   command = "git checkout <branch=master>"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "create and switch to a new branch"
   command = "git checkout -b <branch>"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "view changes relative to the staging area"
   command = "git diff"
-  tag = ["git", "gd"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "view changes relative to the staging area of a specific file"
   command = "git diff -- <file>"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "view changes of the staging area"
   command = "git diff --staged"
-  tag = ["git", "gds"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "view changes of a file between commits"
   command = "git diff <old=HEAD~3> <new=HEAD> -- <file>"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "view changes relative to the staging area"
   command = "git difftool"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "view changes of the staging area"
   command = "git difftool --staged"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "display commit log"
   command = "git log --graph"
-  tag = ["git", "glgg"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "display commit log with changed files"
   command = "git log --graph --name-status"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "display commit log with changed files"
   command = "git log --graph --stat"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "search for text in all commits/history"
   command = "git log -S <text> --source --all"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "push current changes to temporary stack"
   command = "git stash"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "pop changes from temporary stack"
   command = "git stash pop"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "drop latest changes from temporary stack"
   command = "git stash drop"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "list temporary stack"
   command = "git stash list"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "update submodule code"
   command = "git submodule update --recursive"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "initialize submodule code"
   command = "git submodule update --recursive --init"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "merge branch to current branch"
   command = "git merge <branch=bugfix>"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "squash merge branch to current branch"
   command = "git merge --squash <branch=bugfix>"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "reset working directory"
   command = "git clean -xdf"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show reflog"
   command = "git reflog"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "start local webserver for curent repository"
   command = "git instaweb"
-  tag = ["git"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "stop webserver"
   command = "git instaweb stop"
-  tag = ["git"]
+  tag = []
   output = ""

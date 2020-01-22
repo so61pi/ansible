@@ -1,5 +1,0 @@
-print -s "btrfs subvolume list /"
-print -s "btrfs filesystem df /"
-print -s "btrfs filesystem show /"
-print -s "btrfs filesystem sync /"
-print -s "btrfs filesystem label /"

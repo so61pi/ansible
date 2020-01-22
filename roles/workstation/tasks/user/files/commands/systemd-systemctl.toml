@@ -1,83 +1,83 @@
 [[snippets]]
   description = "show system status"
   command = "systemctl status"
-  tag = ["systemctl", "systemd"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show service status"
   command = "systemctl status <service>"
-  tag = ["systemctl", "systemd"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "start service"
   command = "systemctl start <service>"
-  tag = ["systemctl", "systemd"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "stop service"
   command = "systemctl stop <service>"
-  tag = ["systemctl", "systemd"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "restart service"
   command = "systemctl restart <service>"
-  tag = ["systemctl", "systemd"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show service properties"
   command = "systemctl show <service>"
-  tag = ["systemctl", "systemd"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "enable service"
   command = "systemctl enable <service>"
-  tag = ["systemctl", "systemd"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "disable service"
   command = "systemctl disable <service>"
-  tag = ["systemctl", "systemd"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "edit the service file on disk"
   command = "systemctl edit <service>"
-  tag = ["systemctl", "systemd"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "display service file"
   command = "systemctl cat <service>"
-  tag = ["systemctl", "systemd"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "list fall failed units/services"
   command = "systemctl list-units --failed"
-  tag = ["systemctl", "systemd"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "reload the systemd manager configuration"
   command = "systemctl daemon-reload"
-  tag = ["systemctl", "systemd"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "shows units required and wanted by the specified unit"
   command = "systemctl list-dependencies"
-  tag = ["systemctl", "systemd"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "list unit files installed on the system"
   command = "systemctl list-unit-files"
-  tag = ["systemctl", "systemd"]
+  tag = []
   output = ""

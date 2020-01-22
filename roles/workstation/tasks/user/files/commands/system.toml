@@ -1,107 +1,107 @@
 [[snippets]]
   description = "show kernel log"
   command = "dmesg"
-  tag = ["system"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show kernel log continuously"
   command = "dmesg -f"
-  tag = ["system"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show sysctl value"
   command = "sysctl <key=fs.inotify.max_user_watches>"
-  tag = ["system"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "temporarily set sysctl value"
   command = "sysctl <key=fs.inotify.max_user_watches>=<value=1048576>"
-  tag = ["system"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show system memory status"
   command = "free -h"
-  tag = ["system"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show CPU info"
   command = "lscpu"
-  tag = ["system"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show open files"
   command = "lsof"
-  tag = ["system"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show PCI bus information"
   command = "lspci"
-  tag = ["system"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show USB bus information"
   command = "lsusb"
-  tag = ["system"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "connect to serial port"
   command = "picocom -b 115200 /dev/ttyUSB0"
-  tag = ["system"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show system information"
   command = "uname -a"
-  tag = ["system"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show uptime"
   command = "uptime"
-  tag = ["system"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show disk io"
   command = "sudo iotop"
-  tag = ["system"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show network io per host name"
   command = "sudo iftop"
-  tag = ["system"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show network io per process"
   command = "sudo nethogs"
-  tag = ["system"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show devices and partitions io"
   command = "iostat -d 1"
-  tag = ["system"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show system io"
   command = "dstat -f"
-  tag = ["system"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show traces of the io traffic on block devices"
   command = "btrace /dev/sda"
-  tag = ["system"]
+  tag = []
   output = ""

@@ -1,101 +1,101 @@
 [[snippets]]
   description = "initialize a library project"
   command = "cargo init"
-  tag = ["cargo", "rust"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "initialize a binary project"
   command = "cargo init --bin"
-  tag = ["cargo", "rust"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "build project in debug mode"
   command = "cargo build"
-  tag = ["cargo", "rust"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "build project in release mode"
   command = "cargo build --release"
-  tag = ["cargo", "rust"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "run debug binary"
   command = "cargo run"
-  tag = ["cargo", "rust"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "run release binary"
   command = "cargo run --release"
-  tag = ["cargo", "rust"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "run test"
   command = "cargo test"
-  tag = ["cargo", "rust"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "clean debug build artifacts"
   command = "cargo clean"
-  tag = ["cargo", "rust"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "clean release build artifacts"
   command = "cargo clean --release"
-  tag = ["cargo", "rust"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "format all source code"
   command = "cargo fmt --all"
-  tag = ["cargo", "rust"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "build project document in debug mode and open in browser"
   command = "cargo doc --no-deps --open"
-  tag = ["cargo", "rust"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "build project document in release mode and open in browser"
   command = "cargo doc --no-deps --open --release"
-  tag = ["cargo", "rust"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "show the active and installed toolchains"
   command = "rustup show"
-  tag = ["rustup", "rust"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "update toolchains and rustup"
   command = "rustup update"
-  tag = ["rustup", "rust"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "list installed toolchain"
   command = "rustup toolchain list"
-  tag = ["rustup", "rust"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "set default toolchain"
   command = "rustup default <toolchain=stable>"
-  tag = ["rustup", "rust"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "open current toolchain's documentation"
   command = "rustup doc"
-  tag = ["rustup", "rust"]
+  tag = []
   output = ""

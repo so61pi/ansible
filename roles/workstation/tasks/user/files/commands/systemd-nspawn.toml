@@ -1,11 +1,11 @@
 [[snippets]]
   description = "boot a container"
   command = "systemd-nspawn -b -M <container=ubuntu-18.04>"
-  tag = ["systemd-nspawn"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "run a command in container"
   command = "systemd-nspawn -a -M <container=ubuntu-18.04> <command=/bin/bash>"
-  tag = ["systemd-nspawn"]
+  tag = []
   output = ""

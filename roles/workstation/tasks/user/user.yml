@@ -123,7 +123,6 @@
     dest: "{{ item.dst }}"
     mode: "{{ item.mode | default('0644') }}"
   with_items:
-    - { src: files/commands.sh.j2 , dst: ~/commands.sh       , mode: a+x }
     - { src: files/gapull         , dst: ~/bin/gapull        , mode: a+x }
     - { src: files/gapush         , dst: ~/bin/gapush        , mode: a+x }
     - { src: files/zsh-shortcuts  , dst: ~/bin/zsh-shortcuts , mode: a+x }

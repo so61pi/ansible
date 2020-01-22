@@ -1,35 +1,35 @@
 [[snippets]]
   description = "compile packages and dependencies"
   command = "go build"
-  tag = ["go"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "remove object files and cached files"
   command = "go clean"
-  tag = ["go"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "print environment information"
   command = "go env"
-  tag = ["go"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "reformat package sources"
   command = "go fmt './...'"
-  tag = ["go"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "compile and run program"
   command = "go run"
-  tag = ["go"]
+  tag = []
   output = ""
 
 [[snippets]]
   description = "report likely mistakes in packages"
   command = "go vet './...'"
-  tag = ["go"]
+  tag = []
   output = ""

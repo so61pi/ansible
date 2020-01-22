@@ -1,0 +1,71 @@
+[[snippets]]
+  description = "run perf"
+  command = "xdg-open https://perf.wiki.kernel.org/index.php/Tutorial"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "run perf"
+  command = "xdg-open http://www.brendangregg.com/perf.html"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "capture perf data at the rate of 99Hz for new process"
+  command = "perf record -F 99 --call-graph -- sleep 10"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "capture perf data at the rate of 99Hz for process 181"
+  command = "perf record -F 99 --call-graph -p 181"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "show perf.data in an ncurses browser (TUI) if possible"
+  command = "perf report"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "list all events from perf.data and export to flame graph"
+  command = "perf script | stackcollapse-perf.pl --all | flamegraph.pl > perf.svg"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "detailed CPU counter statistics (includes extras) for the specified command"
+  command = "perf stat -d -- sleep 10"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "CPU counter statistics for the specified PID, until Ctrl-C"
+  command = "perf stat -d -p 131"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "count syscalls per-second system-wide:"
+  command = "perf stat -e raw_syscalls:sys_enter -I 1000 -a"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "count system calls by type for the specified PID, until Ctrl-C"
+  command = "perf stat -e 'syscalls:sys_enter_*' -p PID"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "trace new processes, until Ctrl-C"
+  command = "perf record -e sched:sched_process_exec -a"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "track why network packets are dropped, use sudo perf script to see result"
+  command = "sudo perf record -g -a -e skb:kfree_skb"
+  tag = []
+  output = ""

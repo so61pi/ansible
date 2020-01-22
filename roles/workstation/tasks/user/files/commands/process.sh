@@ -1,5 +1,0 @@
-print -s "ps aux"
-print -s "ps axjf"
-print -s "ps fax"
-print -s "top"
-print -s "htop"
