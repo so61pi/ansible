@@ -317,8 +317,8 @@
   output = ""
 
 [[snippets]]
-  description = "trace off-CPU stack time and build flamegraph for process 217"
-  command = "offcputime --folded -p 217 | flamegraph.pl > stack.svg"
+  description = "trace off-CPU stack time for 30 seconds and build flamegraph for process 217"
+  command = "offcputime --folded -p 217 30 | flamegraph.pl > stack.svg"
   tag = []
   output = ""
 
@@ -347,8 +347,8 @@
   output = ""
 
 [[snippets]]
-  description = "profile stack traces at 49 Hertz and build flamegraph for process 229"
-  command = "profile --folded -p 229 | flamegraph.pl > stack.svg"
+  description = "profile stack traces at 49 Hertz for 30 seconds and build flamegraph for process 229"
+  command = "profile --folded -p 229 30 | flamegraph.pl > stack.svg"
   tag = []
   output = ""
 
@@ -383,8 +383,8 @@
   output = ""
 
 [[snippets]]
-  description = "count stacks for malloc and build flamegraph for process 185"
-  command = "stackcount -p 185 c:malloc | flamegraph.pl > stack.svg"
+  description = "count stacks for malloc in 30 seconds and build flamegraph for process 185"
+  command = "stackcount -p 185 --folded -D 30 c:malloc | flamegraph.pl > stack.svg"
   tag = []
   output = ""
 
