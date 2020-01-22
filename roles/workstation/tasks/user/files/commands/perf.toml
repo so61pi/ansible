@@ -12,13 +12,13 @@
 
 [[snippets]]
   description = "capture perf data at the rate of 99Hz for new process"
-  command = "perf record -F 99 --call-graph -- sleep 10"
+  command = "perf record -F 99 -g -- sleep 10"
   tag = []
   output = ""
 
 [[snippets]]
   description = "capture perf data at the rate of 99Hz for process 181"
-  command = "perf record -F 99 --call-graph -p 181"
+  command = "perf record -F 99 -g -p 181"
   tag = []
   output = ""
 
