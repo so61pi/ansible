@@ -11,6 +11,30 @@
   output = ""
 
 [[snippets]]
+  description = "list all currently known events"
+  command = "sudo perf list"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "list sched tracepoints"
+  command = "sudo perf list 'sched:*'"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "add USDT as events to use by perf record"
+  command = "sudo perf buildid-cache --add /lib64/libc-2.30.so"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "remove USDT from perf cache"
+  command = "sudo perf buildid-cache --remove /lib64/libc-2.30.so"
+  tag = []
+  output = ""
+
+[[snippets]]
   description = "capture perf data at the rate of 99Hz for new process"
   command = "perf record -F 99 -g -- sleep 10"
   tag = []

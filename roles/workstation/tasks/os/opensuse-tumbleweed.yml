@@ -64,7 +64,6 @@
           - curl
           - docker
           - docker-compose
-          - dstat
           - fd
           - ffmpeg
           - filezilla

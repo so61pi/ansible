@@ -1,6 +1,18 @@
 [[snippets]]
-  description = "display kernel tracepoints or USDT probes and their formats"
+  description = "list kernel tracepoints and their formats"
   command = "tplist -v"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "list USDT probes in process 29"
+  command = "tplist -v -p 29"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "list USDT probes in the specified library or executable"
+  command = "tplist -v -l file"
   tag = []
   output = ""
 
