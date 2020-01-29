@@ -36,7 +36,7 @@
 
 [[snippets]]
   description = "trace new threads via pthread_create()"
-  command = """bpftrace -e 'uprobe:/lib64/libpthread-2.30.so:pthread_create { printf("%s by %s (%d)\n", probe, comm, pid); }'"""
+  command = """sudo bpftrace -e 'uprobe:/lib64/libpthread-2.30.so:pthread_create { printf("%s by %s (%d)\n", probe, comm, pid); }'"""
   tag = []
   output = ""
 
@@ -66,7 +66,7 @@
 
 [[snippets]]
   description = "trace files opened via open(2) with process name"
-  command = """bpftrace -e 'tracepoint:syscalls:sys_enter_open { printf("%s %s\n", comm, str(args->filename)); }'"""
+  command = """sudo bpftrace -e 'tracepoint:syscalls:sys_enter_open { printf("%s %s\n", comm, str(args->filename)); }'"""
   tag = []
   output = ""
 
@@ -120,7 +120,7 @@
 
 [[snippets]]
   description = "trace block I/O errors with device and I/O type"
-  command = """bpftrace -e 'tracepoint:block:block_rq_complete /args->error/ { printf("dev %d type %s error %d\n", args->dev, args->rwbs, args->error); }'"""
+  command = """sudo bpftrace -e 'tracepoint:block:block_rq_complete /args->error/ { printf("dev %d type %s error %d\n", args->dev, args->rwbs, args->error); }'"""
   tag = []
   output = ""
 
@@ -198,7 +198,7 @@
 
 [[snippets]]
   description = "trace kernel module loads"
-  command = """bpftrace -e 'tracepoint:module:module_load { printf("load: %s\n", str(args->name)); }'"""
+  command = """sudo bpftrace -e 'tracepoint:module:module_load { printf("load: %s\n", str(args->name)); }'"""
   tag = []
   output = ""
 
@@ -210,7 +210,7 @@
 
 [[snippets]]
   description = "trace kill() signals showing sender process name, target PID, and signal number"
-  command = """bpftrace -e 'tracepoint:syscalls:sys_enter_kill { printf("%s -> PID %d SIG %d\n", comm, args->pid, args->sig); }'"""
+  command = """sudo bpftrace -e 'tracepoint:syscalls:sys_enter_kill { printf("%s -> PID %d SIG %d\n", comm, args->pid, args->sig); }'"""
   tag = []
   output = ""
 
@@ -228,7 +228,7 @@
 
 [[snippets]]
   description = "count system calls by syscall function"
-  command = """bpftrace -e 'tracepoint:raw_syscalls:sys_enter { @[ksym(*(kaddr("sys_call_table") + args->id * 8))] = count(); }'"""
+  command = """sudo bpftrace -e 'tracepoint:raw_syscalls:sys_enter { @[ksym(*(kaddr("sys_call_table") + args->id * 8))] = count(); }'"""
   tag = []
   output = ""
 
