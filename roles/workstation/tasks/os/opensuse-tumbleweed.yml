@@ -79,13 +79,16 @@
           - iftop
           - inkscape
           - iotop
+          - kalarm
           - kalgebra
+          - kcron
           - kdevelop5
           - kdevelop5-plugin-clang-tidy
           - kdevelop5-plugin-python3
           - kdiff3
           - keepassxc
           - kolourpaint
+          - kshutdown
           - ktimer
           - libboost_headers-devel
           - libmnl-devel
