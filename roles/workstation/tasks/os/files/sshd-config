@@ -2,3 +2,5 @@ ChallengeResponseAuthentication no
 PasswordAuthentication no
 PermitRootLogin no
 UsePAM no
+
+Subsystem sftp internal-sftp
