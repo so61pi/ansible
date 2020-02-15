@@ -185,7 +185,8 @@
       with_items:
         - { src: files/fzf-key-bindings     , dst: /etc/zsh_completion.d/fzf-key-bindings }
         - { src: files/journal-storage.conf , dst: /etc/systemd/journald.conf.d/00-journal-storage.conf }
-        - { src: files/sys-upgrade          , dst: /usr/local/bin/sys-upgrade", mode: a+x }
+        - { src: files/sys-upgrade          , dst: /usr/local/bin/sys-upgrade, mode: a+x }
+        - { src: files/sys-upgrade-ask      , dst: /usr/local/bin/sys-upgrade-ask, mode: a+x }
 
     - name: Updating sshd
       block:
