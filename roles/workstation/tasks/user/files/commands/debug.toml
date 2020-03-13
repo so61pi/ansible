@@ -1,0 +1,48 @@
+
+[[snippets]]
+  description = "trace system calls"
+  command = "strace -c -i -T app"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "trace network system calls only"
+  command = "strace -c -i -T -e trace=network app"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "trace system calls of child processes"
+  command = "strace -c -i -T -f app"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "trace system calls of a running application"
+  command = "strace -c -i -T -p pid"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "record your application for reverse execution"
+  command = "rr record app arg0 arg1"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "debug recorded execution in gdb"
+  command = "rr replay"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "run lldb"
+  command = "xdg-open https://lldb.llvm.org/use/tutorial.html"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "run gdb"
+  command = "xdg-open https://sourceware.org/gdb/onlinedocs/gdb/"
+  tag = []
+  output = ""

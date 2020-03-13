@@ -48,6 +48,7 @@
       zypper:
         state: present
         name:
+          - aria2
           - bat
           - bcc-examples
           - bcc-tools

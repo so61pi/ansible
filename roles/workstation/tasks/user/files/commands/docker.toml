@@ -255,3 +255,45 @@
   command = """docker export "$(docker create --name <container> <image> true)" > ubuntu-18.04.tar && docker rm <container>"""
   tag = []
   output = ""
+
+[[snippets]]
+  description = "lists containers"
+  command = "docker-compose ps"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "start containers for a service"
+  command = "docker-compose up"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "create and start containers for a service"
+  command = "docker-compose up --build --renew-anon-volumes"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "restarts all stopped and running services"
+  command = "docker-compose restart <service>"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "stops running containers without removing them"
+  command = "docker-compose stop <service>"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "starts existing containers for a service"
+  command = "docker-compose start <service>"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "displays log output from services"
+  command = "docker-compose logs -f <service>"
+  tag = []
+  output = ""

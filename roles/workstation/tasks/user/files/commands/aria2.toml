@@ -1,0 +1,23 @@
+[[snippets]]
+  description = "download file"
+  command = "aria2c http://example.org/mylinux.iso"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "download file using multiple connections"
+  command = "aria2c -x 2 http://a/f.iso"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "download multiple files"
+  command = "aria2c http://a/f.iso ftp://b/f.iso"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "download URIs from file"
+  command = "aria2c -i uris.txt"
+  tag = []
+  output = ""

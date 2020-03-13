@@ -1,0 +1,72 @@
+
+[[snippets]]
+  description = "find files"
+  command = "fd pattern"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "find all files"
+  command = "fd --hidden --no-ignore pattern"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "find only files"
+  command = "fd --type f pattern"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "find files with cpp extension"
+  command = "fd --extension cpp pattern"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "find and convert all mp4 files to mp3"
+  command = "fd --extension mp4 --exec ffmpeg -i {} {.}.mp3"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "find files bigger than 5 megabytes"
+  command = "fd --size +5m"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "find files smaller than 5 megabytes"
+  command = "fd --size -5m"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "search files for pattern"
+  command = "rg pattern"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "search files with type for pattern"
+  command = "rg --type rust pattern"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "search all files"
+  command = "rg --hidden --no-ignore pattern"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "search files using smart-case"
+  command = "rg -S pattern"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "search files with fixed string"
+  command = "rg -F pattern"
+  tag = []
+  output = ""

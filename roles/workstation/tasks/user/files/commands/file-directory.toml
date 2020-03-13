@@ -10,58 +10,8 @@
   tag = []
   output = ""
 
-# find dir/ -type f -name '*.log'
-# find dir/ -type f -name '.*'
-# find dir/ -type f -empty -delete
-# find dir/ -type f -executable
-# find dir/ -type d -empty -delete
-# find dir/ -user root
-
-# fd
-
-# cp src dst
-# cp -a src dst
-
-# mv src dst
-
-# ln -sfn src dst
-
-# chmod +r file
-# chmod -r file
-# chmod +x file
-# chmod -x file
-# chmod 664 file
-# chmod 755 script
-# chmod 1755 suscript
-
-# chown root file
-# chown root: file
-# chown :root file
-# chown nobody: file
-# chown nobody:nogroup file
-
-# md5sum
-# sha1sum
-# sha256sum
-# sha512sum
-
-# tree -d
-# tree -f
-# tree -h --du
-# tree -h
-# tree -L 3
-# tree
-
-# chattr +i ~/.gitconfig
-# chattr -i ~/.gitconfig
-# lsattr ~/.gitconfig
-
-# mount
-
-# dd bs=512k status=progress if=/dev/urandom of=/dev/null
-# df -h
-# lsblk
-# sync
-# du -h | sort -h
-
-# tail -F file.log
+[[snippets]]
+  description = "copy file to another file"
+  command = "dd status=progress bs=512k if=/dev/urandom of=/dev/null"
+  tag = []
+  output = ""
