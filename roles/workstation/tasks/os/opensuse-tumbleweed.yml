@@ -52,6 +52,7 @@
           - bat
           - bcc-examples
           - bcc-tools
+          - binwalk
           - blktrace
           - bpftrace
           - bpftrace-tools
