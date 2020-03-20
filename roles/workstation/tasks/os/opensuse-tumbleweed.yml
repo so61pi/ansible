@@ -170,6 +170,7 @@
       with_items:
         - { key: fs.inotify.max_user_watches , value: 524288 }
         - { key: vm.max_map_count            , value: 262144 }
+        - { key: kernel.perf_event_paranoid  , value: 0 }
 
     - name: Creating Directories
       file:
