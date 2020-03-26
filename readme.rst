@@ -168,11 +168,14 @@ Add-ons
 - LeechBlock
 - Mate Translate
 - Mute sites by default
+- Notes by Firefox
+- Open Tabs Next to Current
 - Privacy Badger
 - Search by Image
 - stutter
 - To Google Translate
 - uBlock Origin
+- Web Search Navigator
 
 PAC
 ~~~
