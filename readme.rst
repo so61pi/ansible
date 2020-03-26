@@ -20,6 +20,7 @@ Installation
 Additional Softwares
 ====================
 
+- JetBrains Toolbox
 - netdata
 
 Configuration
