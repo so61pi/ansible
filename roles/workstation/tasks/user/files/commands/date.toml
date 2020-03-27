@@ -1,0 +1,59 @@
+[[snippets]]
+  description = "time of 10 days later in UTC"
+  command = "date --iso-8601=seconds --utc --date '+10 days'"
+  tag = []
+  output = "2020-04-06T04:24:25+00:00"
+
+[[snippets]]
+  description = "time of 10 days later in UTC with nanoseconds precision"
+  command = "date --iso-8601=ns --utc --date '+10 days'"
+  tag = []
+  output = "2020-04-06T04:24:35,162594076+00:00"
+
+[[snippets]]
+  description = "time last week"
+  command = "date --date 'last week'"
+  tag = []
+  output = "Fri 20 Mar 2020 11:24:43 AM +07"
+
+[[snippets]]
+  description = "current unix timestamp in seconds"
+  command = "date '+%s'"
+  tag = []
+  output = "1585283120"
+
+[[snippets]]
+  description = "current date"
+  command = "date '+%F-%H-%M-%S'"
+  tag = []
+  output = "2020-03-27-11-25-46"
+
+[[snippets]]
+  description = "current date time with nanoseconds"
+  command = "date '+%F-%H-%M-%S.%N'"
+  tag = []
+  output = "2020-03-27-11-26-11.729947878"
+
+[[snippets]]
+  description = "current time with nanoseconds"
+  command = "date '+%T.%N'"
+  tag = []
+  output = "11:26:48.115087239"
+
+[[snippets]]
+  description = "current time with milliseconds"
+  command = "date '+%T.%3N'"
+  tag = []
+  output = "11:26:55.587"
+
+[[snippets]]
+  description = "covert unix timestamp in seconds to time"
+  command = "date --date='@2147483647'"
+  tag = []
+  output = "Tue 19 Jan 2038 10:14:07 AM +07"
+
+[[snippets]]
+  description = "covert timestamp in seconds to time"
+  command = "date --date '2020-02-29 00:00:00'"
+  tag = []
+  output = "Sat 29 Feb 2020 12:00:00 AM +07"

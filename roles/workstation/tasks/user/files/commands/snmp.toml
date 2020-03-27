@@ -18,7 +18,7 @@
 
 [[snippets]]
   description = "set SNMP value"
-  command = """snmpset -v 2c -c private 127.0.0.1 SNMPv2-MIB::sysLocation.0 s "New Value" """
+  command = """snmpset -v 2c -c private 127.0.0.1 SNMPv2-MIB::sysLocation.0 s 'New Value'"""
   tag = []
   output = ""
 
