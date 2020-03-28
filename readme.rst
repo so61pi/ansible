@@ -31,6 +31,11 @@ SSH
 
 Set up private and public keys.
 
+Konsole
+-------
+
+Unlimited history.
+
 System
 ------
 
