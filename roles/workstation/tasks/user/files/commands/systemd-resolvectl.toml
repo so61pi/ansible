@@ -1,6 +1,6 @@
 [[snippets]]
   description = "resolve hostname or ip address"
-  command = "resolvectl query <hostname-or-ip>"
+  command = "resolvectl query hostname-or-ip"
   tag = []
   output = ""
 

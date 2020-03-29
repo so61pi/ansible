@@ -2,28 +2,37 @@
   description = "show configurations"
   command = "sudo snapper list-configs"
   tag = []
-  output = ""
+  output = """
+Config | Subvolume
+-------+----------
+root   | /"""
 
 [[snippets]]
   description = "list snapshots"
   command = "sudo snapper list"
   tag = []
-  output = ""
+  output = """
+   # | Type   | Pre # | Date                            | User | Cleanup | Description           | Userdata
+-----+--------+-------+---------------------------------+------+---------+-----------------------+--------------
+  0  | single |       |                                 | root |         | current               |
+  1* | single |       | Sun 30 Jun 2019 07:07:23 PM +07 | root |         | first root filesystem |
+513  | pre    |       | Sun 22 Mar 2020 01:46:05 PM +07 | root | number  | zypp(zypper)          | important=yes
+514  | post   |   513 | Sun 22 Mar 2020 02:10:45 PM +07 | root | number  |                       | important=yes"""
 
 [[snippets]]
   description = "create a snapshot"
-  command = "sudo snapper create -d <desc=Snapshot>"
+  command = "sudo snapper create -d description"
   tag = []
   output = ""
 
 [[snippets]]
   description = "create a snapshot"
-  command = "sudo snapper create -c number -d <desc=Snapshot>"
+  command = "sudo snapper create -c number -d description"
   tag = []
   output = ""
 
 [[snippets]]
   description = "create a snapshot"
-  command = "sudo snapper create -c number -u 'important=yes' -d <desc=Snapshot>"
+  command = "sudo snapper create -c number -u 'important=yes' -d description"
   tag = []
   output = ""

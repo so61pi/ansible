@@ -1,257 +1,383 @@
 [[snippets]]
   description = "show overall status"
   command = "nmcli general status"
-  tag = []
-  output = ""
+  tag = ["network"]
+  output = """
+STATE      CONNECTIVITY  WIFI-HW  WIFI     WWAN-HW  WWAN
+connected  full          enabled  enabled  enabled  enabled"""
 
 [[snippets]]
   description = "show network status"
   command = "nmcli networking"
-  tag = []
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "get network connectivity state"
   command = "nmcli networking connectivity"
-  tag = []
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "enable networking control"
   command = "nmcli networking on"
-  tag = []
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "disable networking control"
   command = "nmcli networking off"
-  tag = []
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "show radio switches status"
   command = "nmcli radio"
-  tag = []
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "show wifi status"
   command = "nmcli radio wifi"
-  tag = []
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "enable wifi"
   command = "nmcli radio wifi on"
-  tag = []
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "disable wifi"
   command = "nmcli radio wifi off"
-  tag = []
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "list all connection profiles"
   command = "nmcli connection"
-  tag = []
-  output = ""
+  tag = ["network"]
+  output = """
+NAME                UUID                                  TYPE      DEVICE
+Wired connection 1  5d1106ff-c532-3d80-9a12-848281feba51  ethernet  enp3s0
+br-320b4af13fe8     1b30d397-8cb6-4369-9ab9-3ef87a02d5b5  bridge    br-320b4af13fe8
+br-cec86e0c94b9     8a84b612-63b7-4277-a5ff-b88aedab662b  bridge    br-cec86e0c94b9
+docker0             9c236aeb-8158-40cc-bfac-b4dace667eb0  bridge    docker0"""
 
 [[snippets]]
   description = "activate a connection"
-  command = "nmcli connection up <name>"
-  tag = []
+  command = "nmcli connection up conn-name"
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "deactivate a connection"
-  command = "nmcli connection down <name>"
-  tag = []
+  command = "nmcli connection down conn-name"
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "show network interfaces"
   command = "nmcli device"
-  tag = []
-  output = ""
+  tag = ["network"]
+  output = """
+DEVICE           TYPE      STATE      CONNECTION
+enp3s0           ethernet  connected  Wired connection 1
+br-320b4af13fe8  bridge    connected  br-320b4af13fe8
+br-cec86e0c94b9  bridge    connected  br-cec86e0c94b9
+docker0          bridge    connected  docker0
+vboxnet0         ethernet  unmanaged  --
+veth3d84465      ethernet  unmanaged  --
+lo               loopback  unmanaged  --"""
 
 [[snippets]]
   description = "show detail network interfaces"
   command = "nmcli device show"
-  tag = []
-  output = ""
+  tag = ["network"]
+  output = """
+GENERAL.DEVICE:                         enp3s0
+GENERAL.TYPE:                           ethernet
+GENERAL.HWADDR:                         1C:1B:0D:AC:10:FD
+GENERAL.MTU:                            1500
+GENERAL.STATE:                          100 (connected)
+GENERAL.CONNECTION:                     Wired connection 1
+GENERAL.CON-PATH:                       /org/freedesktop/NetworkManager/ActiveConnection/4
+WIRED-PROPERTIES.CARRIER:               on
+IP4.ADDRESS[1]:                         192.168.1.100/24
+IP4.GATEWAY:                            192.168.1.1
+IP4.ROUTE[1]:                           dst = 0.0.0.0/0, nh = 192.168.1.1, mt = 100
+IP4.ROUTE[2]:                           dst = 192.168.1.0/24, nh = 0.0.0.0, mt = 100
+IP4.DNS[1]:                             8.8.8.8
+IP4.DNS[2]:                             8.8.4.4
+IP6.ADDRESS[1]:                         fe80::1e1b:dff:feac:10fd/64
+IP6.GATEWAY:                            fe80::1
+IP6.ROUTE[1]:                           dst = ff00::/8, nh = ::, mt = 256, table=255
+IP6.ROUTE[2]:                           dst = ::/0, nh = fe80::1, mt = 1024
+IP6.ROUTE[3]:                           dst = fe80::/64, nh = ::, mt = 256"""
 
 [[snippets]]
   description = "list all access points"
   command = "nmcli device wifi"
-  tag = []
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "rescan all access points"
   command = "nmcli device wifi rescan"
-  tag = []
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "connect to a wifi network"
-  command = "nmcli device wifi connect <SSID-Name> password <wireless-password>"
-  tag = []
+  command = "nmcli device wifi connect SSID-Name password wireless-password"
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "create a wifi hotspot"
-  command = "nmcli device wifi hotspot ssid <SSID> password <password>"
-  tag = []
+  command = "nmcli device wifi hotspot ssid SSID-Name password wireless-password"
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "open TUI network manager"
   command = "nmtui"
-  tag = []
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "list available interfaces"
   command = "sudo tcpdump -D"
-  tag = []
-  output = ""
+  tag = ["network"]
+  output = """
+1.enp3s0 [Up, Running]
+2.br-320b4af13fe8 [Up, Running]
+3.veth3d84465 [Up, Running]
+4.lo [Up, Running, Loopback]
+5.any (Pseudo-device that captures on all interfaces) [Up, Running]
+6.docker0 [Up]
+7.br-cec86e0c94b9 [Up]
+8.bluetooth-monitor (Bluetooth Linux Monitor) [none]
+9.nflog (Linux netfilter log (NFLOG) interface) [none]
+10.nfqueue (Linux netfilter queue (NFQUEUE) interface) [none]
+11.dbus-system (D-Bus system bus) [none]
+12.dbus-session (D-Bus session bus) [none]
+13.bluetooth0 (Bluetooth adapter number 0) [none]
+14.vboxnet0 [none"""
 
 [[snippets]]
   description = "capture packets"
   command = "sudo tcpdump"
-  tag = []
-  output = ""
+  tag = ["network"]
+  output = """
+listening on enp3s0, link-type EN10MB (Ethernet), capture size 262144 bytes
+21:16:59.081295 IP yandex.ru.https > 192.168.1.100.40890: Flags [.], seq 1601946177:1601947575, ack 1845528135, win 169, options [nop,nop,TS val 441485132 ecr 2650845056], length 1398
+21:16:59.081427 IP 192.168.1.100.40890 > yandex.ru.https: Flags [.], ack 1398, win 2820, options [nop,nop,TS val 2650845347 ecr 441485097], length 0
+21:16:59.081434 IP yandex.ru.https > 192.168.1.100.40890: Flags [.], seq 1398:2796, ack 1, win 169, options [nop,nop,TS val 441485132 ecr 2650845056], length 1398"""
 
 [[snippets]]
   description = "capture with less verbose output than default"
   command = "sudo tcpdump -q"
-  tag = []
-  output = ""
+  tag = ["network"]
+  output = """
+listening on enp3s0, link-type EN10MB (Ethernet), capture size 262144 bytes
+21:16:12.556183 IP 192.168.1.100.45346 > 185.88.181.6.https: tcp 0
+21:16:12.557848 IP 192.168.1.100.56117 > dns.google.domain: UDP, length 43
+21:16:12.615026 IP ec2-34-196-221-134.compute-1.amazonaws.com.https > 192.168.1.100.48498: tcp 0"""
 
 [[snippets]]
   description = "capture only 5 packets"
   command = "sudo tcpdump -c 5"
-  tag = []
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "capture packets for all interfaces"
   command = "sudo tcpdump -i any"
-  tag = []
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "capture packets with specified port"
-  command = "sudo tcpdump -n dst port <port>"
-  tag = []
+  command = "sudo tcpdump -n dst port 443"
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "capture packets arriving at or departing from host"
-  command = "sudo tcpdump -n host <host>"
-  tag = []
+  command = "sudo tcpdump -n host 443"
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "capture packets arriving at host"
-  command = "sudo tcpdump -n dst host <host>"
-  tag = []
+  command = "sudo tcpdump -n dst host 443"
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "capture packets departing from host"
-  command = "sudo tcpdump -n src host <host>"
-  tag = []
+  command = "sudo tcpdump -n src host 443"
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "capture packets arriving at host at port 443"
-  command = "sudo tcpdump -n 'dst host <host> and dst port 443'"
-  tag = []
+  command = "sudo tcpdump -n 'dst host 8443 and dst port 443'"
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "capture packets and save result to file"
-  command = "sudo tcpdump -w <file=capture.cap>"
-  tag = []
+  command = "sudo tcpdump -w file.cap"
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "capture icmp package"
   command = "sudo tcpdump -v icmp"
-  tag = []
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "show interface details"
   command = "ip addr"
-  tag = []
-  output = ""
+  tag = ["network"]
+  output = """
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: enp3s0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc pfifo_fast state UP group default qlen 1000
+    link/ether 1c:1b:0d:ac:10:fd brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.100/24 brd 192.168.1.255 scope global noprefixroute enp3s0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::1e1b:dff:feac:10fd/64 scope link noprefixroute
+       valid_lft forever preferred_lft forever"""
 
 [[snippets]]
   description = "show all routes"
   command = "ip route"
-  tag = []
+  tag = ["network"]
+  output = """
+default via 192.168.1.1 dev enp3s0 proto dhcp metric 100
+172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 linkdown
+172.18.0.0/16 dev br-cec86e0c94b9 proto kernel scope link src 172.18.0.1 linkdown
+172.19.0.0/16 dev br-320b4af13fe8 proto kernel scope link src 172.19.0.1
+192.168.1.0/24 dev enp3s0 proto kernel scope link src 192.168.1.100 metric 100"""
+
+[[snippets]]
+  description = "show all routes"
+  command = "ip route show table all"
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "show current neighbor table in kernel"
   command = "ip neigh"
-  tag = []
-  output = ""
+  tag = ["network"]
+  output = """
+172.19.0.2 dev br-320b4af13fe8 lladdr 02:42:ac:13:00:02 REACHABLE
+192.168.1.1 dev enp3s0 lladdr 8c:e1:17:b5:71:72 REACHABLE
+192.168.1.12 dev enp3s0 lladdr 30:39:26:01:51:15 REACHABLE
+fe80::1 dev enp3s0 lladdr 8c:e1:17:b5:71:72 router STALE"""
 
 [[snippets]]
   description = "bring interface up"
-  command = "ip link set <interface> up"
-  tag = []
+  command = "ip link set eth0 up"
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "bring interface down"
-  command = "ip link set <interface> down"
-  tag = []
+  command = "ip link set eth0 down"
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "show all TCP connections"
   command = "ss --tcp --all --processes"
-  tag = []
-  output = ""
+  tag = ["network"]
+  output = """
+State       Recv-Q  Send-Q            Local Address:Port                        Peer Address:Port            Process
+LISTEN      0       5                     127.0.0.1:ipp                              0.0.0.0:*
+LISTEN      0       100                   127.0.0.1:smtp                             0.0.0.0:*
+ESTAB       0       0                    172.19.0.1:47776                         172.19.0.2:9115
+ESTAB       0       0                    172.19.0.1:53440                         172.19.0.2:9115"""
 
 [[snippets]]
   description = "show all established TCP connections"
   command = "ss --tcp --processes"
-  tag = []
-  output = ""
+  tag = ["network"]
+  output = """
+State       Recv-Q  Send-Q            Local Address:Port                        Peer Address:Port            Process
+ESTAB       0       0                    172.19.0.1:47776                         172.19.0.2:9115
+ESTAB       0       0                    172.19.0.1:53440                         172.19.0.2:9115
+ESTAB       0       0                    172.19.0.1:42732                         172.19.0.2:9115"""
 
 [[snippets]]
   description = "issue and show DNS lookup progress"
-  command = "dig <hostname>"
-  tag = []
-  output = ""
+  command = "dig google.com"
+  tag = ["network"]
+  output = """
+; <<>> DiG 9.16.1 <<>> google.com
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 33662
+;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 512
+;; QUESTION SECTION:
+;google.com.                    IN      A
+
+;; ANSWER SECTION:
+google.com.             186     IN      A       216.58.221.78
+
+;; Query time: 28 msec
+;; SERVER: 8.8.8.8#53(8.8.8.8)
+;; WHEN: Sun Mar 29 21:20:55 +07 2020
+;; MSG SIZE  rcvd: 55"""
 
 [[snippets]]
   description = "query DNS of a host"
-  command = "nslookup <hostname>"
-  tag = []
-  output = ""
+  command = "nslookup example.com"
+  tag = ["network"]
+  output = """
+Server:         8.8.8.8
+Address:        8.8.8.8#53
+
+Non-authoritative answer:
+Name:   example.com
+Address: 93.184.216.34
+Name:   example.com
+Address: 2606:2800:220:1:248:1893:25c8:1946"""
 
 [[snippets]]
   description = "print the route packet goes through"
-  command = "traceroute <host>"
-  tag = []
-  output = ""
+  command = "traceroute example.com"
+  tag = ["network"]
+  output = """
+traceroute to example.com (93.184.216.34), 30 hops max, 60 byte packets
+ 1  * * *
+ 2  125.235.251.182.adsl.viettel.vn (125.235.251.182)  5.126 ms  5.165 ms  5.254 ms
+ 3  adsl.viettel.vn (115.79.0.114)  5.248 ms adsl.viettel.vn (115.79.0.116)  5.371 ms adsl.viettel.vn (115.79.0.114)  5.320 ms
+ 4  localhost (27.68.237.1)  36.194 ms localhost (27.68.237.209)  36.278 ms  36.329 ms
+ 5  localhost (27.68.255.54)  34.062 ms  34.157 ms  34.079 ms
+ 6  localhost (27.68.244.27)  32.844 ms  31.020 ms  31.244 ms
+ 7  203.131.248.245 (203.131.248.245)  28.874 ms  31.222 ms  31.133 ms"""
 
 [[snippets]]
   description = "open http server in python 2"
   command = "python -m SimpleHTTPServer 8080"
-  tag = []
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "open http server in python 3"
   command = "python3 -m http.server 8080 --directory /tmp"
-  tag = []
+  tag = ["network"]
   output = ""

@@ -1,491 +1,636 @@
 [[snippets]]
   description = "list kernel tracepoints and their formats"
   command = "tplist -v"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+syscalls:sys_enter_read
+    int __syscall_nr;
+    unsigned int fd;
+    char * buf;
+    size_t count;
+syscalls:sys_exit_read
+    int __syscall_nr;
+    long ret;"""
 
 [[snippets]]
-  description = "list USDT probes in process 29"
-  command = "tplist -v -p 29"
-  tag = []
-  output = ""
+  description = "list USDT probes in process 1"
+  command = "tplist -v -p 1"
+  tag = ["bpf"]
+  output = """
+b'libpthread':b'pthread_join' [sema 0x0]
+  1 location(s)
+  1 argument(s)"""
 
 [[snippets]]
   description = "list USDT probes in the specified library or executable"
-  command = "tplist -v -l file"
-  tag = []
-  output = ""
+  command = "tplist -v -l /lib64/libc.so.6"
+  tag = ["bpf"]
+  output = """
+b'libc':b'setjmp' [sema 0x0]
+  1 location(s)
+  3 argument(s)"""
 
 [[snippets]]
   description = "print a histogram of allocation sizes passed to kmalloc"
   command = "argdist -H 'p::__kmalloc(u64 size):u64:size'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "print a frequency count of how many times process 1005 called malloc with an allocation size of 16 bytes"
   command = "argdist -p 1005 -C 'p:c:malloc(size_t size):size_t:size:size==16'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "print a histogram of results (sizes) returned by read() in process 1005"
   command = "argdist -p 1005 -H 'r:c:read()'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "summarize block device I/O latency as a histogram"
   command = "biolatency"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "summarize block device I/O latency as a histogram per disk"
   command = "biolatency -D"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "summarize block device I/O latency as a histogram including OS queued time"
   command = "biolatency -Q"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "trace block device I/O activities"
   command = "biosnoop"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "trace block device I/O activities including OS queued time"
   command = "biosnoop -Q"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+TIME(s)     COMM           PID    DISK    T SECTOR     BYTES  QUE(ms) LAT(ms)
+0.000000    dmcrypt_write/ 1006   sdd     W 1006542904 262144    0.04    0.60
+0.000067    dmcrypt_write/ 1018   sdb     W 14508088   262144    0.02    0.63
+0.000279    dmcrypt_write/ 1012   sdc     W 990017512  262144    0.01    0.83"""
 
 [[snippets]]
   description = "top block device I/O by process"
   command = "biotop"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+PID    COMM             D MAJ MIN DISK       I/O  Kbytes  AVGms
+578    dmcrypt_write/2  W 8   0   sda         63   308.0   0.14
+26954  kworker/u8:4     R 8   0   sda          1    16.0   1.17"""
 
 [[snippets]]
   description = "block device I/O size histogram per process"
   command = "bitesize"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "summarize btrfs operation latency"
   command = "btrfsdist"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "summarize btrfs operation latency for process 181"
   command = "btrfsdist -p 181"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "trace common btrfs file operations slower than a threshold"
   command = "btrfsslower"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "trace common btrfs file operations slower than a threshold for process 185"
   command = "btrfsslower -p 185"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "show page cache hit/miss statistics"
   command = "cachestat"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+    HITS   MISSES  DIRTIES HITRATIO   BUFFERS_MB  CACHED_MB
+    1609        0        0  100.00%            5       7962
+    6704     2984        0   69.20%            5       7978
+   19657      656        0   96.77%            5       7963"""
 
 [[snippets]]
   description = "show page cache hit/miss statistics per process"
   command = "cachetop"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+PID      UID      CMD              HITS     MISSES   DIRTIES  READ_HIT%  WRITE_HIT%
+    1432 messageb dbus-daemon             4        0        0     100.0%       0.0%
+    2953 nobody   prometheus             15        2        0      88.2%       5.9%
+    3204 nobody   prometheus             22        2        0      91.7%       4.2%"""
 
 [[snippets]]
   description = "summarize object allocations in c language of process 145"
   command = "uobjnew"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "summarize object allocations in java language of process 145"
   command = "uobjnew"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "summarize on-CPU time per task as a histogram"
   command = "cpudist"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "summarize on-CPU time per task as a histogram for process 73"
   command = "cpudist -p 73"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "summarize off-CPU time per task as a histogram"
   command = "cpudist -O"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "sample CPU run queues and calculate unclaimed idle CPU"
   command = "cpuunclaimed"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+%CPU  20.50%, unclaimed idle 1.00%
+%CPU  25.25%, unclaimed idle 1.52%
+%CPU  23.75%, unclaimed idle 0.75%"""
 
 [[snippets]]
   description = "trace PostgreSQL queries slower than 1ms"
   command = "dbslower postgres"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "trace MySQL queries slower than 30ms"
   command = "dbslower mysql -m 30"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "display a histogram of PostgreSQL query latencies"
   command = "dbstat postgres"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "trace failed directory entry cache lookups"
   command = "dcsnoop"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+TIME(s)     PID    COMM             T FILE
+0.007926    19911  apps.plugin      M 4
+0.007967    19911  apps.plugin      M 6
+0.007978    19911  apps.plugin      M 7"""
 
 [[snippets]]
   description = "directory entry cache lookups stats"
   command = "dcstat"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+TIME         REFS/s   SLOW/s   MISS/s     HIT%
+19:56:28:      8209     6583        8    99.90
+19:56:29:      8199     6576        0   100.00
+19:56:30:      7983     6576        0   100.00"""
 
 [[snippets]]
   description = "detect potential deadlocks in a running binary by tracing pthread mutex lock and unlock calls for process 181"
   command = "deadlock 181"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "trace all direct reclaim of memory"
   command = "drsnoop"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "trace all exec() syscalls"
   command = "execsnoop"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+PCOMM            PID    PPID   RET ARGS
+speedcrunch      27470  3559     0 /usr/bin/speedcrunch
+postqueue        27486  2478     0 /usr/sbin/postqueue -p
+vlc              27490  3559     0 /usr/bin/vlc --started-from-file"""
 
 [[snippets]]
   description = "trace exec() syscalls that have 'main' in command line"
   command = "execsnoop -n main"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "trace all process termination"
   command = "exitsnoop"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+PCOMM            PID    PPID   TID    AGE(s)  EXIT_CODE
+StreamT~ns #311  12878  12628  27366  34.08   0
+ThreadPoolForeg  22140  22094  27355  49.37   0
+QXcbEventQueue   27416  3559   27418  1.81    0"""
 
 [[snippets]]
   description = "trace the lifespan of short-lived files"
   command = "filelife"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+TIME     PID    COMM             AGE(s)  FILE
+19:53:37 27310  rm               0.00    test
+19:53:38 27321  rm               0.00    test
+19:53:39 27334  rm               0.00    test"""
 
 [[snippets]]
   description = "trace the lifespan of short-lived files for process 167"
   command = "filelife -p 167"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "trace sync file I/O slower than 10ms"
   command = "fileslower"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "trace sync file I/O slower than 10ms for process 149"
   command = "fileslower -p 149"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "top file reads and writes by process"
   command = "filetop"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+TID    COMM             READS  WRITES R_Kb    W_Kb    T FILE
+19911  apps.plugin      10     0      99      0       R io
+19911  apps.plugin      10     0      95      0       R status
+19911  apps.plugin      8      0      77      0       R status"""
 
 [[snippets]]
   description = "top file reads and writes for process 181"
   command = "filetop -p 181"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count kernel fns starting with 'vfs'"
   command = "funccount 'vfs_*'"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+FUNC                                    COUNT
+b'vfs_statfs'                             113
+b'vfs_statx'                              864
+b'vfs_statx_fd'                          1813"""
 
 [[snippets]]
   description = "count all malloc() calls in libc for process 185"
   command = "funccount -p 185 c:malloc"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count 'read*' calls in the ./test binary"
   command = "funccount ./test:read*"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "time the do_sys_open() kernel function and print out as histogram"
   command = "funclatency do_sys_open"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "time the vfs_read() kernel function and print out as histogram for process 181"
   command = "funclatency -p 181 vfs_read"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "time the *printf family of functions and print out as histogram"
   command = "funclatency 'c:*printf'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "trace vfs_write calls slower than 1ms"
   command = "funcslower vfs_write"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+COMM           PID    LAT(ms)             RVAL FUNC
+blackbox_expor 2765      3.04              1ea vfs_write
+Chrome_~dThrea 12841     1.29                1 vfs_write
+ebpf-exporter  1433      1.16              2b8 vfs_write"""
 
 [[snippets]]
   description = "trace open calls slower than 1ms for process 135"
   command = "funcslower -p 135 c:open"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "show latency for getaddrinfo/gethostbyname calls"
   command = "gethostlatency"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+TIME      PID    COMM                  LATms HOST
+19:49:06  22316  code                   0.01 vortex.data.microsoft.com
+19:49:13  26955  postqueue              0.56 localhost
+19:49:15  26960  ping                  67.27 google.com"""
 
 [[snippets]]
   description = "show latency for getaddrinfo/gethostbyname calls for process 217"
   command = "gethostlatency -p 217"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "show hard irq event time as histograms"
   command = "hardirqs -d"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "summarize CPU cache references and misses by PID"
   command = "llcstat"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+PID      NAME             CPU     REFERENCE         MISS    HIT%
+12888    PaintThread      3           43800        53100   0.00%
+13047    Timer            3            6000         4900  18.33%
+12731    Web Content      0           14600        44300   0.00%"""
 
 [[snippets]]
   description = "trace allocations and display a summary of 'leaked' (outstanding) allocations every 5 seconds for process 211"
   command = "memleak -p 211"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "trace off-CPU stack time for process 217"
   command = "offcputime -p 217"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "trace off-CPU stack time for 30 seconds and build flamegraph for process 217"
   command = "offcputime --folded -p 217 30 | flamegraph.pl > stack.svg"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "trace all open() syscalls"
   command = "opensnoop"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+PID    COMM               FD ERR PATH
+3975   ksysguardd         18   0 /proc/stat
+3975   ksysguardd         18   0 /proc/vmstat
+3975   ksysguardd         18   0 /proc/meminfo"""
 
 [[snippets]]
   description = "trace all open() syscalls for process 223"
   command = "opensnoop -p 223"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count new processes via fork"
   command = "pidpersec"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+19:46:23: PIDs/sec: 0
+19:46:24: PIDs/sec: 2
+19:46:25: PIDs/sec: 4"""
 
 [[snippets]]
   description = "profile stack traces at 49 Hertz for process 229"
   command = "profile -p 229"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "profile stack traces at 49 Hertz for 30 seconds and build flamegraph for process 229"
   command = "profile --folded -p 229 30 | flamegraph.pl > stack.svg"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "summarize run queue latency as a histogram by measuring the time a task spends waiting on a run queue for a turn on-CPU"
   command = "runqlat"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "summarize run queue length as a histogram excluding the currently running threads"
   command = "runqlen"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "show the time threads spending waiting on run queue higher than 10000us"
   command = "runqslower"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+TIME     COMM             TID           LAT(us)
+19:45:41 b'vlc'           22368           14553
+19:45:46 b'vlc'           26665           10108
+19:45:46 b'vlc'           26655           10130"""
 
 [[snippets]]
   description = "show soft irq event time as histograms"
   command = "softirqs -d"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count stacks for funcs matching tcp_send*"
   command = "stackcount 'tcp_send*'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count stacks for malloc in 30 seconds and build flamegraph for process 185"
   command = "stackcount -p 185 --folded -D 30 c:malloc | flamegraph.pl > stack.svg"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "trace all stat() syscalls"
   command = "statsnoop"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+PID    COMM               FD ERR PATH
+22334  vlc                 0   0 /etc/localtime
+22334  vlc                 0   0 /etc/localtime
+22334  vlc                 0   0 /etc/localtime"""
 
 [[snippets]]
   description = "trace all sync() syscalls"
   command = "syncsnoop"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "summarize syscall counts"
   command = "syscount"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+SYSCALL                   COUNT
+sched_yield               41141
+futex                     38045
+read                      27071"""
 
 [[snippets]]
   description = "summarize syscall counts for process 157"
   command = "syscount -p 157"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+SYSCALL                   COUNT
+recvmsg                     430
+sendmsg                     215
+epoll_wait                  215"""
 
 [[snippets]]
   description = "trace TCP accepts"
   command = "tcpaccept"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+PID     COMM         IP RADDR            RPORT LADDR            LPORT
+2208    WEB_SERVER[s 6  ::1              52182 ::1              19999
+2208    WEB_SERVER[s 6  ::1              52288 ::1              19999
+2208    WEB_SERVER[s 6  ::1              52292 ::1              19999"""
 
 [[snippets]]
   description = "trace TCP connects"
   command = "tcpconnect"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+PID    COMM         IP SADDR            DADDR            DPORT
+2765   blackbox_exp 4  172.19.0.2       185.88.181.8     443
+2765   blackbox_exp 4  172.19.0.2       13.107.21.200    443
+2765   blackbox_exp 4  172.19.0.2       162.159.135.233  443"""
 
 [[snippets]]
   description = "trace TCP connects and show connection latency"
   command = "tcpconnlat"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+PID    COMM         IP SADDR            DADDR            DPORT LAT(ms)
+2765   blackbox_exp 4  172.19.0.2       151.101.1.57     443   22.03
+2765   blackbox_exp 4  172.19.0.2       151.101.65.69    443   20.99
+2765   blackbox_exp 4  172.19.0.2       152.195.62.149   443   25.08"""
 
 [[snippets]]
   description = "trace TCP drops by the kernel"
   command = "tcpdrop"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "trace TCP retransmits"
   command = "tcpretrans"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "summarize TCP send and aggregate by subnet"
   command = "tcpsubnet"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+[03/29/20 19:32:56]
+0.0.0.0/0                867
+[03/29/20 19:32:57]
+0.0.0.0/0               1210
+[03/29/20 19:32:58]
+0.0.0.0/0               1519"""
 
 [[snippets]]
   description = "summarize TCP send/recv throughput by host"
   command = "tcptop"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+PID    COMM         LADDR                 RADDR                  RX_KB  TX_KB
+2437   docker-proxy 172.19.0.1:53246      172.19.0.2:9115            0      0
+2437   docker-proxy 172.19.0.1:41922      172.19.0.2:9115            0      0
+2437   docker-proxy 172.19.0.1:41898      172.19.0.2:9115            0      0
+
+PID    COMM         LADDR6                           RADDR6                            RX_KB  TX_KB
+2437   docker-proxy ::1:9115                         ::1:47478                             0      0
+2437   docker-proxy ::1:9115                         ::1:58802                             0      0
+2437   docker-proxy ::1:9115                         ::1:44910                             0      0"""
 
 [[snippets]]
   description = "trace the open syscall and print a default trace message when entered"
   command = "trace do_sys_open"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+PID     TID     COMM            FUNC
+1643    2595    dockerd         do_sys_open
+1643    1643    dockerd         do_sys_open
+1643    1643    dockerd         do_sys_open"""
 
 [[snippets]]
   description = "trace the open syscall and print the filename being opened"
   command = """trace 'do_sys_open "%s", arg2'"""
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+PID     TID     COMM            FUNC             -
+1643    1687    dockerd         do_sys_open      b'/var/run/docker/netns/767b648ed01d'
+1643    2427    dockerd         do_sys_open      b'/var/run/docker/netns/767b648ed01d'
+1643    1687    dockerd         do_sys_open      b'/var/run/docker/netns/767b648ed01d'"""
 
 [[snippets]]
   description = "count VFS calls vfs_*"
   command = "vfscount"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+ADDR             FUNC                          COUNT
+ffffffffb0d10131 b'vfs_statfs'                    79
+ffffffffb0cd8ef1 b'vfs_statx'                    400
+ffffffffb0ce7011 b'vfs_readlink'                 939
+ffffffffb0cd8e61 b'vfs_statx_fd'                1079
+ffffffffb0cd8d61 b'vfs_getattr_nosec'           1461
+ffffffffb0cd8e11 b'vfs_getattr'                 1476
+ffffffffb0cd28a1 b'vfs_writev'                  1494
+ffffffffb0cd42d1 b'vfs_write'                   3418
+ffffffffb0cd01d1 b'vfs_open'                    5021
+ffffffffb0cd4141 b'vfs_read'                   14033"""
 
 [[snippets]]
   description = "count some VFS calls"
   command = "vfsstat"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+TIME         READ/s  WRITE/s  FSYNC/s   OPEN/s CREATE/s
+19:15:17:      5033     1135        0     1670        0
+19:15:18:      5102     1160        0     2182        0
+19:15:19:      4603     1075        0     1663        0"""

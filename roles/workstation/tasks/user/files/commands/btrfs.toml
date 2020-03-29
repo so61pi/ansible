@@ -2,7 +2,11 @@
   description = "list subvolume"
   command = "sudo btrfs subvolume list /"
   tag = []
-  output = ""
+  output = """
+ID 256 gen 32 top level 5 path @
+ID 258 gen 533873 top level 256 path @/var
+ID 259 gen 533724 top level 256 path @/usr/local
+ID 260 gen 533871 top level 256 path @/tmp"""
 
 [[snippets]]
   description = "force a sync of the filesystem"
@@ -14,4 +18,47 @@
   description = "show detailed information about internal filesystem usage"
   command = "sudo btrfs filesystem usage /"
   tag = []
-  output = ""
+  output = """
+Overall:
+    Device size:                 220.00GiB
+    Device allocated:            135.05GiB
+    Device unallocated:           84.95GiB
+    Device missing:                  0.00B
+    Used:                        128.06GiB
+    Free (estimated):             90.79GiB      (min: 90.79GiB)
+    Data ratio:                       1.00
+    Metadata ratio:                   1.00
+    Global reserve:              187.06MiB      (used: 0.00B)
+
+Data,single: Size:132.01GiB, Used:126.17GiB (95.58%)
+   /dev/mapper/cr_ata-Samsung_SSD_850_PRO_256GB_S39KNX0HB01169Y-part2    132.01GiB
+
+Metadata,single: Size:3.01GiB, Used:1.89GiB (62.70%)
+   /dev/mapper/cr_ata-Samsung_SSD_850_PRO_256GB_S39KNX0HB01169Y-part2      3.01GiB
+
+System,single: Size:32.00MiB, Used:16.00KiB (0.05%)
+   /dev/mapper/cr_ata-Samsung_SSD_850_PRO_256GB_S39KNX0HB01169Y-part2     32.00MiB
+
+Unallocated:
+   /dev/mapper/cr_ata-Samsung_SSD_850_PRO_256GB_S39KNX0HB01169Y-part2     84.95GiB"""
+
+[[snippets]]
+  description = "show space usage information for a mount point"
+  command = "sudo btrfs filesystem df /"
+  tag = []
+  output = """
+Data, single: total=132.01GiB, used=126.17GiB
+System, single: total=32.00MiB, used=16.00KiB
+Metadata, single: total=3.01GiB, used=1.89GiB
+GlobalReserve, single: total=187.06MiB, used=0.00B"""
+
+[[snippets]]
+  description = "show the structure of a filesystem"
+  command = "sudo btrfs filesystem show /data"
+  tag = []
+  output = """
+Label: none  uuid: 6e18ba0b-2720-4647-943b-71e9b815b3df
+        Total devices 3 FS bytes used 628.04GiB
+        devid    1 size 931.51GiB used 524.03GiB path /dev/mapper/cr_ata-ST1000DM010-2EP102_ZN15HZJG-part1
+        devid    2 size 931.51GiB used 527.03GiB path /dev/mapper/cr_ata-WDC_WD10EZEX-22MFCA0_WD-WCC6Y7LTUNAN-part1
+        devid    3 size 931.51GiB used 537.00GiB path /dev/mapper/cr_ata-WDC_WD1003FZEX-00K3CA0_WD-WCC6Y0UK48K7-part1"""

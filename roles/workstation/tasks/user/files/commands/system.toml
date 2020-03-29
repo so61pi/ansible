@@ -12,13 +12,13 @@
 
 [[snippets]]
   description = "show sysctl value"
-  command = "sysctl <key=fs.inotify.max_user_watches>"
+  command = "sysctl fs.inotify.max_user_watches"
   tag = []
   output = ""
 
 [[snippets]]
   description = "temporarily set sysctl value"
-  command = "sysctl <key=fs.inotify.max_user_watches>=<value=1048576>"
+  command = "sysctl fs.inotify.max_user_watches=1048576"
   tag = []
   output = ""
 

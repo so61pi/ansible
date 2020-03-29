@@ -20,17 +20,22 @@
   description = "list sched tracepoints"
   command = "sudo perf list 'sched:*'"
   tag = []
-  output = ""
+  output = """
+List of pre-defined events (to be used in -e):
+
+  sched:sched_kthread_stop                           [Tracepoint event]
+  sched:sched_kthread_stop_ret                       [Tracepoint event]
+  sched:sched_migrate_task                           [Tracepoint event]"""
 
 [[snippets]]
   description = "add USDT as events to use by perf record"
-  command = "sudo perf buildid-cache --add /lib64/libc-2.30.so"
+  command = "sudo perf buildid-cache --add /lib64/libc.so.6"
   tag = []
   output = ""
 
 [[snippets]]
   description = "remove USDT from perf cache"
-  command = "sudo perf buildid-cache --remove /lib64/libc-2.30.so"
+  command = "sudo perf buildid-cache --remove /lib64/libc.so.6"
   tag = []
   output = ""
 
@@ -68,13 +73,33 @@
   description = "CPU counter statistics for the specified PID, until Ctrl-C"
   command = "perf stat -d -p 131"
   tag = []
-  output = ""
+  output = """
+ Performance counter stats for process id '131':
+
+              7.13 msec task-clock                #    0.001 CPUs utilized
+               212      context-switches          #    0.030 M/sec
+                21      cpu-migrations            #    0.003 M/sec
+                 3      page-faults               #    0.421 K/sec
+         9,203,359      cycles                    #    1.292 GHz                      (3.53%)
+        16,811,586      instructions              #    1.83  insn per cycle           (51.24%)
+         4,063,254      branches                  #  570.208 M/sec                    (52.53%)
+            91,922      branch-misses             #    2.26% of all branches          (52.84%)
+         4,136,050      L1-dcache-loads           #  580.423 M/sec                    (40.60%)
+           315,990      L1-dcache-load-misses     #    7.64% of all L1-dcache hits    (16.89%)
+           135,356      LLC-loads                 #   18.995 M/sec                    (11.61%)
+     <not counted>      LLC-load-misses                                               (0.00%)
+
+       9.355241928 seconds time elapsed"""
 
 [[snippets]]
   description = "count syscalls per-second system-wide:"
   command = "perf stat -e raw_syscalls:sys_enter -I 1000 -a"
   tag = []
-  output = ""
+  output = """
+#           time             counts unit events
+     1.000313105             26,592      raw_syscalls:sys_enter
+     2.000980013             30,407      raw_syscalls:sys_enter
+     3.001650643             22,167      raw_syscalls:sys_enter"""
 
 [[snippets]]
   description = "count system calls by type for the specified PID, until Ctrl-C"

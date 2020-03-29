@@ -12,6 +12,6 @@
 
 [[snippets]]
   description = "follow service log"
-  command = "journalctl --follow --unit <service>"
+  command = "journalctl --follow --unit sshd"
   tag = []
   output = ""

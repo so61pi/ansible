@@ -1,263 +1,290 @@
 [[snippets]]
-  description = "list probes (tracepoints, uprobes, kprobes ...) containing 'sleep'"
-  command = "sudo bpftrace -l '*sleep*'"
-  tag = []
+  description = "bpftrace reference document"
+  command = "xdg-open https://github.com/iovisor/bpftrace/blob/master/docs/reference_guide.md"
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
+  description = "list probes (tracepoints, uprobes, kprobes ...) containing 'sleep'"
+  command = "sudo bpftrace -l '*sleep*'"
+  tag = ["bpf"]
+  output = """
+tracepoint:syscalls:sys_exit_nanosleep
+kprobe:tboot_extended_sleep
+kprobe:tboot_sleep"""
+
+[[snippets]]
   description = "list USDT probes for libc"
-  command = "sudo bpftrace -l 'usdt:/lib64/libc-2.30.so'"
-  tag = []
-  output = ""
+  command = "sudo bpftrace -l 'usdt:/lib64/libc.so.6'"
+  tag = ["bpf"]
+  output = """
+usdt:/lib64/libc.so.6:libc:setjmp
+usdt:/lib64/libc.so.6:libc:longjmp
+usdt:/lib64/libc.so.6:libc:longjmp_target"""
 
 [[snippets]]
   description = "new processes with arguments"
   command = "sudo bpftrace -e 'tracepoint:syscalls:sys_enter_execve { join(args->argv); }'"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+/usr/bin/speedcrunch
+/usr/sbin/postqueue -p
+/usr/bin/vlc --started-from-file"""
 
 [[snippets]]
   description = "syscall count by process"
   command = "sudo bpftrace -e 'tracepoint:raw_syscalls:sys_enter { @[pid, comm] = count(); }'"
-  tag = []
-  output = ""
+  tag = ["bpf"]
+  output = """
+@[22329, vlc]: 28705
+@[2765, blackbox_export]: 29571
+@[2223, X]: 47355"""
 
 [[snippets]]
   description = "sample running process name at 99 Hertz"
   command = "sudo bpftrace -e 'profile:hz:99 { @[comm] = count(); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "sample user-level stacks at 49 Hertz, for PID 189"
   command = "sudo bpftrace -e 'profile:hz:49 /pid == 189/ { @[ustack] = count(); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "trace new threads via pthread_create()"
-  command = """sudo bpftrace -e 'uprobe:/lib64/libpthread-2.30.so:pthread_create { printf("%s by %s (%d)\n", probe, comm, pid); }'"""
-  tag = []
+  command = """sudo bpftrace -e 'uprobe:/lib64/libpthread.so.0:pthread_create { printf("%s by %s (%d)\n", probe, comm, pid); }'"""
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count process heap expansion (brk()) by code path"
   command = "sudo bpftrace -e tracepoint:syscalls:sys_enter_brk { @[ustack, comm] = count(); }"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count page faults by process"
-  command = "sudo bpftrace -e 'software:page-fault:1 { @[comm, pid] = count(); }'"
-  tag = []
-  output = ""
+  command = "sudo bpftrace -e 'software:page-faults:1 { @[comm, pid] = count(); }'"
+  tag = ["bpf"]
+  output = """
+@[Web Content, 12687]: 240
+@[firefox-bin, 12628]: 400
+@[WebExtensions, 13018]: 401"""
 
 [[snippets]]
   description = "count user page faults by user-level stack trace"
   command = "sudo bpftrace -e 'tracepoint:exceptions:page_fault_user { @[ustack, comm] = count(); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count vmscan operations by tracepoint"
   command = "sudo bpftrace -e 'tracepoint:vmscan:* { @[probe]++; }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "trace files opened via open(2) with process name"
   command = """sudo bpftrace -e 'tracepoint:syscalls:sys_enter_open { printf("%s %s\n", comm, str(args->filename)); }'"""
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "show the distribution of read() syscall request sizes"
   command = "sudo bpftrace -e 'tracepoint:syscalls:sys_enter_read { @ = hist(args->count); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "show the distribution of read() syscall read bytes (and errors)"
   command = "sudo bpftrace -e 'tracepoint:syscalls:sys_exit_read { @ = hist(args->ret); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count VFS calls"
   command = "sudo bpftrace -e 'kprobe:vfs_* { @[probe] = count(); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count ext4 tracepoints"
   command = "sudo bpftrace -e 'tracepoint:ext4:* { @[probe] = count(); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count block I/O tracepoints"
   command = "sudo bpftrace -e 'tracepoint:block:* { @[probe] = count(); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "summarize block I/O size as a histogram"
   command = "sudo bpftrace -e 'tracepoint:block:block_rq_issue { @bytes = hist(args->bytes); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count block I/O request user stack traces"
   command = "sudo bpftrace -e 'tracepoint:block:block_rq_issue { @[ustack] = count(); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count block I/O type flags"
   command = "sudo bpftrace -e 'tracepoint:block:block_rq_issue { @[args->rwbs] = count(); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "trace block I/O errors with device and I/O type"
   command = """sudo bpftrace -e 'tracepoint:block:block_rq_complete /args->error/ { printf("dev %d type %s error %d\n", args->dev, args->rwbs, args->error); }'"""
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count SCSI opcodes"
   command = "sudo bpftrace -e 'tracepoint:scsi:scsi_dispatch_cmd_start { @opcode[args->opcode] = count(); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count SCSI result codes"
   command = "sudo bpftrace -e 'tracepoint:scsi:scsi_dispatch_cmd_done { @result[args->result] = count(); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count SCSI driver funcitons"
   command = "sudo bpftrace -e 'kprobe:scsi* { @[func] = count(); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count socket accept(2)s by PID and process name"
   command = "sudo bpftrace -e 'tracepoint:syscalls:sys_enter_accept* { @[pid, comm] = count(); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count socket connect(2)s by PID and process name"
   command = "sudo bpftrace -e 'tracepoint:syscalls:sys_enter_connect { @[pid, comm] = count(); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count socket send/receive bytes by on-CPU PID and process name"
   command = "sudo bpftrace -e 'kretprobe:sock_sendmsg,kr:sock_recvmsg /retval > 0/ { @[pid, comm, retval] = sum(retval); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count tcp send/receives"
   command = "sudo bpftrace -e 'kprobe:tcp_sendmsg,k:tcp*recvmsg { @[func] = count(); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "tcp send bytes as a histogram"
   command = "sudo bpftrace -e 'kprobe:tcp_sendmsg { @send_bytes = hist(arg2); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "tcp receive bytes as a histogram"
   command = "sudo bpftrace -e 'kretprobe:tcp_recvmsg /retval >= 0/ { @recv_bytes = hist(retval); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count tcp retransmits by type and remote host (assumes IPv4)"
   command = "sudo bpftrace -e 'tracepoint:tcp:tcp_retransmit_* { @[probe, ntop(2, args->saddr)] = count(); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "udp send bytes as a histogram"
   command = "sudo bpftrace -e 'kprobe:udp_sendmsg { @send_bytes = hist(arg2); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count transmit kernel stack traces"
   command = "sudo bpftrace -e 'tracepoint:net:net_dev_xmit { @[kstack] = count(); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "trace kernel module loads"
   command = """sudo bpftrace -e 'tracepoint:module:module_load { printf("load: %s\n", str(args->name)); }'"""
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "sum malloc() requested bytes by user stack trace (high overhead)"
   command = "sudo bpftrace -e 'uprobe:/lib64/libc-2.30.so:malloc { @[ustack(5)] = sum(arg0); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "trace kill() signals showing sender process name, target PID, and signal number"
   command = """sudo bpftrace -e 'tracepoint:syscalls:sys_enter_kill { printf("%s -> PID %d SIG %d\n", comm, args->pid, args->sig); }'"""
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count libpthread mutex lock functions for one second"
   command = "sudo bpftrace -e 'uprobe:/lib64/libpthread-2.30.so:pthread_mutex_*lock { @[probe] = count(); } interval:s:1 { exit(); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count libpthread conditional variable functions for one second"
   command = "sudo bpftrace -e 'uprobe:/lib64/libpthread-2.30.so:pthread_cond_* { @[probe] = count(); } interval:s:1 { exit(); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count system calls by syscall function"
   command = """sudo bpftrace -e 'tracepoint:raw_syscalls:sys_enter { @[ksym(*(kaddr("sys_call_table") + args->id * 8))] = count(); }'"""
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count kernel function calls starting with 'attach'"
   command = "sudo bpftrace -e 'kprobe:attach* { @[probe] = count(); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "time the kernel function vfs_read() and summarize as a histogram"
   command = "sudo bpftrace -e 'kprobe:vfs_read { @ts[tid] = nsecs; } kr:vfs_read /@ts[tid]/ { @ = hist(nsecs - @ts[tid]); delete(@ts[tid]); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "sample kernel-level stacks at 99 Hertz, excluding idle"
   command = "sudo bpftrace -e 'profile:hz:99 /pid/ { @[kstack] = count(); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count context switch stack traces"
   command = "sudo bpftrace -e 'tracepoint:sched:sched_switch { @[kstack, ustack, comm] = count(); }'"
-  tag = []
+  tag = ["bpf"]
   output = ""
 
 [[snippets]]
   description = "count work queue requests by kernel function"
   command = "sudo bpftrace -e 'tracepoint:workqueue:workqueue_execute_start { @[ksym(args->function)] = count() }'"
-  tag = []
+  tag = ["bpf"]
+  output = ""
+
+[[snippets]]
+  description = "trace readline of bash"
+  command = """sudo bpftrace -e 'uretprobe:/bin/bash:readline { printf("read a line\n"); }'"""
+  tag = ["bpf"]
   output = ""

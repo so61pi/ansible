@@ -1,6 +1,6 @@
 [[snippets]]
   description = "initializes a new Vagrant environment by creating a Vagrantfile"
-  command = "vagrant init <image='ubuntu/bionic64'>"
+  command = "vagrant init ubuntu/bionic64"
   tag = []
   output = ""
 

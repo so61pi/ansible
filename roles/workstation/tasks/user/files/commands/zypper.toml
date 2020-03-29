@@ -12,31 +12,31 @@
 
 [[snippets]]
   description = "install package"
-  command = "sudo zypper in <package>"
+  command = "sudo zypper in package"
   tag = []
   output = ""
 
 [[snippets]]
   description = "install package without confirmation"
-  command = "sudo zypper in -y <package>"
+  command = "sudo zypper in -y package"
   tag = []
   output = ""
 
 [[snippets]]
   description = "remove package"
-  command = "sudo zypper rm <package>"
+  command = "sudo zypper rm package"
   tag = []
   output = ""
 
 [[snippets]]
   description = "remove package without confirmation"
-  command = "sudo zypper rm -y <package>"
+  command = "sudo zypper rm -y package"
   tag = []
   output = ""
 
 [[snippets]]
   description = "remove package and its dependencies"
-  command = "sudo zypper rm --clean-deps <package>"
+  command = "sudo zypper rm --clean-deps package"
   tag = []
   output = ""
 
@@ -54,7 +54,7 @@
 
 [[snippets]]
   description = "remove repository"
-  command = "sudo zypper rr <repository>"
+  command = "sudo zypper rr repo"
   tag = []
   output = ""
 
@@ -74,13 +74,31 @@
   description = "list repositories"
   command = "zypper lr"
   tag = []
-  output = ""
+  output = """
+Repository priorities in effect:                                                                      (See 'zypper lr -P' for details)
+      90 (raised priority)  :  1 repository
+      99 (default priority) :  7 repositories
+
+# | Alias                            | Name                       | Enabled | GPG Check | Refresh
+--+----------------------------------+----------------------------+---------+-----------+--------
+1 | NVIDIA                           | NVIDIA                     | Yes     | (r ) Yes  | Yes
+2 | download.opensuse.org-non-oss    | Main Repository (NON-OSS)  | Yes     | (r ) Yes  | Yes
+3 | download.opensuse.org-oss        | Main Repository (OSS)      | Yes     | (r ) Yes  | Yes"""
 
 [[snippets]]
   description = "list repositories with uri"
   command = "zypper lr -u"
   tag = []
-  output = ""
+  output = """
+Repository priorities in effect:                                                                                                                             (See 'zypper lr -P' for details)
+      90 (raised priority)  :  1 repository
+      99 (default priority) :  7 repositories
+
+# | Alias                            | Name                       | Enabled | GPG Check | Refresh | URI
+--+----------------------------------+----------------------------+---------+-----------+---------+---------------------------------------------------------------------
+1 | NVIDIA                           | NVIDIA                     | Yes     | (r ) Yes  | Yes     | https://download.nvidia.com/opensuse/tumbleweed
+2 | download.opensuse.org-non-oss    | Main Repository (NON-OSS)  | Yes     | (r ) Yes  | Yes     | http://download.opensuse.org/tumbleweed/repo/non-oss/
+3 | download.opensuse.org-oss        | Main Repository (OSS)      | Yes     | (r ) Yes  | Yes     | http://download.opensuse.org/tumbleweed/repo/oss/"""
 
 [[snippets]]
   description = "list available updates"
@@ -90,12 +108,32 @@
 
 [[snippets]]
   description = "search for package"
-  command = "zypper se <pattern='usb*'>"
+  command = "zypper se 'usb*'"
   tag = []
-  output = ""
+  output = """
+S | Name                         | Summary                                                                   | Type
+--+------------------------------+---------------------------------------------------------------------------+--------
+i | usb_modeswitch               | A mode switching tool for controlling multiple-device USB gear            | package
+i | usb_modeswitch-data          | Data Files for USB Modeswitch                                             | package
+  | usb_modeswitch-debuginfo     | Debug information for package usb_modeswitch                              | package"""
 
 [[snippets]]
   description = "display info of a package"
-  command = "zypper info <package=usbutils>"
+  command = "zypper info usbutils"
   tag = []
-  output = ""
+  output = """
+Information for package usbutils:
+---------------------------------
+Repository     : Main Repository (OSS)
+Name           : usbutils
+Version        : 010-1.4
+Arch           : x86_64
+Vendor         : openSUSE
+Installed Size : 294.4 KiB
+Installed      : Yes (automatically)
+Status         : up-to-date
+Source package : usbutils-010-1.4.src
+Summary        : Tools and libraries for USB devices
+Description    :
+    This package contains a utility for inspecting devices connected to USB
+    ports."""

@@ -2,13 +2,18 @@
   description = "show system boot time"
   command = "systemd-analyze"
   tag = []
-  output = ""
+  output = """
+Startup finished in 16.297s (firmware) + 33.027s (loader) + 2.669s (kernel) + 4.524s (initrd) + 13.164s (userspace) = 1min 9.683s
+graphical.target reached after 13.149s in userspace"""
 
 [[snippets]]
   description = "show startup time for each unit"
   command = "systemd-analyze blame"
   tag = []
-  output = ""
+  output = """
+5.071s systemd-cryptsetup@cr\\x2dauto\\x2d2.service
+3.456s docker.service
+3.425s systemd-cryptsetup@cr_ata\\x2dWDC_WD1003FZEX\\x2d00K3CA0_WD\\x2dWCC6Y0UK48K7\\x2dpart1.service"""
 
 [[snippets]]
   description = "print system startup time for each service in SVG"

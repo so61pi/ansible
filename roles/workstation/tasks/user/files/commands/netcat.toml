@@ -1,53 +1,53 @@
 [[snippets]]
   description = "scanning ports"
   command = "netcat -z -v example.com 1-1000"
-  tag = []
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "listening on port 4444"
   command = "netcat -l 4444"
-  tag = []
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "sending file"
   command = "netcat example.com 4444 < file"
-  tag = []
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "receiving file"
   command = "netcat -l 4444 > file"
-  tag = []
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "sending a whole directory"
   command = "tar -czf - * | netcat example.com 4444"
-  tag = []
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "receiving a whole directory"
   command = "netcat -l 4444 | tar xzvf -"
-  tag = []
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "ssh host hopping"
   command = "ssh -oProxyCommand='ssh proxy.example.com netcat dest.example.com 22' dest.example.com"
-  tag = []
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "sending random bytes"
   command = "dd status=progress if=/dev/urandom | netcat example.com 4444"
-  tag = []
+  tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "receiving random bytes"
   command = "netcat -l 4444 | dd status=progress of=/dev/null"
-  tag = []
+  tag = ["network"]
   output = ""

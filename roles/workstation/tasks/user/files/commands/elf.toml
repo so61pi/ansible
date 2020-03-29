@@ -1,11 +1,26 @@
 [[snippets]]
-  description = "list symbols of elf files"
+  description = "list symbols of elf files (can be used for uprobe and uretprobe)"
   command = "readelf -s $(which readelf)"
   tag = []
   output = ""
 
 [[snippets]]
-  description = "list symbols of elf files"
-  command = "readelf -s /lib64/libpthread-2.30.so"
+  description = "list symbols of elf files (can be used for uprobe and uretprobe)"
+  command = "readelf -s /lib64/libpthread.so.0"
   tag = []
-  output = ""
+  output = """
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND
+     1: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __libc_siglongjmp@GLIBC_PRIVATE (15)
+     2: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __tsearch@GLIBC_PRIVATE (15)"""
+
+
+[[snippets]]
+  description = "list symbols of elf files (can be used for uprobe and uretprobe)"
+  command = "objdump -tT /bin/bash"
+  tag = []
+  output = """
+DYNAMIC SYMBOL TABLE:
+0000000000000000      DF *UND*  0000000000000000  GLIBC_2.2.5 endgrent
+0000000000000000      DF *UND*  0000000000000000  GLIBC_2.3   __ctype_toupper_loc
+0000000000000000      DF *UND*  0000000000000000  GLIBC_2.2.5 iswlower"""
