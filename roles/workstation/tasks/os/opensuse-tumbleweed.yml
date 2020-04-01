@@ -59,8 +59,8 @@
           - bzip2
           - chromium
           - clang
-          - clang-checker
           - clang-devel
+          - clang-tools
           - cmake
           - code
           - curl
