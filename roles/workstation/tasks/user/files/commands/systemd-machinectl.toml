@@ -1,66 +1,66 @@
 [[snippets]]
   description = "open an interactive shell session in a container"
-  command = "machinectl shell ubuntu-18.04 /bin/bash"
+  command = "machinectl shell {container=ubuntu-18.04} /bin/bash"
   tag = []
   output = ""
 
 [[snippets]]
   description = "start a container as a system service"
-  command = "machinectl start ubuntu-18.04"
+  command = "machinectl start {container=ubuntu-18.04}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "open an interactive terminal login session in a container"
-  command = "machinectl login ubuntu-18.04"
+  command = "machinectl login {container=ubuntu-18.04}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "power off a container"
-  command = "machinectl stop ubuntu-18.04"
+  command = "machinectl stop {container=ubuntu-18.04}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "reboot a container"
-  command = "machinectl reboot ubuntu-18.04"
+  command = "machinectl reboot {container=ubuntu-18.04}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "show runtime status information about a container"
-  command = "machinectl status ubuntu-18.04"
+  command = "machinectl status {container=ubuntu-18.04}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "bind mount a file/directory from host to container"
-  command = "machinectl bind --read-only --mkdir container-name src dst"
+  command = "machinectl bind --read-only --mkdir {container=ubuntu-18.04} {srcpath} {dstpath}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "copy file/directory from host to container"
-  command = "machinectl copy-to container-name src dst"
+  command = "machinectl copy-to {container=ubuntu-18.04} {srcpath} {dstpath}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "copy file/directory from container to host"
-  command = "machinectl copy-from container-name src dst"
+  command = "machinectl copy-from {container=ubuntu-18.04} {srcpath} {dstpath}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "enable a container to start as a system service at system boot"
-  command = "machinectl enable ubuntu-18.04"
+  command = "machinectl enable {container=ubuntu-18.04}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "disable container from starting at boot time"
-  command = "machinectl disable ubuntu-18.04"
+  command = "machinectl disable {container=ubuntu-18.04}"
   tag = []
   output = ""
 
@@ -90,25 +90,25 @@
 
 [[snippets]]
   description = "export an image to tar file"
-  command = "machinectl export-tar ubuntu-18.04 ubuntu-18.04.tar.xz"
+  command = "machinectl export-tar {image=ubuntu-18.04} {file=ubuntu-18.04.tar.xz}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "import image from a tar file"
-  command = "machinectl import-tar ubuntu-18.04.tar ubuntu-18.04"
+  command = "machinectl import-tar {file=ubuntu-18.04.tar} {image=ubuntu-18.04}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "import image from a filesystem"
-  command = "machinectl import-fs directory ubuntu-18.04"
+  command = "machinectl import-fs {directory} {image=ubuntu-18.04}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "download image from URL"
-  command = "machinectl pull-tar url image"
+  command = "machinectl pull-tar {url} {image=ubuntu-18.04}"
   tag = []
   output = ""
 
@@ -126,12 +126,18 @@
 
 [[snippets]]
   description = "clone an image"
-  command = "machinectl clone src dst"
+  command = "machinectl clone {srcimage=ubuntu-18.04} {dstimage=ubuntu-18.04-test}"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "clone to a read-only image"
+  command = "machinectl --read-only clone {srcimage=ubuntu-18.04} {dstimage=ubuntu-18.04-ro}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "rename an image"
-  command = "machinectl rename old new"
+  command = "machinectl rename {oldimage} {newimage}"
   tag = []
   output = ""

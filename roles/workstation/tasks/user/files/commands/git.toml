@@ -1,6 +1,6 @@
 [[snippets]]
   description = "config user name & email"
-  command = "git config --global user.name ExampleName && git config --global user.email name@example.com"
+  command = "git config --global user.name {username} && git config --global user.email {email}"
   tag = []
   output = ""
 
@@ -36,7 +36,7 @@
 
 [[snippets]]
   description = "clone a repository"
-  command = "git clone --recurse-submodules url"
+  command = "git clone --recurse-submodules {url}"
   tag = []
   output = ""
 
@@ -65,7 +65,7 @@
   output = ""
 
 [[snippets]]
-  description = "amend last commit without change message"
+  description = "amend last commit without changing message"
   command = "git commit --amend --no-edit"
   tag = []
   output = ""
@@ -90,7 +90,7 @@
 
 [[snippets]]
   description = "execute pull in a directory"
-  command = "git -C directory pull"
+  command = "git -C {directory} pull"
   tag = []
   output = ""
 
@@ -102,13 +102,13 @@
 
 [[snippets]]
   description = "soft reset to a commit"
-  command = "git reset dst-commit"
+  command = "git reset --soft {commit}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "hard reset to a commit"
-  command = "git reset --hard dst-commit"
+  command = "git reset --hard {commit}"
   tag = []
   output = ""
 
@@ -120,7 +120,7 @@
 
 [[snippets]]
   description = "search for files"
-  command = "git ls-files | grep cpp"
+  command = "git ls-files | grep {pattern}"
   tag = []
   output = ""
 
@@ -144,13 +144,13 @@
 
 [[snippets]]
   description = "remove/delete a branch"
-  command = "git branch -d bugfix"
+  command = "git branch -d {name=bugfix}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "force remove/delete a branch"
-  command = "git branch -D bugfix"
+  command = "git branch -D {name=bugfix}"
   tag = []
   output = ""
 
@@ -270,7 +270,7 @@
 
 [[snippets]]
   description = "search for text in all commits/history"
-  command = "git log -S text --source --all"
+  command = "git log --source --all -S {text}"
   tag = []
   output = ""
 
@@ -312,13 +312,13 @@
 
 [[snippets]]
   description = "merge branch to current branch"
-  command = "git merge bugfix"
+  command = "git merge {from=bugfix}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "squash merge branch to current branch"
-  command = "git merge --squash bugfix"
+  command = "git merge --squash {from=bugfix}"
   tag = []
   output = ""
 
@@ -343,5 +343,17 @@
 [[snippets]]
   description = "stop webserver"
   command = "git instaweb stop"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "Get hash of current commit"
+  command = "git rev-parse --verify HEAD"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "Get hash of previous commit"
+  command = "git rev-parse --verify HEAD~"
   tag = []
   output = ""

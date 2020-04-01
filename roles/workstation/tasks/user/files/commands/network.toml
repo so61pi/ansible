@@ -67,13 +67,13 @@ docker0             9c236aeb-8158-40cc-bfac-b4dace667eb0  bridge    docker0"""
 
 [[snippets]]
   description = "activate a connection"
-  command = "nmcli connection up conn-name"
+  command = "nmcli connection up {connection-name}"
   tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "deactivate a connection"
-  command = "nmcli connection down conn-name"
+  command = "nmcli connection down {connection-name}"
   tag = ["network"]
   output = ""
 
@@ -130,13 +130,13 @@ IP6.ROUTE[3]:                           dst = fe80::/64, nh = ::, mt = 256"""
 
 [[snippets]]
   description = "connect to a wifi network"
-  command = "nmcli device wifi connect SSID-Name password wireless-password"
+  command = "nmcli device wifi connect {SSID} password {wireless-password}"
   tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "create a wifi hotspot"
-  command = "nmcli device wifi hotspot ssid SSID-Name password wireless-password"
+  command = "nmcli device wifi hotspot ssid {SSID} password {wireless-password}"
   tag = ["network"]
   output = ""
 
@@ -200,31 +200,31 @@ listening on enp3s0, link-type EN10MB (Ethernet), capture size 262144 bytes
 
 [[snippets]]
   description = "capture packets with specified port"
-  command = "sudo tcpdump -n dst port 443"
+  command = "sudo tcpdump -n dst port {port=443}"
   tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "capture packets arriving at or departing from host"
-  command = "sudo tcpdump -n host 443"
+  command = "sudo tcpdump -n host {host=192.168.1.2}"
   tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "capture packets arriving at host"
-  command = "sudo tcpdump -n dst host 443"
+  command = "sudo tcpdump -n dst host {host=192.168.1.2}"
   tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "capture packets departing from host"
-  command = "sudo tcpdump -n src host 443"
+  command = "sudo tcpdump -n src host {host=192.168.1.2}"
   tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "capture packets arriving at host at port 443"
-  command = "sudo tcpdump -n 'dst host 8443 and dst port 443'"
+  command = "sudo tcpdump -n 'dst host {host=192.168.1.2} and dst port {port=443}'"
   tag = ["network"]
   output = ""
 
@@ -287,13 +287,13 @@ fe80::1 dev enp3s0 lladdr 8c:e1:17:b5:71:72 router STALE"""
 
 [[snippets]]
   description = "bring interface up"
-  command = "ip link set eth0 up"
+  command = "ip link set {interface=eth0} up"
   tag = ["network"]
   output = ""
 
 [[snippets]]
   description = "bring interface down"
-  command = "ip link set eth0 down"
+  command = "ip link set {interface=eth0} down"
   tag = ["network"]
   output = ""
 
@@ -320,7 +320,7 @@ ESTAB       0       0                    172.19.0.1:42732                       
 
 [[snippets]]
   description = "issue and show DNS lookup progress"
-  command = "dig google.com"
+  command = "dig {host=google.com}"
   tag = ["network"]
   output = """
 ; <<>> DiG 9.16.1 <<>> google.com
@@ -344,7 +344,7 @@ google.com.             186     IN      A       216.58.221.78
 
 [[snippets]]
   description = "query DNS of a host"
-  command = "nslookup example.com"
+  command = "nslookup {host=example.com}"
   tag = ["network"]
   output = """
 Server:         8.8.8.8
@@ -358,7 +358,7 @@ Address: 2606:2800:220:1:248:1893:25c8:1946"""
 
 [[snippets]]
   description = "print the route packet goes through"
-  command = "traceroute example.com"
+  command = "traceroute {host=example.com}"
   tag = ["network"]
   output = """
 traceroute to example.com (93.184.216.34), 30 hops max, 60 byte packets

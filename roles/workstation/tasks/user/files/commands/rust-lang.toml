@@ -90,7 +90,7 @@
 
 [[snippets]]
   description = "set default toolchain"
-  command = "rustup default stable"
+  command = "rustup default {toolchain=stable}"
   tag = ["rust"]
   output = ""
 

@@ -12,31 +12,31 @@
 
 [[snippets]]
   description = "install package"
-  command = "sudo zypper in package"
+  command = "sudo zypper in {package}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "install package without confirmation"
-  command = "sudo zypper in -y package"
+  command = "sudo zypper in -y {package}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "remove package"
-  command = "sudo zypper rm package"
+  command = "sudo zypper rm {package}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "remove package without confirmation"
-  command = "sudo zypper rm -y package"
+  command = "sudo zypper rm -y {package}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "remove package and its dependencies"
-  command = "sudo zypper rm --clean-deps package"
+  command = "sudo zypper rm --clean-deps {package}"
   tag = []
   output = ""
 
@@ -54,7 +54,7 @@
 
 [[snippets]]
   description = "remove repository"
-  command = "sudo zypper rr repo"
+  command = "sudo zypper rr {repo}"
   tag = []
   output = ""
 
@@ -119,7 +119,7 @@ i | usb_modeswitch-data          | Data Files for USB Modeswitch                
 
 [[snippets]]
   description = "display info of a package"
-  command = "zypper info usbutils"
+  command = "zypper info {package=usbutils}"
   tag = []
   output = """
 Information for package usbutils:

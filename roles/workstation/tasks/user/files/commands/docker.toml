@@ -1,66 +1,66 @@
 [[snippets]]
   description = "build an image from a Dockerfile"
-  command = "docker build --tag name:tag ."
+  command = "docker build --tag {name:tag} ."
   tag = []
   output = ""
 
 [[snippets]]
   description = "build an image from a Dockerfile in a directory"
-  command = "docker build --tag name:tag directory"
+  command = "docker build --tag {name:tag} {directory}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "build an image from an arbitrary Dockerfile with a directory"
-  command = "docker build --tag name:tag -f new-dockerfile directory"
+  command = "docker build --tag {name:tag} -f {dockerfile} {directory}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "copy files/folders between a container and the local filesystem"
-  command = "docker cp container-name:src dst"
+  command = "docker cp {container:src} {dst}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "copy files/folders between a container and the local filesystem"
-  command = "docker cp dst container-name:src"
+  command = "docker cp {dst} {container:src}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "inspect changes to files or directories on a container’s filesystem"
-  command = "docker diff container-name"
+  command = "docker diff {container}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "run a command in a new container"
-  command = "docker run --env 'TERM=xterm' --init --tty --volume $(pwd):/code --workdir /code image bash"
+  command = "docker run --env 'TERM=xterm' --init --tty --volume $(pwd):/code --workdir /code {image:tag} {cmd}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "run a command in a running container"
-  command = "docker exec --tty --interactive --privileged container-name bash"
+  command = "docker exec --tty --interactive --privileged {container} {cmd}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "display detailed information on one or more containers"
-  command = "docker container inspect container-name"
+  command = "docker container inspect {container}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "fetch the logs of a container"
-  command = "docker logs container-name"
+  command = "docker logs {container}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "list port mappings or a specific mapping for the container"
-  command = "docker port container-name"
+  command = "docker port {container}"
   tag = []
   output = ""
 
@@ -72,55 +72,55 @@
 
 [[snippets]]
   description = "rename a container"
-  command = "docker rename container-name new-name"
+  command = "docker rename {container} {newname}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "restart one or more containers"
-  command = "docker restart container-name"
+  command = "docker restart {container}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "start one or more stopped containers"
-  command = "docker start container-name"
+  command = "docker start {container}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "stop one or more running containers"
-  command = "docker stop container-name"
+  command = "docker stop {container}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "display the running processes of a container"
-  command = "docker top container-name"
+  command = "docker top {container}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "build an image from a Dockerfile"
-  command = "docker build --tag name:tag ."
+  command = "docker build --tag {name:tag} ."
   tag = []
   output = ""
 
 [[snippets]]
   description = "build an image from a Dockerfile in a directory"
-  command = "docker build --tag name:tag directory"
+  command = "docker build --tag {name:tag} {directory}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "build an image from an arbitrary Dockerfile with a directory"
-  command = "docker build --tag name:tag -f new-dockerfile directory"
+  command = "docker build --tag {name:tag} -f {dockerfile} {directory}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "load an image from a tar archive or stdin"
-  command = "docker load -i file.tar"
+  command = "docker load -i {file=image.tar}"
   tag = []
   output = ""
 
@@ -138,31 +138,37 @@
 
 [[snippets]]
   description = "pull an image or a repository from a registry"
-  command = "docker pull image:tag"
+  command = "docker pull {image:tag}"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "pull an image or a repository from a registry"
+  command = "docker pull {image@hash=alpine@sha256:842db5c820b72e078691118de1791c9baa15ba09c87235e70990186ac0f825de}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "push an image or a repository to a registry"
-  command = "docker push"
+  command = "docker push {image:tag}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "remove one or more images"
-  command = "docker rmi image"
+  command = "docker rmi {image:tag}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "save one or more images to a tar archive"
-  command = "docker save -o file.tar image"
+  command = "docker save -o {file=image.tar} {image:tag}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "tag an image"
-  command = "docker tag image image:tag"
+  command = "docker tag {srcimage:srctag} {dstimage:dsttag}"
   tag = []
   output = ""
 
@@ -174,31 +180,31 @@
 
 [[snippets]]
   description = "return low-level information on docker objects"
-  command = "docker inspect object-id"
+  command = "docker inspect {object}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "connect a container to a network"
-  command = "docker network connect"
+  command = "docker network connect {network} {container}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "create a network"
-  command = "docker network create network-name"
+  command = "docker network create {network}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "disconnect a container from a network"
-  command = "docker network disconnect network-name container-name"
+  command = "docker network disconnect {network} {container}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "display detailed information on one or more networks"
-  command = "docker network inspect"
+  command = "docker network inspect {network}"
   tag = []
   output = ""
 
@@ -216,19 +222,13 @@
 
 [[snippets]]
   description = "remove one or more networks"
-  command = "docker network rm"
+  command = "docker network rm {network}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "list containers"
   command = "docker ps"
-  tag = []
-  output = ""
-
-[[snippets]]
-  description = "run a command in a new container"
-  command = "docker run --env 'TERM=xterm' --init --tty --volume $(pwd):/code --workdir /code image bash"
   tag = []
   output = ""
 
@@ -276,24 +276,24 @@
 
 [[snippets]]
   description = "restarts all stopped and running services"
-  command = "docker-compose restart service-name"
+  command = "docker-compose restart {service}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "stops running containers without removing them"
-  command = "docker-compose stop service-name"
+  command = "docker-compose stop {service}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "starts existing containers for a service"
-  command = "docker-compose start service-name"
+  command = "docker-compose start {service}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "displays log output from services"
-  command = "docker-compose logs -f service-name"
+  command = "docker-compose logs -f {service}"
   tag = []
   output = ""

@@ -115,6 +115,8 @@ alias cdt="cd ~/work/tmp/"
 function cdroot() { cd "$(git rev-parse --show-toplevel)" }
 alias b=bat
 alias c=cat
+alias pbcopy="xclip -r -selection c"
+alias pbpaste="xclip -selection clipboard -o"
 
 export LESS=-XFRS
 

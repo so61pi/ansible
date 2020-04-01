@@ -6,55 +6,55 @@
 
 [[snippets]]
   description = "show service status"
-  command = "systemctl status sshd"
+  command = "systemctl status {service=sshd}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "start service"
-  command = "systemctl start sshd"
+  command = "systemctl start {service=sshd}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "stop service"
-  command = "systemctl stop sshd"
+  command = "systemctl stop {service=sshd}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "restart service"
-  command = "systemctl restart sshd"
+  command = "systemctl restart {service=sshd}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "show service properties"
-  command = "systemctl show sshd"
+  command = "systemctl show {service=sshd}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "enable service"
-  command = "systemctl enable sshd"
+  command = "systemctl enable {service=sshd}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "disable service"
-  command = "systemctl disable sshd"
+  command = "systemctl disable {service=sshd}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "edit the service file on disk"
-  command = "systemctl edit sshd"
+  command = "systemctl edit {service=sshd}"
   tag = []
   output = ""
 
 [[snippets]]
   description = "display service file"
-  command = "systemctl cat sshd"
+  command = "systemctl cat {service=sshd}"
   tag = []
   output = ""
 
