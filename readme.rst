@@ -34,7 +34,17 @@ Set up private and public keys.
 Konsole
 -------
 
-Unlimited history.
+- Profile
+
+  * Appearance
+
+    + Edit -> Blur background 10%
+    + Font 13pt
+
+  * Scrolling: Unlimited
+  * Keyboard
+
+    + Edit -> Map ` to ~
 
 System
 ------
@@ -178,6 +188,7 @@ Add-ons
 - Open Tabs Next to Current
 - Privacy Badger
 - Search by Image
+- Simple Tab Groups
 - stutter
 - To Google Translate
 - uBlock Origin
