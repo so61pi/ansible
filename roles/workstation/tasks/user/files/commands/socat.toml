@@ -1,0 +1,53 @@
+[[snippets]]
+  description = "transfer data between two addresses"
+  command = "socat {src-addr} {dst-addr}"
+  tag = ["network"]
+  output = ""
+
+[[snippets]]
+  description = "transfer data from src to dst but not in reverse"
+  command = "socat -u {src-addr} {dst-addr}"
+  tag = ["network"]
+  output = ""
+
+[[snippets]]
+  description = "connect stdio to example.com on port 80"
+  command = "socat - TCP:{host=example.com}:{port=80}"
+  tag = ["network"]
+  output = ""
+
+[[snippets]]
+  description = "connect serial port to network"
+  command = "socat TCP-LISTEN:{port=4444},fork,reuseaddr FILE:/dev/ttyUSB0,b115200,raw"
+  tag = ["network"]
+  output = ""
+
+[[snippets]]
+  description = "receive file from server, server side"
+  command = "socat -u FILE:{file=example.txt} TCP-LISTEN:{port=4444},reuseaddr"
+  tag = ["network"]
+  output = ""
+
+[[snippets]]
+  description = "receive file from server, client side"
+  command = "socat -u TCP:{host=example.com}:{port=4444} OPEN:{file=example.txt},creat,excl"
+  tag = ["network"]
+  output = ""
+
+[[snippets]]
+  description = "send file to server, server side"
+  command = "socat -u TCP-LISTEN:{port=4444},reuseaddr OPEN:{file=example.txt},creat,excl"
+  tag = ["network"]
+  output = ""
+
+[[snippets]]
+  description = "send file to server, client side"
+  command = "socat -u FILE:{file=example.txt} TCP:{host=example.com}:{port=4444}"
+  tag = ["network"]
+  output = ""
+
+[[snippets]]
+  description = "port forwarding"
+  command = "socat TCP-LISTEN:80 TCP:{host=example.com}:{port=80}"
+  tag = ["network"]
+  output = ""

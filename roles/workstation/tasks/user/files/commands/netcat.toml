@@ -1,6 +1,6 @@
 [[snippets]]
   description = "scanning ports"
-  command = "netcat -z -v example.com 1-1000"
+  command = "netcat -z -v example.com {port-range=1-1000}"
   tag = ["network"]
   output = ""
 

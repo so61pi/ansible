@@ -1,0 +1,23 @@
+[[snippets]]
+  description = "Create backup of PostgreSQL database using PostgreSQL custom format"
+  command = "pg_dump -U {username} -f {file=backup.dump} {database} -Fc"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "Restore PostgreSQL database from PostgreSQL custom format backup"
+  command = "pg_restore -d {database} -U {username} -C {file=backup.dump}"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "Create backup of PostgreSQL database using SQL format"
+  command = "pg_dump -U {username} -f {file=backup.sql} {database}"
+  tag = []
+  output = ""
+
+[[snippets]]
+  description = "Restore PostgreSQL database from SQL file"
+  command = "psql -d {database} -f {file=backup.sql}"
+  tag = []
+  output = ""
