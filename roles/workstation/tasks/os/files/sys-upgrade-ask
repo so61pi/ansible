@@ -1,3 +1,21 @@
-#!/bin/sh
+#!/usr/bin/sudo sh
 
-sudo sh -c 'zypper ref && zypper up -l && zypper dup -l && zypper ps -s'
+echo '>>>'
+echo '>>> Refreshing repositories'
+echo '>>>'
+zypper ref || exit 1
+
+echo '>>>'
+echo '>>> Updating installed packages'
+echo '>>>'
+zypper up -l || exit 1
+
+echo '>>>'
+echo '>>> Performing distribution upgrade'
+echo '>>>'
+zypper dup -l || exit 1
+
+echo '>>>'
+echo '>>> Listing processes using deleted files'
+echo '>>>'
+zypper ps -s || exit 1
