@@ -112,7 +112,7 @@ alias cdw="cd ~/work/"
 alias cdp="cd ~/work/programming/projects/"
 alias cds="cd ~/work/programming/sources/"
 alias cdt="cd ~/work/tmp/"
-function cdroot() { cd "$(git rev-parse --show-toplevel)" }
+function cdg() { cd "$(git rev-parse --show-toplevel)" }
 alias b=bat
 alias c=cat
 alias pbcopy="xclip -r -selection c"
